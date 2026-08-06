@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1曲ひいてみよう やってみようコンサート</title>
+</head>
+<body>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "1曲ひいてみよう やってみようコンサート",
+  "description": "アイズミュージックアカデミーの生徒さんによる、憧れのグランドピアノで一曲に挑戦するチャレンジコンサート。",
+  "startDate": "2026-11-15T10:00:00+09:00",
+  "endDate": "2026-11-15T11:00:00+09:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "名古屋音楽プラザ 1階 音楽サロン",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "金山一丁目9番18号",
+      "addressLocality": "名古屋市中区",
+      "addressRegion": "愛知県",
+      "addressCountry": "JP"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "8800",
+    "priceCurrency": "JPY",
+    "availability": "https://schema.org/LimitedAvailability",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSd2qwZmi6aLJR2vvkH9Ncg_iVP7yDOK7WahsETwhCLFYlxbVg/viewform"
+  },
+  "performer": {
+    "@type": "Organization",
+    "name": "アイズミュージックアカデミー"
+  },
+  "organizer": {
+    "@type": "Person",
+    "name": "増見麻美"
+  },
+  "maximumAttendeeCapacity": 10
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ピアノを習い始めたばかりでも参加できますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい、参加できます。上手さよりも「人前で1曲弾き切る」という経験を大切にしているコンサートです。" }
+    },
+    {
+      "@type": "Question",
+      "name": "演奏する曲は自由に選べますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい、自由に選んでいただけます。演奏時間はおひとり5分以内でお願いしています。" }
+    },
+    {
+      "@type": "Question",
+      "name": "見学だけでも参加できますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。会場はどなた様でも出入り自由です。ご家族やお友だちもお気軽にお立ち寄りください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "申し込みの締め切りはいつですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "募集人数10名になり次第、締め切らせていただきます。先着順のため、お早めのお申し込みをおすすめします。" }
+    },
+    {
+      "@type": "Question",
+      "name": "参加費の支払い方法を教えてください。",
+      "acceptedAnswer": { "@type": "Answer", "text": "詳しくはお申し込み後にご案内します。ご不明な点はアイズミュージックアカデミー受付(052-265-8655、12:00〜21:00)までお問い合わせください。" }
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --ink: #262e40;
+    --ink-soft: #4b5468;
+    --paper: #faf3ec;
+    --paper-soft: #f2e6da;
+    --paper-line: #e2d2c1;
+    --rose: #b97b74;
+    --rose-soft: #e9cec8;
+    --brass: #93702f;
+    --brass-strong: #7a5c26;
+    --hero-overlay-top: rgba(23, 27, 40, 0.15);
+    --hero-overlay-bottom: rgba(23, 27, 40, 0.86);
+  }
+
+  :root[data-theme="dark"] {
+    --ink: #f1e7db;
+    --ink-soft: #c9bdae;
+    --paper: #191c26;
+    --paper-soft: #22262f;
+    --paper-line: #3a3c47;
+    --rose: #dba39b;
+    --rose-soft: #4a3a3a;
+    --brass: #d9b673;
+    --brass-strong: #e8c98c;
+    --hero-overlay-top: rgba(10, 11, 16, 0.25);
+    --hero-overlay-bottom: rgba(10, 11, 16, 0.92);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f1e7db;
+      --ink-soft: #c9bdae;
+      --paper: #191c26;
+      --paper-soft: #22262f;
+      --paper-line: #3a3c47;
+      --rose: #dba39b;
+      --rose-soft: #4a3a3a;
+      --brass: #d9b673;
+      --brass-strong: #e8c98c;
+      --hero-overlay-top: rgba(10, 11, 16, 0.25);
+      --hero-overlay-bottom: rgba(10, 11, 16, 0.92);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", "Noto Sans JP", sans-serif;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .serif {
+    font-family: "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", "Noto Serif JP", serif;
+  }
+
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  a { color: inherit; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: min(92vh, 780px);
+    display: flex;
+    align-items: flex-end;
+    background-image: linear-gradient(to bottom, var(--hero-overlay-top), var(--hero-overlay-bottom)), var(--hero-photo);
+    background-size: cover;
+    background-position: center 30%;
+    color: #f7efe6;
+  }
+
+  .hero-inner {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(4rem, 14vh, 7rem) 1.75rem 3.5rem;
+  }
+
+  .seal {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border: 1px solid rgba(247, 239, 230, 0.65);
+    box-shadow: inset 0 0 0 4px rgba(247, 239, 230, 0.16);
+    background: rgba(247, 239, 230, 0.06);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform-origin: center;
+    animation: rise 1s ease-out 0.15s forwards, seal-sway 6s ease-in-out 1.2s infinite;
+  }
+
+  @keyframes seal-sway {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  .petal {
+    position: absolute;
+    width: 22px;
+    height: 34px;
+    background: linear-gradient(135deg, var(--rose) 0%, rgba(217, 163, 155, 0.35) 100%);
+    border-radius: 0 100% 0 100%;
+    opacity: 0.55;
+    pointer-events: none;
+    animation: petal-flutter 7s ease-in-out infinite;
+  }
+  .petal.p1 { top: 12%; right: 10%; }
+  .petal.p2 { top: 34%; right: 22%; width: 16px; height: 24px; animation-delay: 1.6s; opacity: 0.4; }
+  .petal.p3 { top: 20%; right: 4%; width: 14px; height: 20px; animation-delay: 3.1s; opacity: 0.35; }
+
+  @keyframes petal-flutter {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(10px) rotate(8deg); }
+  }
+
+  .flourish {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--rose);
+    margin: 0 0 1.75rem;
+  }
+  .flourish::before, .flourish::after {
+    content: "";
+    height: 1px;
+    width: 48px;
+    background: var(--paper-line);
+  }
+  .flourish span { font-size: 1.1rem; }
+
+  .hero-eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.28em;
+    color: #e9cec8;
+    margin: 0 0 1rem;
+    opacity: 0;
+    animation: rise 1s ease-out 0.3s forwards;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    line-height: 1.28;
+    margin: 0 0 1.75rem;
+    font-weight: 600;
+    text-wrap: balance;
+    opacity: 0;
+    animation: rise 1.1s ease-out 0.45s forwards;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.98rem;
+    color: #f1e4d8;
+    border-top: 1px solid rgba(247, 239, 230, 0.35);
+    padding-top: 1.25rem;
+    opacity: 0;
+    animation: rise 1s ease-out 0.6s forwards;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- Sections ---------- */
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+  }
+
+  section { padding: clamp(3.5rem, 8vw, 5.5rem) 0; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  .lead {
+    font-size: 1.14rem;
+    letter-spacing: 0.02em;
+  }
+  .lead .signature {
+    display: block;
+    margin-top: 2rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
+  /* concept row */
+  .concepts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--paper-line);
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .concepts li {
+    list-style: none;
+    padding: 1.75rem 1rem;
+    text-align: center;
+    border-left: 1px solid var(--paper-line);
+  }
+  .concepts li:first-child { border-left: none; }
+  .concepts .icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    color: var(--rose);
+  }
+  .concepts .icon svg { display: block; }
+  .concepts .t {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.98rem;
+  }
+  .concepts .d {
+    display: block;
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  h2.section-title {
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    margin: 0 0 2rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* program list */
+  .program { border-top: 1px solid var(--paper-line); }
+  .program-row {
+    display: grid;
+    grid-template-columns: 7.5em 1fr;
+    gap: 1.5rem;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .program-row dt {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: var(--rose);
+    padding-top: 0.15rem;
+  }
+  .program-row dd {
+    margin: 0;
+    font-size: 1rem;
+  }
+  .program-row .sub {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.2rem;
+  }
+  .price {
+    font-size: 1.3rem;
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif;
+  }
+
+  /* venue note */
+  .note {
+    border-left: 1px solid var(--rose);
+    padding-left: 1.5rem;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    background: var(--paper-soft);
+  }
+  .cta h2 { font-family: "Hiragino Mincho ProN", "YuMincho", serif; font-size: 1.7rem; margin: 0 0 1rem; }
+  .cta p { color: var(--ink-soft); margin: 0 auto 2.25rem; max-width: 32em; }
+  .btn {
+    display: inline-block;
+    background: var(--brass);
+    color: #fff8ef;
+    text-decoration: none;
+    padding: 1rem 2.75rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    transition: background 0.25s ease, transform 0.25s ease;
+    animation: btn-furufuru 3.2s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+  .btn:hover, .btn:focus-visible {
+    animation-play-state: paused;
+    background: var(--brass-strong);
+    transform: translateY(-1px);
+  }
+
+  @keyframes btn-furufuru {
+    0%, 82%, 100% { transform: rotate(0); }
+    85% { transform: rotate(-2.5deg); }
+    88% { transform: rotate(2.5deg); }
+    91% { transform: rotate(-2deg); }
+    94% { transform: rotate(1.5deg); }
+    97% { transform: rotate(0); }
+  }
+  .btn:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+  .cta .fineprint {
+    margin-top: 1.25rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    max-width: none;
+  }
+
+  /* footer */
+  footer {
+    padding: 3rem 1.75rem 4rem;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.86rem;
+    border-top: 1px solid var(--paper-line);
+  }
+  footer .org {
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif;
+    color: var(--ink);
+    font-size: 1.02rem;
+    margin-bottom: 0.6rem;
+  }
+  footer a.map { color: var(--rose); text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 520px) {
+    .concepts { grid-template-columns: 1fr; }
+    .concepts li { border-left: none; border-top: 1px solid var(--paper-line); }
+    .concepts li:first-child { border-top: none; }
+    .program-row { grid-template-columns: 1fr; gap: 0.35rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .seal, .hero-eyebrow, .hero-title, .hero-meta, .btn { animation: none; opacity: 1; }
+    .petal { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn { transition: none; }
+  }
+
+  .faq { border-top: 1px solid var(--paper-line); }
+  .faq-row { padding: 1.25rem 0; border-bottom: 1px solid var(--paper-line); }
+  .faq-row dt {
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif;
+    font-size: 1.02rem;
+    margin-bottom: 0.5rem;
+  }
+  .faq-row dd {
+    margin: 0;
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+  }
+  address.sub { font-style: normal; }
+  time { font-style: normal; }
+</style>
+
+<div class="hero" style="--hero-photo:url('photo.jpg')">
+  <span class="petal p1" aria-hidden="true"></span>
+  <span class="petal p2" aria-hidden="true"></span>
+  <span class="petal p3" aria-hidden="true"></span>
+  <div class="hero-inner">
+    <div class="seal serif">憧れの<br>グランド<br>ピアノで</div>
+    <p class="hero-eyebrow">CHALLENGE CONCERT</p>
+    <h1 class="hero-title serif">1曲ひいてみよう<br>やってみようコンサート</h1>
+    <div class="hero-meta tabular">
+      <time datetime="2026-11-15T10:00+09:00">2026年11月15日(日) 10:00–11:00</time>
+      <span>名古屋音楽プラザ 1階 音楽サロン</span>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="reveal">
+    <p class="lead">
+      「人前で弾くのは緊張する」——そんな気持ちを抱えながらも、一歩を踏み出したい生徒さんのための、小さな挑戦の場です。ふだんのレッスン室を飛び出して、憧れのグランドピアノで、たった1曲。5分間の演奏に、これまでの練習の成果をのせてみませんか。上手に弾くことよりも、「弾き切った」という経験そのものを、大切にしたいと思っています。
+      <span class="signature serif">アイズミュージックアカデミー　ピアノ講師　増見麻美</span>
+    </p>
+  </section>
+
+  <section class="reveal" style="padding-top:0;">
+    <div class="flourish" aria-hidden="true"><span>♪</span></div>
+    <ul class="concepts">
+      <li>
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 28" width="30" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="30" height="26" rx="2" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="7" y1="1" x2="7" y2="27" stroke="currentColor" stroke-width="1"/>
+          <line x1="13" y1="1" x2="13" y2="27" stroke="currentColor" stroke-width="1"/>
+          <line x1="19" y1="1" x2="19" y2="27" stroke="currentColor" stroke-width="1"/>
+          <line x1="25" y1="1" x2="25" y2="27" stroke="currentColor" stroke-width="1"/>
+          <rect x="5" y="1" width="4" height="15" fill="currentColor"/>
+          <rect x="11" y="1" width="4" height="15" fill="currentColor"/>
+          <rect x="23" y="1" width="4" height="15" fill="currentColor"/>
+        </svg></span>
+        <span class="t">本物のグランドピアノ</span>
+        <span class="d">練習の成果を、憧れの一台で。</span>
+      </li>
+      <li>
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M14 7v7l5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg></span>
+        <span class="t">たった5分間の挑戦</span>
+        <span class="d">短い時間だから、一歩を踏み出しやすく。</span>
+      </li>
+      <li>
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28" width="26" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 3h12v22H6z" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M18 3l6 3v19l-6-2V3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <circle cx="15.5" cy="14" r="1" fill="currentColor"/>
+        </svg></span>
+        <span class="t">出入り自由な空間</span>
+        <span class="d">気負わず、気楽な気持ちでご参加を。</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="reveal">
+    <h2 class="section-title">開催概要</h2>
+    <dl class="program tabular">
+      <div class="program-row">
+        <dt>日時</dt>
+        <dd><time datetime="2026-11-15T10:00+09:00">2026年11月15日(日)</time><span class="sub">10:00〜11:00</span></dd>
+      </div>
+      <div class="program-row">
+        <dt>会場</dt>
+        <dd>名古屋音楽プラザ 1階 音楽サロン<address class="sub">名古屋市中区金山一丁目9番18号</address></dd>
+      </div>
+      <div class="program-row">
+        <dt>演奏時間</dt>
+        <dd>おひとり5分以内</dd>
+      </div>
+      <div class="program-row">
+        <dt>参加費</dt>
+        <dd><span class="price">8,800<span style="font-size:0.7em;">円(税込)</span></span><span class="sub">お一人様</span></dd>
+      </div>
+      <div class="program-row">
+        <dt>募集人数</dt>
+        <dd>10名<span class="sub">先着順・定員になり次第締め切らせていただきます</span></dd>
+      </div>
+      <div class="program-row">
+        <dt>主催</dt>
+        <dd>アイズミュージックアカデミー<span class="sub">ピアノ講師　増見麻美</span></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="reveal">
+    <p class="note">
+      会場は、どなた様でも出入り自由な空間です。ご家族やお友だちもお気軽にお立ち寄りいただき、あたたかい拍手で見守っていただけますと嬉しいです。
+    </p>
+  </section>
+</main>
+
+<main class="wrap">
+  <section class="reveal">
+    <h2 class="section-title">よくある質問</h2>
+    <dl class="faq">
+      <div class="faq-row">
+        <dt>ピアノを習い始めたばかりでも参加できますか？</dt>
+        <dd>はい、参加できます。上手さよりも「人前で1曲弾き切る」という経験を大切にしているコンサートです。</dd>
+      </div>
+      <div class="faq-row">
+        <dt>演奏する曲は自由に選べますか？</dt>
+        <dd>はい、自由に選んでいただけます。演奏時間はおひとり5分以内でお願いしています。</dd>
+      </div>
+      <div class="faq-row">
+        <dt>見学だけでも参加できますか？</dt>
+        <dd>はい。会場はどなた様でも出入り自由です。ご家族やお友だちもお気軽にお立ち寄りください。</dd>
+      </div>
+      <div class="faq-row">
+        <dt>申し込みの締め切りはいつですか？</dt>
+        <dd>募集人数10名になり次第、締め切らせていただきます。先着順のため、お早めのお申し込みをおすすめします。</dd>
+      </div>
+      <div class="faq-row">
+        <dt>参加費の支払い方法を教えてください。</dt>
+        <dd>詳しくはお申し込み後にご案内します。ご不明な点はアイズミュージックアカデミー受付(052-265-8655、12:00〜21:00)までお問い合わせください。</dd>
+      </div>
+    </dl>
+  </section>
+</main>
+
+<section class="cta reveal">
+  <div class="wrap">
+    <h2>さあ、一歩を踏み出そう</h2>
+    <p>参加をご希望の方は、下記のフォームよりお申し込みください。定員になり次第、受付を締め切らせていただきます。</p>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd2qwZmi6aLJR2vvkH9Ncg_iVP7yDOK7WahsETwhCLFYlxbVg/viewform" target="_blank" rel="noopener" id="apply-link">参加を申し込んでみる ♪</a>
+    <p class="fineprint">先着10名、定員になり次第締め切らせていただきます。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="org">アイズミュージックアカデミー　ピアノ講師　増見麻美</div>
+  <div>名古屋音楽プラザ 1階 音楽サロン(名古屋市中区金山一丁目9番18号)</div>
+  <div style="margin-top:0.4rem;">
+    <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%90%8D%E5%8F%A4%E5%B1%8B%E9%9F%B3%E6%A5%BD%E3%83%97%E3%83%A9%E3%82%B6%20%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E4%B8%AD%E5%8C%BA%E9%87%91%E5%B1%B1%E4%B8%80%E4%B8%81%E7%9B%AE9%E7%95%AA18%E5%8F%B7" target="_blank" rel="noopener">地図で見る</a>
+  </div>
+  <div style="margin-top:1rem;">お問い合わせ：アイズミュージックアカデミー受付まで　052-265-8655<span class="sub" style="display:block;margin-top:0.2rem;">(受付時間 12:00〜21:00)</span></div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
