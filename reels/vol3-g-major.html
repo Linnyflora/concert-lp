@@ -1,0 +1,510 @@
+<title>ト長調のひみつ</title>
+<style>
+  :root {
+    --ink: #262e40;
+    --ink-soft: #4b5468;
+    --ink-faint: #8b8577;
+    --paper: #faf3ec;
+    --paper-soft: #f2e6da;
+    --paper-line: #e2d2c1;
+    --rose: #b97b74;
+    --rose-soft: #e9cec8;
+    --brass: #93702f;
+    --brass-strong: #7a5c26;
+    --brass-soft: #eaddc0;
+    --key-white: #fffaf3;
+    --key-white-line: #d9c7b4;
+    --key-black: #262230;
+    --stage-shadow: rgba(38, 46, 64, 0.22);
+  }
+
+  :root[data-theme="dark"] {
+    --ink: #f1e7db;
+    --ink-soft: #c9bdae;
+    --ink-faint: #8d8574;
+    --paper: #191c26;
+    --paper-soft: #22262f;
+    --paper-line: #3a3c47;
+    --rose: #dba39b;
+    --rose-soft: #4a3a3a;
+    --brass: #d9b673;
+    --brass-strong: #e8c98c;
+    --brass-soft: #3c3322;
+    --key-white: #2b2e3a;
+    --key-white-line: #454858;
+    --key-black: #100f16;
+    --stage-shadow: rgba(0, 0, 0, 0.55);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f1e7db;
+      --ink-soft: #c9bdae;
+      --ink-faint: #8d8574;
+      --paper: #191c26;
+      --paper-soft: #22262f;
+      --paper-line: #3a3c47;
+      --rose: #dba39b;
+      --rose-soft: #4a3a3a;
+      --brass: #d9b673;
+      --brass-strong: #e8c98c;
+      --brass-soft: #3c3322;
+      --key-white: #2b2e3a;
+      --key-white-line: #454858;
+      --key-black: #100f16;
+      --stage-shadow: rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", "Noto Sans JP", sans-serif;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", "Noto Serif JP", serif; }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem clamp(4rem, 8vw, 6rem);
+  }
+
+  .eyebrow { font-size: 0.78rem; letter-spacing: 0.24em; color: var(--rose); margin: 0 0 0.9rem; }
+  h1.page-title { font-size: clamp(1.9rem, 5vw, 2.5rem); font-weight: 600; margin: 0 0 1.1rem; text-wrap: balance; }
+  .lead { color: var(--ink-soft); font-size: 1.02rem; max-width: 46em; margin: 0; }
+
+  .flourish { display: flex; align-items: center; gap: 0.9rem; color: var(--rose); margin: 2.75rem 0 1.5rem; }
+  .flourish::before, .flourish::after { content: ""; height: 1px; flex: 1; background: var(--paper-line); }
+  .flourish span { font-size: 1rem; letter-spacing: 0.02em; white-space: nowrap; color: var(--ink-soft); }
+
+  h2.section-title { font-family: "Hiragino Mincho ProN", "YuMincho", serif; font-size: 1.3rem; font-weight: 600; margin: 0 0 1.5rem; }
+
+  .stage-wrap { display: flex; flex-direction: column; align-items: center; }
+
+  .phone {
+    position: relative;
+    width: min(76vw, 300px);
+    aspect-ratio: 9 / 16;
+    background: linear-gradient(175deg, var(--paper-soft), var(--paper));
+    border: 1px solid var(--paper-line);
+    border-radius: 34px;
+    box-shadow: 0 24px 48px -20px var(--stage-shadow);
+    overflow: hidden;
+  }
+  .phone-notch { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 34%; height: 6px; border-radius: 4px; background: var(--paper-line); z-index: 5; }
+  .stage { position: absolute; inset: 0; }
+
+  .petal { position: absolute; width: 12px; height: 18px; background: linear-gradient(135deg, var(--rose) 0%, rgba(217, 163, 155, 0.25) 100%); border-radius: 0 100% 0 100%; opacity: 0.3; }
+  .petal.p1 { top: 8%; right: 10%; }
+  .petal.p2 { top: 16%; right: 22%; width: 9px; height: 13px; opacity: 0.22; }
+
+  .caption-layer { position: absolute; top: 13%; left: 8%; right: 8%; text-align: center; }
+  .caption {
+    position: absolute; inset: 0; margin: 0; opacity: 0;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    transform: translateY(6px);
+    font-size: clamp(0.92rem, 3.3vw, 1.05rem);
+    font-weight: 600; line-height: 1.55; text-wrap: balance;
+  }
+  .caption .sub { display: block; margin-top: 0.55rem; font-size: 0.7em; font-weight: 400; color: var(--ink-soft); }
+  .caption.is-active { opacity: 1; transform: translateY(0); }
+
+  .top-caption {
+    position: absolute; top: 13%; left: 8%; right: 8%; text-align: center; margin: 0;
+    opacity: 0; transition: opacity 0.45s ease;
+    font-size: clamp(0.82rem, 2.9vw, 0.92rem);
+    font-weight: 600; color: var(--ink-soft);
+  }
+  .top-caption.is-active { opacity: 1; }
+
+  .mnemonic-layer {
+    position: absolute; top: 25%; left: 6%; right: 6%; text-align: center;
+    opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: scale(0.94);
+  }
+  .mnemonic-layer.is-active { opacity: 1; transform: scale(1); }
+  .mnemonic-word {
+    font-family: "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", "Noto Sans JP", sans-serif;
+    font-size: clamp(1.18rem, 5.4vw, 1.5rem);
+    font-weight: 700; letter-spacing: 0.01em; color: var(--ink); line-height: 1.5;
+  }
+  .mnemonic-word .accent { color: var(--brass-strong); }
+  @keyframes mn-wiggle {
+    0%, 100% { transform: translateX(-50%) rotate(0) scale(1); }
+    20% { transform: translateX(-50%) rotate(-11deg) scale(1.15); }
+    40% { transform: translateX(-50%) rotate(11deg) scale(1.18); }
+    60% { transform: translateX(-50%) rotate(-8deg) scale(1.1); }
+    80% { transform: translateX(-50%) rotate(5deg) scale(1.03); }
+  }
+  .mnemonic-sub { margin-top: 0.7rem; font-size: 0.78rem; line-height: 1.6; color: var(--ink-soft); }
+
+  .cta-layer {
+    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.7rem; padding: 0 10%; text-align: center; opacity: 0; transition: opacity 0.5s ease;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 100%);
+  }
+  .cta-layer.is-active { opacity: 1; }
+  .cta-mark {
+    width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--rose);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif; font-size: 0.6rem; color: var(--rose);
+    letter-spacing: 0.05em; text-align: center; line-height: 1.3;
+  }
+  .cta-text { font-family: "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", "Noto Sans JP", sans-serif; font-size: clamp(1.0rem, 4vw, 1.2rem); font-weight: 700; }
+  .cta-brand { font-size: 0.7rem; color: var(--ink-soft); letter-spacing: 0.04em; }
+
+  /* interval row (全/半), sits just above the keyboard on a highlighted chip */
+  .interval-row {
+    position: absolute; left: 6%; right: 6%; top: -84px; height: 34px;
+    background: var(--paper-soft);
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(38, 46, 64, 0.12);
+    opacity: 0; transform: scale(0.96); transform-origin: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .interval-row.is-active { opacity: 1; transform: scale(1); animation: interval-breathe 1.6s ease-in-out 1.2s infinite; }
+  @keyframes interval-breathe {
+    0%, 100% { box-shadow: 0 4px 10px rgba(38, 46, 64, 0.12); }
+    50% { box-shadow: 0 4px 16px rgba(185, 123, 116, 0.35); }
+  }
+  .interval-pip {
+    position: absolute; top: 6px; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    font-size: 0.88rem; font-weight: 700; color: var(--rose);
+  }
+  .interval-pip.half { color: var(--brass-strong); }
+  .interval-pip::after { content: ""; width: 1px; height: 8px; background: currentColor; opacity: 0.55; }
+  .interval-pip.is-wiggle { animation: mn-wiggle 0.4s ease-in-out; }
+
+  /* term badge: formal degree name, sits just above the count badges / keyboard A */
+  /* arrow arc: parabola from the tonic to the landing note, sits above keyboard A */
+  .arc-wrap { position: absolute; left: 0; right: 0; top: -112px; height: 64px; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+  .arc-wrap.is-active { opacity: 1; }
+  .arc-svg-el { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; overflow: visible; }
+  .arc-line {
+    fill: none; stroke: var(--rose); stroke-width: 3; stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.6s ease;
+  }
+  .arc-wrap.is-active .arc-line { stroke-dashoffset: 0; }
+  .arc-arrow {
+    fill: var(--rose); opacity: 0; transform-box: fill-box; transform-origin: center;
+    transform: scale(0.4);
+    transition: opacity 0.3s ease 0.4s, transform 0.3s ease 0.4s;
+  }
+  .arc-wrap.is-active .arc-arrow { opacity: 1; transform: scale(1); }
+  .arc-label {
+    position: absolute; top: -24px; left: 31.25%; transform: translateX(-50%);
+    margin: 0; white-space: nowrap; font-size: 0.74rem; font-weight: 700; color: var(--brass-strong);
+  }
+
+  /* ascending count badges (ド → ソ), sit above keyboard A */
+  .count-row { position: absolute; left: 0; right: 0; top: -34px; height: 34px; pointer-events: none; }
+  .count-badge {
+    position: absolute; top: 0; transform: translateX(-50%) scale(0.5);
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.66rem; font-weight: 700; color: #fff8ef;
+    background: var(--rose); box-shadow: 0 2px 5px rgba(20, 15, 5, 0.3);
+    opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .count-badge.is-shown { opacity: 1; transform: translateX(-50%) scale(1); }
+  .count-badge.final { background: var(--brass-strong); width: 28px; height: 28px; font-size: 0.74rem; }
+  .count-badge.is-pop { animation: count-pop 0.4s ease-out; }
+  @keyframes count-pop {
+    0% { transform: translateX(-50%) scale(1.7); }
+    100% { transform: translateX(-50%) scale(1); }
+  }
+
+  /* keyboard */
+  .keyboard {
+    position: absolute; left: 6%; right: 6%; bottom: 8%; height: 33%;
+    opacity: 0; transition: opacity 0.5s ease;
+  }
+  .keyboard.is-active { opacity: 1; }
+  .white-keys {
+    position: absolute; inset: 0; display: flex; border: 1px solid #cabfa8; border-radius: 4px;
+    overflow: hidden; background: #efe8d9; box-shadow: 0 2px 5px rgba(20, 15, 5, 0.28);
+  }
+  .key {
+    position: relative; flex: 1; border-right: 1px solid rgba(30, 22, 10, 0.16);
+    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 7%;
+    background: linear-gradient(to bottom, #fffdf9 0%, #fbf6ea 78%, #ece3cd 100%);
+    box-shadow: inset 0 -7px 9px -7px rgba(20, 15, 5, 0.22);
+    overflow: hidden;
+  }
+  .key:last-child { border-right: none; }
+  .key .glow-bar {
+    position: absolute; left: 12%; right: 12%; bottom: 8%; height: 20%; border-radius: 3px;
+    background: linear-gradient(180deg, var(--rose) 0%, var(--brass) 100%);
+    box-shadow: 0 0 9px 1px rgba(185, 123, 116, 0.55);
+    opacity: 0; transform: scaleY(0.35); transform-origin: bottom;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .key.is-lit .glow-bar { opacity: 1; transform: scaleY(1); }
+  .key .note {
+    position: relative; font-size: 0.6rem; font-weight: 700; color: #fff8ef;
+    text-shadow: 0 1px 2px rgba(20, 15, 5, 0.4); opacity: 0; transition: opacity 0.3s ease;
+  }
+  .key.is-lit .note { opacity: 1; }
+
+  .black-keys { position: absolute; inset: 0; z-index: 2; }
+  .bkey {
+    position: absolute; top: 0; width: 6.5%; height: 60%;
+    background: linear-gradient(160deg, #4a4a4a 0%, #171717 45%, #000 100%);
+    border-radius: 0 0 3px 3px; box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.45);
+    transform: translateX(-50%);
+    transition: box-shadow 0.3s ease;
+  }
+  .bkey::after {
+    content: ""; position: absolute; top: 6%; left: 14%; right: 14%; height: 22%;
+    border-radius: 2px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+  }
+  .bkey .b-note {
+    position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+    font-size: 0.56rem; font-weight: 700; color: #fff8ef;
+    text-shadow: 0 1px 2px rgba(20, 15, 5, 0.4);
+    background: linear-gradient(180deg, var(--rose) 0%, var(--brass) 100%);
+    box-shadow: 0 2px 5px rgba(20, 15, 5, 0.3);
+    border-radius: 8px;
+    padding: 2px 7px; white-space: nowrap; opacity: 0; transition: opacity 0.3s ease;
+  }
+  .bkey.is-lit { box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.45), 0 0 13px 3px rgba(185, 123, 116, 0.65); }
+  .bkey.is-lit .b-note { opacity: 1; }
+
+  /* ---------- storyboard script ---------- */
+  .script-list { border-top: 1px solid var(--paper-line); margin: 0; }
+  .script-row { display: grid; grid-template-columns: 4.5em 1fr; gap: 1.25rem; padding: 1.15rem 0; border-bottom: 1px solid var(--paper-line); }
+  .script-row dt { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--rose); font-variant-numeric: tabular-nums; padding-top: 0.15rem; }
+  .script-row dd { margin: 0; }
+  .script-row .line { font-weight: 600; font-size: 0.98rem; }
+  .script-row .note { display: block; font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.35rem; }
+
+  .tips-list { margin: 0; padding-left: 1.2rem; color: var(--ink-soft); font-size: 0.95rem; }
+  .tips-list li { margin-bottom: 0.6rem; }
+  .tips-list li:last-child { margin-bottom: 0; }
+
+  footer { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--paper-line); font-size: 0.82rem; color: var(--ink-soft); text-align: center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .caption, .top-caption, .mnemonic-layer, .cta-layer, .keyboard, .interval-row, .key, .key .note, .key .glow-bar, .bkey, .bkey .b-note, .count-badge {
+      transition: none;
+    }
+    .interval-pip.is-wiggle, .interval-row.is-active, .count-badge.is-pop { animation: none; }
+  }
+</style>
+
+<main>
+  <p class="eyebrow">REEL 台本 &amp; プレビュー &middot; VOL.3 属調・シャープ編</p>
+  <h1 class="page-title serif">ト長調のひみつ</h1>
+  <p class="lead">
+    長調・短調シリーズの第3弾。「ハ長調にシャープが1つ付くとどうなるか」を30秒で伝えます。ヘ長調編(下属調)と同じ考え方で、ドから5つ数えて「ド・レ・ミ・ファ・ソ」とたどり着いた音(ソ)から新しい長音階を始める——というシンプルな数え方に統一しました。カウントの直後に「＝ドから5度上（属音）」と正式な呼び方も添えて、数えた実感と用語をその場で結びつけます。できあがったト長調も「全全半全全全半」という同じ音の幅になっていることを、鍵盤の隙間の上のラベルで確認します。最後に、ソが「ハ長調の5番目の音=属音」であること、そしてその音から始まる調だから「属調」と呼ぶこと——という名前の由来まで説明します。
+  </p>
+
+  <div class="flourish" aria-hidden="true"><span>♪ プレビュー</span></div>
+
+  <div class="stage-wrap">
+    <div class="phone" id="phone">
+      <div class="phone-notch" aria-hidden="true"></div>
+      <div class="stage" id="stage">
+        <span class="petal p1" aria-hidden="true"></span>
+        <span class="petal p2" aria-hidden="true"></span>
+
+        <div class="caption-layer">
+          <p class="caption" id="c1">ハ長調から、<br>♯が1つ付くと？</p>
+          <p class="caption" id="c2">ドから5つ数えると<span class="sub">ド・レ・ミ・ファ・ソ</span></p>
+        </div>
+        <p class="top-caption" id="c3">ここから、ト長調のスタート</p>
+
+        <div class="mnemonic-layer" id="mnemonic">
+          <p class="mnemonic-word">5度上がると、<br><span class="accent">♯が1つ</span>付く</p>
+          <p class="mnemonic-sub">ソ＝ハ長調の5番目の音＝「属音」<br>属音から始まる調だから「属調」</p>
+        </div>
+
+        <div class="cta-layer" id="cta">
+          <div class="cta-mark serif">次回<br>ヘ長調</div>
+          <p class="cta-text serif">次回はフラット編<br>「ヘ長調」へ♪</p>
+          <p class="cta-brand">アイズミュージックアカデミー</p>
+        </div>
+
+        <!-- keyboard A: recap of C major, ascending count 1-2-3-4-5 to ソ -->
+        <div class="keyboard" id="kbA">
+          <div class="arc-wrap" id="arcWrap">
+            <svg class="arc-svg-el" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <path class="arc-line" pathLength="1" d="M6.25,88 Q31.25,10 56.25,88"></path>
+              <polygon class="arc-arrow" points="53.25,80 59.25,80 56.25,92"></polygon>
+            </svg>
+            <p class="arc-label">5音上＝属音</p>
+          </div>
+          <div class="count-row" id="countRow">
+            <span class="count-badge" data-at="3300" style="left:6.25%">①</span>
+            <span class="count-badge" data-at="3800" style="left:18.75%">②</span>
+            <span class="count-badge" data-at="4300" style="left:31.25%">③</span>
+            <span class="count-badge" data-at="4800" style="left:43.75%">④</span>
+            <span class="count-badge final" data-at="5300" style="left:56.25%">⑤</span>
+          </div>
+          <div class="black-keys" aria-hidden="true">
+            <span class="bkey" style="left:12.5%"></span>
+            <span class="bkey" style="left:25%"></span>
+            <span class="bkey" style="left:50%"></span>
+            <span class="bkey" style="left:62.5%"></span>
+            <span class="bkey" style="left:75%"></span>
+          </div>
+          <div class="white-keys">
+            <div class="key is-lit"><span class="glow-bar"></span><span class="note">ド</span></div>
+            <div class="key is-lit"><span class="glow-bar"></span><span class="note">レ</span></div>
+            <div class="key is-lit"><span class="glow-bar"></span><span class="note">ミ</span></div>
+            <div class="key is-lit"><span class="glow-bar"></span><span class="note">ファ</span></div>
+            <div class="key is-lit"><span class="glow-bar"></span><span class="note">ソ</span></div>
+            <div class="key is-lit"><span class="glow-bar"></span><span class="note">ラ</span></div>
+            <div class="key is-lit"><span class="glow-bar"></span><span class="note">シ</span></div>
+            <div class="key is-lit"><span class="glow-bar"></span><span class="note">ド</span></div>
+          </div>
+        </div>
+
+        <!-- keyboard B: G major reveal, F becomes F# (black key) -->
+        <div class="keyboard" id="kbB">
+          <div class="interval-row" id="intervalB">
+            <span class="interval-pip" data-at="15300" style="left:12.5%">全</span>
+            <span class="interval-pip" data-at="15800" style="left:25%">全</span>
+            <span class="interval-pip half" data-at="16300" style="left:37.5%">半</span>
+            <span class="interval-pip" data-at="16800" style="left:50%">全</span>
+            <span class="interval-pip" data-at="17300" style="left:62.5%">全</span>
+            <span class="interval-pip" data-at="17800" style="left:75%">全</span>
+            <span class="interval-pip half" data-at="18300" style="left:87.5%">半</span>
+          </div>
+          <div class="black-keys" aria-hidden="true">
+            <span class="bkey" style="left:0%"></span>
+            <span class="bkey" style="left:12.5%"></span>
+            <span class="bkey" style="left:25%"></span>
+            <span class="bkey" style="left:50%"></span>
+            <span class="bkey" style="left:62.5%"></span>
+            <span class="bkey" data-at="14000" style="left:87.5%"><span class="b-note">ファ♯</span></span>
+          </div>
+          <div class="white-keys" id="whiteKeysB">
+            <div class="key" data-at="8000"><span class="glow-bar"></span><span class="note">ソ</span></div>
+            <div class="key" data-at="9000"><span class="glow-bar"></span><span class="note">ラ</span></div>
+            <div class="key" data-at="10000"><span class="glow-bar"></span><span class="note">シ</span></div>
+            <div class="key" data-at="11000"><span class="glow-bar"></span><span class="note">ド</span></div>
+            <div class="key" data-at="12000"><span class="glow-bar"></span><span class="note">レ</span></div>
+            <div class="key" data-at="13000"><span class="glow-bar"></span><span class="note">ミ</span></div>
+            <div class="key"></div>
+            <div class="key" data-at="15000"><span class="glow-bar"></span><span class="note">ソ</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:1.25rem; font-size:0.86rem; text-align:center;">30秒ループ・自動再生中</p>
+  </div>
+
+  <div class="flourish" aria-hidden="true"><span>♪ 台本</span></div>
+  <h2 class="section-title">絵コンテ</h2>
+  <dl class="script-list">
+    <div class="script-row">
+      <dt>0:00</dt>
+      <dd><span class="line">「ハ長調から、♯が1つ付くと？」</span><span class="note">フック。前回までの長調・短調を見た人向けの続編であることを示す。</span></dd>
+    </div>
+    <div class="script-row">
+      <dt>0:03</dt>
+      <dd><span class="line">「ドから5つ数えると…ド・レ・ミ・ファ・ソ＝ドから5度上（属音）」→ ドから1音ずつ順に①②③④⑤のバッジが点灯し、⑤(ソ)だけ大きく強調</span><span class="note">ヘ長調編と同じ数え方(今回は上向き)。「なぜソから始まるのか」を、鍵盤を上りながら実際に数えて見せる。⑤のソは色を変えて着地を強調。数えた実感と、「5度上=属音」という正式な呼び方をここで結びつけておく。</span></dd>
+    </div>
+    <div class="script-row">
+      <dt>0:08</dt>
+      <dd><span class="line">「ここから、ト長調のスタート」→ ソ・ラ・シ・ド・レ・ミと1音ずつ光り、ファが♯(黒鍵)に変わって最後ソ</span><span class="note">直前のカウントで着地した「ソ」がそのまま鍵盤の起点になることを見せる。白鍵から黒鍵に切り替わる瞬間(ファ→ファ♯)がいちばんの見せ場。黒鍵の上に「ファ♯」のラベルを出す。</span></dd>
+    </div>
+    <div class="script-row">
+      <dt>0:15</dt>
+      <dd><span class="line">鍵盤の隙間の上に「全・全・半・全・全・全・半」が、1つずつブルブルっと弾みながら出てくる → 0:21でフェードアウト</span><span class="note">7つのラベルは左から順に1つずつポップして出現。ソから始めても、ちゃんと長音階の並びになっていることを確認させたら、下の合言葉の邪魔にならないよう消える。</span></dd>
+    </div>
+    <div class="script-row">
+      <dt>0:21</dt>
+      <dd><span class="line">「5度上がると、♯が1つ付く」<br>「ソ＝ハ長調の5番目の音＝『属音』。属音から始まる調だから『属調』」</span><span class="note">用語(属調)を、ただのラベルではなく「なぜそう呼ぶか」まで説明する。ソが5番目の音=属音であること→その音から始まる調だから属調、という順番で理由づける。</span></dd>
+    </div>
+    <div class="script-row">
+      <dt>0:27</dt>
+      <dd><span class="line">「次回はフラット編、『ヘ長調』へ♪」</span><span class="note">属調(♯)の逆、下属調(♭)への引き。</span></dd>
+    </div>
+  </dl>
+
+  <div class="flourish" aria-hidden="true"><span>♪ 撮影メモ</span></div>
+  <h2 class="section-title">使い方のヒント</h2>
+  <ul class="tips-list">
+    <li>属調(ドから5つ上)・下属調(高いドから5つ下)という数え方をシリーズで統一。ヘ長調編と並べて見せると「上向きに数える/下向きに数える」の対比がわかりやすい。</li>
+    <li>実演奏で撮る場合、「ファ」から「ファ♯」に指を隣の黒鍵へずらす瞬間をアップで映すと、変化が一目でわかる。</li>
+    <li>シャープの増える順番(ファ・ド・ソ・レ・ラ・ミ・シ)は次回以降のシリーズ化のネタにできる。ここでは深追いせず「ファ」だけに絞るのがコツ。</li>
+    <li>ハ長調・ト長調の鍵盤を横に並べて静止画でも投稿すると、リールと合わせて保存されやすい。</li>
+  </ul>
+
+  <footer>アイズミュージックアカデミー &middot; ピアノ講師 増見麻美</footer>
+</main>
+
+<script>
+(function () {
+  var CYCLE = 30000;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var scenes = [
+    { el: document.getElementById('c1'), start: 0, end: 3000 },
+    { el: document.getElementById('c2'), start: 3000, end: 8000 },
+    { el: document.getElementById('c3'), start: 8000, end: 15000 },
+    { el: document.getElementById('mnemonic'), start: 21000, end: 27000 },
+    { el: document.getElementById('cta'), start: 27000, end: 30000 }
+  ];
+  var keyboards = [
+    { el: document.getElementById('kbA'), start: 3000, end: 8000 },
+    { el: document.getElementById('kbB'), start: 8000, end: 30000 }
+  ];
+  var rows = [
+    { el: document.getElementById('intervalB'), start: 15000, end: 21000 },
+    { el: document.getElementById('arcWrap'), start: 5300, end: 8000 }
+  ];
+  var keysB = Array.prototype.map.call(document.querySelectorAll('#kbB .key[data-at]'), function (el) {
+    return { el: el, at: parseInt(el.getAttribute('data-at'), 10) };
+  });
+  var fSharpEl = document.querySelector('#kbB .bkey[data-at]');
+  var fSharp = fSharpEl ? { el: fSharpEl, start: parseInt(fSharpEl.getAttribute('data-at'), 10), end: 21000 } : null;
+  var pips = Array.prototype.map.call(document.querySelectorAll('#intervalB .interval-pip[data-at]'), function (el) {
+    var at = parseInt(el.getAttribute('data-at'), 10);
+    return { el: el, start: at, end: at + 400 };
+  });
+  var countBadges = Array.prototype.map.call(document.querySelectorAll('#countRow .count-badge'), function (el) {
+    var at = parseInt(el.getAttribute('data-at'), 10);
+    return { el: el, at: at, popEnd: at + 400 };
+  });
+
+  function apply(t) {
+    scenes.forEach(function (s) { s.el.classList.toggle('is-active', t >= s.start && t < s.end); });
+    keyboards.forEach(function (k) { k.el.classList.toggle('is-active', t >= k.start && t < k.end); });
+    rows.forEach(function (r) { r.el.classList.toggle('is-active', t >= r.start && t < r.end); });
+    keysB.forEach(function (k) { k.el.classList.toggle('is-lit', t >= k.at); });
+    if (fSharp) { fSharp.el.classList.toggle('is-lit', t >= fSharp.start && t < fSharp.end); }
+    pips.forEach(function (p) { p.el.classList.toggle('is-wiggle', t >= p.start && t < p.end); });
+    countBadges.forEach(function (b) {
+      b.el.classList.toggle('is-shown', t >= b.at);
+      b.el.classList.toggle('is-pop', t >= b.at && t < b.popEnd);
+    });
+  }
+
+  if (reduced) {
+    document.getElementById('kbB').classList.add('is-active');
+    document.getElementById('intervalB').classList.add('is-active');
+    document.getElementById('mnemonic').classList.add('is-active');
+    keysB.forEach(function (k) { k.el.classList.add('is-lit'); });
+    if (fSharp) { fSharp.el.classList.add('is-lit'); }
+    return;
+  }
+
+  function frame(ts) {
+    apply(ts % CYCLE);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>

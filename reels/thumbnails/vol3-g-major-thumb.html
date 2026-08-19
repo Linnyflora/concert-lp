@@ -1,0 +1,106 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; }
+  body { font-family: "IPAGothic", "IPAPGothic", sans-serif; }
+
+  .canvas {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    background:
+      radial-gradient(ellipse at 30% 20%, #fdf1f2 0%, #f8ecf1 38%, #eef1f8 100%);
+    overflow: hidden;
+  }
+
+  .deco { position: absolute; }
+  .heart { font-family: "IPAGothic", sans-serif; }
+
+  /* heart cluster, left of card */
+  .h1 { top: 700px; left: 70px;  font-size: 70px; color: #f0b6cf; transform: rotate(-8deg); }
+  .h2 { top: 630px; left: 150px; font-size: 40px; color: #cdc4ef; transform: rotate(6deg); }
+  .h3 { top: 860px; left: 60px;  font-size: 46px; color: #f6c9de; transform: rotate(10deg); }
+  .h4 { top: 950px; left: 150px; font-size: 34px; color: #d7cdf2; transform: rotate(-4deg); }
+
+  .note { top: 560px; right: 100px; font-size: 92px; color: #e3a9cf; transform: rotate(-10deg); }
+  .star-lg  { color: #f6cf7a; font-size: 54px; }
+  .star-md  { color: #fff; font-size: 32px; }
+  .star-sm  { color: #f6cf7a; font-size: 22px; }
+  .s1 { top: 470px; right: 190px; }
+  .s2 { top: 640px; right: 250px; font-size:26px; color:#fff; }
+  .s3 { top: 500px; right: 320px; }
+  .s4 { bottom: 480px; left: 130px; }
+  .s5 { bottom: 420px; left: 220px; font-size:22px; }
+  .s6 { bottom: 540px; left: 260px; font-size:20px; color:#fff; }
+  .s7 { top: 900px; right: 90px; font-size:26px; color:#fff; }
+
+  .card {
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    width: 780px;
+    padding: 130px 30px 134px;
+    border-radius: 52px;
+    border: 12px solid #ffffff;
+    box-shadow: 0 26px 54px rgba(120, 90, 110, 0.28), 0 3px 0 rgba(255,255,255,0.5) inset;
+    transform: translate(-50%, -50%) rotate(-9deg);
+    text-align: center;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.95) 1.6px, transparent 2px),
+      radial-gradient(circle, rgba(255,255,255,0.8) 1.3px, transparent 2px),
+      radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1.6px),
+      linear-gradient(140deg, #f8d3de 0%, #f0d6ec 30%, #dcd8f2 58%, #cfe1f6 100%);
+    background-size: 64px 64px, 41px 41px, 27px 27px, cover;
+    background-position: 6px 10px, 30px 46px, 14px 55px, 0 0;
+  }
+
+  .l1 { font-size: 80px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+  .l1 .blue { color: #3f6fc0; text-shadow: 0 2px 0 rgba(255,255,255,0.55); }
+  .l1 .grad {
+    background: linear-gradient(120deg, #3f6fc0 0%, #9d8fd8 55%, #e3a9cf 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .l2-top { margin-top: 26px; font-size: 58px; font-weight: 800; color: #e14a86; white-space: nowrap; letter-spacing: 0.01em; }
+  .l2 { margin-top: 12px; font-size: 40px; font-weight: 700; color: #4a6fb8; white-space: nowrap; }
+
+  .l3-wrap { position: relative; display: inline-block; margin-top: 46px; }
+  .l3 {
+    font-family: "Arial Rounded MT Bold", "Baloo 2", Arial, sans-serif;
+    font-size: 128px;
+    font-weight: 900;
+    color: #e14a86;
+    text-shadow:
+      -4px -4px 0 #fff, 4px -4px 0 #fff, -4px 4px 0 #fff, 4px 4px 0 #fff,
+      -4px 0 0 #fff, 4px 0 0 #fff, 0 -4px 0 #fff, 0 4px 0 #fff,
+      0 10px 18px rgba(120,60,90,0.25);
+    letter-spacing: 0.01em;
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="deco note">&#9834;</div>
+    <div class="deco star-lg s1">&#10022;</div>
+    <div class="deco star-md s2">&#10023;</div>
+    <div class="deco star-sm s3">&#10022;</div>
+    <div class="deco star-lg s4">&#10022;</div>
+    <div class="deco star-sm s5">&#10023;</div>
+    <div class="deco star-md s6">&#10023;</div>
+    <div class="deco star-md s7">&#10023;</div>
+
+    <div class="deco heart h1">&#9829;</div>
+    <div class="deco heart h2">&#9829;</div>
+    <div class="deco heart h3">&#9829;</div>
+    <div class="deco heart h4">&#9829;</div>
+
+    <div class="card">
+      <div class="l1"><span class="blue">ト長調の</span><span class="grad">ひみつ</span></div>
+      <div class="l2-top">♯１つ</div>
+      <div class="l2">ハ長調の属調</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,630 @@
+<title>長音階のひみつ</title>
+<style>
+  :root {
+    --ink: #262e40;
+    --ink-soft: #4b5468;
+    --ink-faint: #8b8577;
+    --paper: #faf3ec;
+    --paper-soft: #f2e6da;
+    --paper-line: #e2d2c1;
+    --rose: #b97b74;
+    --rose-soft: #e9cec8;
+    --brass: #93702f;
+    --brass-strong: #7a5c26;
+    --brass-soft: #eaddc0;
+    --key-white: #fffaf3;
+    --key-white-line: #d9c7b4;
+    --key-black: #262230;
+    --stage-shadow: rgba(38, 46, 64, 0.22);
+  }
+
+  :root[data-theme="dark"] {
+    --ink: #f1e7db;
+    --ink-soft: #c9bdae;
+    --ink-faint: #8d8574;
+    --paper: #191c26;
+    --paper-soft: #22262f;
+    --paper-line: #3a3c47;
+    --rose: #dba39b;
+    --rose-soft: #4a3a3a;
+    --brass: #d9b673;
+    --brass-strong: #e8c98c;
+    --brass-soft: #3c3322;
+    --key-white: #2b2e3a;
+    --key-white-line: #454858;
+    --key-black: #100f16;
+    --stage-shadow: rgba(0, 0, 0, 0.55);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f1e7db;
+      --ink-soft: #c9bdae;
+      --ink-faint: #8d8574;
+      --paper: #191c26;
+      --paper-soft: #22262f;
+      --paper-line: #3a3c47;
+      --rose: #dba39b;
+      --rose-soft: #4a3a3a;
+      --brass: #d9b673;
+      --brass-strong: #e8c98c;
+      --brass-soft: #3c3322;
+      --key-white: #2b2e3a;
+      --key-white-line: #454858;
+      --key-black: #100f16;
+      --stage-shadow: rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", "Noto Sans JP", sans-serif;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", "Noto Serif JP", serif; }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem clamp(4rem, 8vw, 6rem);
+  }
+
+  /* ---------- head ---------- */
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.24em;
+    color: var(--rose);
+    margin: 0 0 0.9rem;
+  }
+  h1.page-title {
+    font-size: clamp(1.9rem, 5vw, 2.5rem);
+    font-weight: 600;
+    margin: 0 0 1.1rem;
+    text-wrap: balance;
+  }
+  .lead {
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    max-width: 46em;
+    margin: 0;
+  }
+
+  .flourish {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: var(--rose);
+    margin: 2.75rem 0 1.5rem;
+  }
+  .flourish::before, .flourish::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: var(--paper-line);
+  }
+  .flourish span { font-size: 1rem; letter-spacing: 0.02em; white-space: nowrap; color: var(--ink-soft); }
+
+  h2.section-title {
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+  }
+
+  /* ---------- stage / phone ---------- */
+  .stage-wrap { display: flex; flex-direction: column; align-items: center; }
+
+  .phone {
+    position: relative;
+    width: min(76vw, 300px);
+    aspect-ratio: 9 / 16;
+    background: linear-gradient(175deg, var(--paper-soft), var(--paper));
+    border: 1px solid var(--paper-line);
+    border-radius: 34px;
+    box-shadow: 0 24px 48px -20px var(--stage-shadow);
+    overflow: hidden;
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34%;
+    height: 6px;
+    border-radius: 4px;
+    background: var(--paper-line);
+    z-index: 5;
+  }
+
+  .stage {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* subtle petal motif, echoes the concert page */
+  .petal {
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    background: linear-gradient(135deg, var(--rose) 0%, rgba(217, 163, 155, 0.25) 100%);
+    border-radius: 0 100% 0 100%;
+    opacity: 0.3;
+  }
+  .petal.p1 { top: 8%; right: 10%; }
+  .petal.p2 { top: 16%; right: 22%; width: 9px; height: 13px; opacity: 0.22; }
+
+  /* caption / text layers */
+  .caption-layer {
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    right: 8%;
+    text-align: center;
+  }
+  .caption {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    transform: translateY(6px);
+    font-size: clamp(0.98rem, 3.6vw, 1.12rem);
+    font-weight: 600;
+    line-height: 1.6;
+    text-wrap: balance;
+  }
+  .caption .sub {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.72em;
+    font-weight: 400;
+    color: var(--ink-soft);
+  }
+  .caption.is-active { opacity: 1; transform: translateY(0); }
+
+  .scene3-caption {
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    right: 8%;
+    text-align: center;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    font-size: clamp(0.9rem, 3.2vw, 1rem);
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .scene3-caption.is-active { opacity: 1; }
+
+  .mnemonic-layer {
+    position: absolute;
+    top: 27%;
+    left: 6%;
+    right: 6%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scale(0.94);
+  }
+  .mnemonic-layer.is-active { opacity: 1; transform: scale(1); }
+  .mnemonic-word {
+    font-family: "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", "Noto Sans JP", sans-serif;
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .mn-char {
+    display: inline-block;
+    margin: 0 0.06em;
+  }
+  .mn-char.half { color: var(--brass-strong); }
+  .mn-char.is-wiggle { animation: mn-wiggle 0.4s ease-in-out; }
+  @keyframes mn-wiggle {
+    0%, 100% { transform: rotate(0) scale(1); }
+    20% { transform: rotate(-11deg) scale(1.1); }
+    40% { transform: rotate(11deg) scale(1.12); }
+    60% { transform: rotate(-8deg) scale(1.06); }
+    80% { transform: rotate(5deg) scale(1.02); }
+  }
+  .mnemonic-sub {
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  .cta-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    padding: 0 10%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 100%);
+  }
+  .cta-layer.is-active { opacity: 1; }
+  .cta-mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif;
+    font-size: 0.62rem;
+    color: var(--rose);
+    letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .cta-text {
+    font-family: "Hiragino Mincho ProN", "YuMincho", serif;
+    font-size: clamp(1.05rem, 4.2vw, 1.25rem);
+    font-weight: 600;
+  }
+  .cta-brand {
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+
+  /* interval row (全/半) */
+  .interval-row {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: 41%;
+    height: 30px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .interval-row.is-active { opacity: 1; }
+  .interval-pip {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: var(--rose);
+  }
+  .interval-pip.half { color: var(--brass-strong); }
+  .interval-pip::after {
+    content: "";
+    width: 1px;
+    height: 9px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+
+  /* keyboard */
+  .keyboard {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: 8%;
+    height: 33%;
+  }
+  .white-keys {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    border: 1px solid #cabfa8;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #efe8d9;
+    box-shadow: 0 2px 5px rgba(20, 15, 5, 0.28);
+  }
+  .key {
+    position: relative;
+    flex: 1;
+    border-right: 1px solid rgba(30, 22, 10, 0.16);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 7%;
+    background: linear-gradient(to bottom, #fffdf9 0%, #fbf6ea 78%, #ece3cd 100%);
+    box-shadow: inset 0 -7px 9px -7px rgba(20, 15, 5, 0.22);
+    overflow: hidden;
+  }
+  .key:last-child { border-right: none; }
+  .key .glow-bar {
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 8%;
+    height: 20%;
+    border-radius: 3px;
+    background: linear-gradient(180deg, var(--rose) 0%, var(--brass) 100%);
+    box-shadow: 0 0 9px 1px rgba(185, 123, 116, 0.55);
+    opacity: 0;
+    transform: scaleY(0.35);
+    transform-origin: bottom;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .key.is-lit .glow-bar { opacity: 1; transform: scaleY(1); }
+  .key .note {
+    position: relative;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #fff8ef;
+    text-shadow: 0 1px 2px rgba(20, 15, 5, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .key.is-lit .note { opacity: 1; }
+
+  .black-keys { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+  .bkey {
+    position: absolute;
+    top: 0;
+    width: 6.5%;
+    height: 60%;
+    background: linear-gradient(160deg, #4a4a4a 0%, #171717 45%, #000 100%);
+    border-radius: 0 0 3px 3px;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.45);
+    transform: translateX(-50%);
+  }
+  .bkey::after {
+    content: "";
+    position: absolute;
+    top: 6%;
+    left: 14%;
+    right: 14%;
+    height: 22%;
+    border-radius: 2px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+  }
+
+  /* ---------- storyboard script ---------- */
+  .script-list { border-top: 1px solid var(--paper-line); margin: 0; }
+  .script-row {
+    display: grid;
+    grid-template-columns: 4.5em 1fr;
+    gap: 1.25rem;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .script-row dt {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--rose);
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.15rem;
+  }
+  .script-row dd { margin: 0; }
+  .script-row .line {
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+  .script-row .note {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.35rem;
+  }
+
+  /* tips */
+  .tips-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .tips-list li { margin-bottom: 0.6rem; }
+  .tips-list li:last-child { margin-bottom: 0; }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--paper-line);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .caption, .mnemonic-layer, .cta-layer, .interval-row, .key, .key .note, .key .glow-bar {
+      transition: none;
+    }
+    .mn-char.is-wiggle { animation: none; }
+  }
+</style>
+
+<main>
+  <p class="eyebrow">REEL 台本 &amp; プレビュー &middot; VOL.1 長調編</p>
+  <h1 class="page-title serif">長音階のひみつ</h1>
+  <p class="lead">
+    「長調はなぜ明るく聞こえるのか」を30秒で伝えるリールの設計です。下のフレームは実際の尺どおりに自動再生されるので、そのまま画面収録して素材にしたり、台本を見ながらグランドピアノで撮り直したりできます。
+  </p>
+
+  <div class="flourish" aria-hidden="true"><span>♪ プレビュー</span></div>
+
+  <div class="stage-wrap">
+    <div class="phone" id="phone">
+      <div class="phone-notch" aria-hidden="true"></div>
+      <div class="stage" id="stage">
+        <span class="petal p1" aria-hidden="true"></span>
+        <span class="petal p2" aria-hidden="true"></span>
+
+        <div class="caption-layer">
+          <p class="caption" id="c1">長調ってなんで、<br>明るく聞こえるんだろう？</p>
+          <p class="caption" id="c2">秘密は、音と音の<br>“距離”にあります<span class="sub">同じ鍵盤で確かめてみよう</span></p>
+          <p class="caption" id="c4">半音になるのは、<br>たった2か所<span class="sub">ミとファ、シとド</span></p>
+        </div>
+
+        <p class="scene3-caption" id="c3">白鍵だけで弾ける、ハ長調</p>
+
+        <div class="mnemonic-layer" id="mnemonic">
+          <p class="mnemonic-word" id="mnemonicWord">
+            <span class="mn-char" data-at="22300">全</span><span class="mn-char" data-at="22780">全</span><span class="mn-char half" data-at="23260">半</span><span class="mn-char" data-at="23740">全</span><span class="mn-char" data-at="24220">全</span><span class="mn-char" data-at="24700">全</span><span class="mn-char half" data-at="25180">半</span>
+          </p>
+          <p class="mnemonic-sub">この並びが「長調」の正体</p>
+        </div>
+
+        <div class="cta-layer" id="cta">
+          <div class="cta-mark serif">次回<br>短調</div>
+          <p class="cta-text serif">次回は「短調」を<br>解説します♪</p>
+          <p class="cta-brand">アイズミュージックアカデミー</p>
+        </div>
+
+        <div class="interval-row" id="intervalRow">
+          <span class="interval-pip" style="left:12.5%">全</span>
+          <span class="interval-pip" style="left:25%">全</span>
+          <span class="interval-pip half" style="left:37.5%">半</span>
+          <span class="interval-pip" style="left:50%">全</span>
+          <span class="interval-pip" style="left:62.5%">全</span>
+          <span class="interval-pip" style="left:75%">全</span>
+          <span class="interval-pip half" style="left:87.5%">半</span>
+        </div>
+
+        <div class="keyboard">
+          <div class="black-keys" aria-hidden="true">
+            <span class="bkey" style="left:12.5%"></span>
+            <span class="bkey" style="left:25%"></span>
+            <span class="bkey" style="left:50%"></span>
+            <span class="bkey" style="left:62.5%"></span>
+            <span class="bkey" style="left:75%"></span>
+          </div>
+          <div class="white-keys" id="whiteKeys">
+            <div class="key" data-at="8000"><span class="glow-bar"></span><span class="note">ド</span></div>
+            <div class="key" data-at="9000"><span class="glow-bar"></span><span class="note">レ</span></div>
+            <div class="key" data-at="10000"><span class="glow-bar"></span><span class="note">ミ</span></div>
+            <div class="key" data-at="11000"><span class="glow-bar"></span><span class="note">ファ</span></div>
+            <div class="key" data-at="12000"><span class="glow-bar"></span><span class="note">ソ</span></div>
+            <div class="key" data-at="13000"><span class="glow-bar"></span><span class="note">ラ</span></div>
+            <div class="key" data-at="14000"><span class="glow-bar"></span><span class="note">シ</span></div>
+            <div class="key" data-at="15000"><span class="glow-bar"></span><span class="note">ド</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:1.25rem; font-size:0.86rem; text-align:center;">30秒ループ・自動再生中</p>
+  </div>
+
+  <div class="flourish" aria-hidden="true"><span>♪ 台本</span></div>
+  <h2 class="section-title">絵コンテ</h2>
+  <dl class="script-list">
+    <div class="script-row">
+      <dt>0:00</dt>
+      <dd>
+        <span class="line">「長調ってなんで、明るく聞こえるんだろう？」</span>
+        <span class="note">フック。テロップと同じ言葉を声にのせる。最初の3秒で問いを立てる。</span>
+      </dd>
+    </div>
+    <div class="script-row">
+      <dt>0:03</dt>
+      <dd>
+        <span class="line">「秘密は、音と音の“距離”にあります」</span>
+        <span class="note">鍵盤にゆっくりズームイン。答えを鍵盤で確かめる、という導線を作る。</span>
+      </dd>
+    </div>
+    <div class="script-row">
+      <dt>0:08</dt>
+      <dd>
+        <span class="line">「白鍵だけで弾ける、ハ長調」→ ド・レ・ミ・ファ・ソ・ラ・シ・ドが順に光る</span>
+        <span class="note">1音ずつ0.5〜1秒で点灯。実演奏なら、ここで実際に一音ずつ弾いて録る。</span>
+      </dd>
+    </div>
+    <div class="script-row">
+      <dt>0:16</dt>
+      <dd>
+        <span class="line">「半音になるのは、たった2か所。ミとファ、シとド」</span>
+        <span class="note">鍵盤の該当箇所を指させる／丸で囲む。ここが今回いちばん伝えたい発見。</span>
+      </dd>
+    </div>
+    <div class="script-row">
+      <dt>0:22</dt>
+      <dd>
+        <span class="line">「全・全・半・全・全・全・半」</span>
+        <span class="note">大きな文字で画面いっぱいに。口ずさめる合言葉として印象づける。</span>
+      </dd>
+    </div>
+    <div class="script-row">
+      <dt>0:26</dt>
+      <dd>
+        <span class="line">「次回は『短調』を解説します♪」</span>
+        <span class="note">フォロー導線。短調編への引きをつくり、シリーズ化を明示する。</span>
+      </dd>
+    </div>
+  </dl>
+
+  <div class="flourish" aria-hidden="true"><span>♪ 撮影メモ</span></div>
+  <h2 class="section-title">使い方のヒント</h2>
+  <ul class="tips-list">
+    <li>このプレビューを画面収録すればそのまま素材になる。ナレーションは後がけ、テロップはInstagramの編集機能でも追加できる。</li>
+    <li>実物のグランドピアノで撮る場合も、上の台本の秒数をそのままガイドにできる。特に0:08〜0:16の「一音ずつ光る」パートは、実際に一音ずつ弾いて指を大きく映すと伝わりやすい。</li>
+    <li>最初の3秒（フック）で離脱されやすいので、「明るく聞こえる理由」という問いは冒頭で必ず言い切る。</li>
+    <li>次回（短調編）は同じ構成を流用できる。「全・半・全・全・半・全・全」という短調側の並びとの対比で見せると、シリーズとして記憶に残りやすい。</li>
+  </ul>
+
+  <footer>アイズミュージックアカデミー &middot; ピアノ講師 増見麻美</footer>
+</main>
+
+<script>
+(function () {
+  var CYCLE = 30000;
+  var stage = document.getElementById('stage');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var scenes = [
+    { el: document.getElementById('c1'), start: 0, end: 3000 },
+    { el: document.getElementById('c2'), start: 3000, end: 8000 },
+    { el: document.getElementById('c3'), start: 8000, end: 16000 },
+    { el: document.getElementById('c4'), start: 16000, end: 22000 },
+    { el: document.getElementById('mnemonic'), start: 22000, end: 26000 },
+    { el: document.getElementById('cta'), start: 26000, end: 30000 }
+  ];
+  var intervalRow = { el: document.getElementById('intervalRow'), start: 16000, end: 26000 };
+  var keys = Array.prototype.map.call(document.querySelectorAll('#whiteKeys .key'), function (el) {
+    return { el: el, at: parseInt(el.getAttribute('data-at'), 10) };
+  });
+  var mnChars = Array.prototype.map.call(document.querySelectorAll('#mnemonicWord .mn-char'), function (el) {
+    var at = parseInt(el.getAttribute('data-at'), 10);
+    return { el: el, start: at, end: at + 400 };
+  });
+
+  function apply(t) {
+    scenes.forEach(function (s) {
+      s.el.classList.toggle('is-active', t >= s.start && t < s.end);
+    });
+    intervalRow.el.classList.toggle('is-active', t >= intervalRow.start && t < intervalRow.end);
+    keys.forEach(function (k) {
+      k.el.classList.toggle('is-lit', t >= k.at);
+    });
+    mnChars.forEach(function (c) {
+      c.el.classList.toggle('is-wiggle', t >= c.start && t < c.end);
+    });
+  }
+
+  if (reduced) {
+    keys.forEach(function (k) { k.el.classList.add('is-lit'); });
+    intervalRow.el.classList.add('is-active');
+    document.getElementById('mnemonic').classList.add('is-active');
+    return;
+  }
+
+  function frame(ts) {
+    apply(ts % CYCLE);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
