@@ -151,7 +151,16 @@
 部屋には余白が多く、静かでやさしい光。「ここから始まった」と感じさせる構図。
 ```
 
-### 挿絵B｜家族への感謝
+### 挿絵B｜新聞に折り込まれた、わたしのチラシ
+
+```
+（共通スタイル）＋
+朝の食卓。畳んだ新聞の上に、ピアノ教室の広告チラシが一枚すべり出ている。
+チラシには写真の枠とレイアウトの形だけが描かれ、文字は一切書かれていない。
+そばにコーヒーカップ。窓からの朝の光。うれしい驚きが伝わる静物の構図。
+```
+
+### 挿絵C｜家族への感謝
 
 ```
 （共通スタイル）＋
@@ -160,7 +169,7 @@
 言葉のない、静かな感謝の場面。背景は淡いクリーム色のグラデーション。
 ```
 
-### 挿絵C｜だから今、思うこと
+### 挿絵D｜だから今、思うこと
 
 ```
 （共通スタイル）＋
@@ -198,8 +207,9 @@ no text, no letters, no logos, no numbers --ar 16:9
 | 3・挿絵B | an open doorway of a piano studio with warm light spilling into the corridor, a woman seen from behind stepping toward it, a grand piano faintly visible inside |
 | 4・ヘッダー | a child's hand and an adult woman's hand resting side by side on the same piano keys, close but softly blurred background, quiet and warm |
 | 4・挿絵A | a spacious lesson room with a single grand piano and one student chair, a small child seated with a teacher standing beside, both seen from behind, lots of negative space, soft light |
-| 4・挿絵B | silhouettes of a family of four seen from behind — father, mother, older brother and a little girl — looking toward a small organ bathed in light, cream gradient background |
-| 4・挿絵C | a piano lesson room today, a small student at a grand piano with a woman teacher watching warmly from behind, both seen from the back, soft afternoon light, blank sheet music with no notes |
+| 4・挿絵B | a folded newspaper on a morning breakfast table with a piano school flyer slipping out of it, the flyer showing only blank photo frames and layout shapes with no text at all, a coffee cup nearby, morning window light |
+| 4・挿絵C | silhouettes of a family of four seen from behind — father, mother, older brother and a little girl — looking toward a small organ bathed in light, cream gradient background |
+| 4・挿絵D | a piano lesson room today, a small student at a grand piano with a woman teacher watching warmly from behind, both seen from the back, soft afternoon light, blank sheet music with no notes |
 
 ---
 
