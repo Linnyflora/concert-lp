@@ -46,7 +46,17 @@
 人物は登場しない、静物のような構図。少しさみしさのある、でもあたたかい雰囲気。
 ```
 
-### 挿絵B｜小学1年生の夏、引っ越し
+### 挿絵B｜ひとりの「ピアノの先生ごっこ」
+
+```
+（共通スタイル）＋
+昭和の日本の家の一室。だれもいない部屋で、小さな女の子がオルガンの前に立ち、
+見えない生徒に向かって話しかけるように、片手を軽く上げている。後ろ姿。
+椅子は空っぽ、床には楽譜が広げてある。ひとり遊びの、少しユーモラスであたたかい場面。
+午後のやわらかい光。
+```
+
+### 挿絵C｜小学1年生の夏、引っ越し
 
 ```
 （共通スタイル）＋
@@ -147,7 +157,8 @@ no text, no letters, no logos, no numbers --ar 16:9
 | --- | --- |
 | 1・ヘッダー | a little girl seen from behind, waiting and watching her older brother play a small organ in a 1970s Japanese kindergarten room, late afternoon light through the windows, dust motes in the air |
 | 1・挿絵A | a brand-new unopened music book resting on a wooden desk in an old Japanese living room, a single pencil beside it, soft window light, no people, quiet and slightly wistful |
-| 1・挿絵B | a first-grade girl seen from behind holding a lesson bag of sheet music, standing among stacked moving boxes, summer clouds outside the open window |
+| 1・挿絵B | a little girl alone in an empty room, standing at a small organ and raising one hand as if speaking to invisible students, seen from behind, empty chair, sheet music on the floor, soft afternoon light, gently humorous and warm |
+| 1・挿絵C | a first-grade girl seen from behind holding a lesson bag of sheet music, standing among stacked moving boxes, summer clouds outside the open window |
 | 2・ヘッダー | a teenage girl seen from behind, peeking from the wings of a recital hall stage, a woman piano teacher standing far away in soft stage light |
 | 2・挿絵A | a split composition: on the left a group music class with rows of small organs and children, on the right one piano with a single girl and her teacher sitting together, all figures seen from behind |
 | 2・挿絵B | an electone (two-manual electronic organ with foot pedals) glowing softly in a dim room, seen from a slight high angle, a girl's silhouette seated at it |
