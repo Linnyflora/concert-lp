@@ -1,7 +1,7 @@
-# 挿絵プロンプト集｜連載「ピアノの先生になるまで」全3回
+# 挿絵プロンプト集｜連載「ピアノの先生になるまで」全4回
 
 画像生成AI（ChatGPT／Gemini／Midjourney など）に貼り付けて使うプロンプト集です。
-3回とも同じ「共通スタイル」を先頭につけると、シリーズとして絵柄がそろいます。
+4回とも同じ「共通スタイル」を先頭につけると、シリーズとして絵柄がそろいます。
 
 ---
 
@@ -99,15 +99,15 @@
 
 ---
 
-## 第3回「27年間、習い続けられた理由」
+## 第3回「17年間の恩師と、先生になった日」
 
 ### ヘッダー画像（横長 16:9）
 
 ```
 （共通スタイル）＋
-ひとつの鍵盤の上に、小さな子どもの手と、大人の女性の手が並んで置かれている。
-指は軽く鍵盤に触れているだけで、細部は描き込みすぎない。
-27年という時間が重なっているような、静かであたたかい構図。横長、背景は淡くぼかす。
+コンサートホールの舞台。スポットライトの下でエレクトーン（二段鍵盤の電子オルガン）を演奏する
+若い女性の後ろ姿。客席は暗く、舞台だけがあたたかい光に包まれている。
+緊張と誇らしさが同居するような、静かな高揚感。横長の構図。
 ```
 
 ### 挿絵A｜アメリカ・シンシナティの音遊び
@@ -118,6 +118,37 @@
 タンバリンや鈴などの小さな楽器のおもちゃで遊んでいる。
 そばに若いお母さんがひとり、床にすわって手拍子をしている。後ろ姿。
 窓の外にはアメリカ郊外の家並みと大きな木。あかるい午前中の光。
+```
+
+### 挿絵B｜「教えてみませんか」と言われた日
+
+```
+（共通スタイル）＋
+ピアノ教室の入り口。開いたドアの向こうから、あたたかい光が廊下にこぼれている。
+その光のほうへ一歩を踏み出そうとしている女性の後ろ姿。
+奥にはグランドピアノがぼんやりと見える。新しい扉が開く瞬間の雰囲気。
+```
+
+---
+
+## 第4回「生徒ひとりから始まった、12年」
+
+### ヘッダー画像（横長 16:9）
+
+```
+（共通スタイル）＋
+ひとつの鍵盤の上に、小さな子どもの手と、大人の女性の手が並んで置かれている。
+指は軽く鍵盤に触れているだけで、細部は描き込みすぎない。
+長い時間が重なっているような、静かであたたかい構図。横長、背景は淡くぼかす。
+```
+
+### 挿絵A｜たったひとりの生徒さんから
+
+```
+（共通スタイル）＋
+広いレッスン室に、グランドピアノが一台と、生徒の椅子がひとつだけ。
+小さな生徒がひとり座り、そばに先生が立っている。ふたりとも後ろ姿。
+部屋には余白が多く、静かでやさしい光。「ここから始まった」と感じさせる構図。
 ```
 
 ### 挿絵B｜家族への感謝
@@ -162,10 +193,13 @@ no text, no letters, no logos, no numbers --ar 16:9
 | 2・ヘッダー | a teenage girl seen from behind, peeking from the wings of a recital hall stage, a woman piano teacher standing far away in soft stage light |
 | 2・挿絵A | a split composition: on the left a group music class with rows of small organs and children, on the right one piano with a single girl and her teacher sitting together, all figures seen from behind |
 | 2・挿絵B | an electone (two-manual electronic organ with foot pedals) glowing softly in a dim room, seen from a slight high angle, a girl's silhouette seated at it |
-| 3・ヘッダー | a child's hand and an adult woman's hand resting side by side on the same piano keys, close but softly blurred background, quiet and warm |
+| 3・ヘッダー | a young woman seen from behind performing on a two-manual electone organ on a concert hall stage, dark auditorium, warm spotlight, quiet elation |
 | 3・挿絵A | babies playing with tambourines and bells on a rug in an American living room, a young mother sitting on the floor clapping, suburban houses and a big tree outside the window, bright morning light |
-| 3・挿絵B | silhouettes of a family of four seen from behind — father, mother, older brother and a little girl — looking toward a small organ bathed in light, cream gradient background |
-| 3・挿絵C | a piano lesson room today, a small student at a grand piano with a woman teacher watching warmly from behind, both seen from the back, soft afternoon light, blank sheet music with no notes |
+| 3・挿絵B | an open doorway of a piano studio with warm light spilling into the corridor, a woman seen from behind stepping toward it, a grand piano faintly visible inside |
+| 4・ヘッダー | a child's hand and an adult woman's hand resting side by side on the same piano keys, close but softly blurred background, quiet and warm |
+| 4・挿絵A | a spacious lesson room with a single grand piano and one student chair, a small child seated with a teacher standing beside, both seen from behind, lots of negative space, soft light |
+| 4・挿絵B | silhouettes of a family of four seen from behind — father, mother, older brother and a little girl — looking toward a small organ bathed in light, cream gradient background |
+| 4・挿絵C | a piano lesson room today, a small student at a grand piano with a woman teacher watching warmly from behind, both seen from the back, soft afternoon light, blank sheet music with no notes |
 
 ---
 
@@ -174,4 +208,4 @@ no text, no letters, no logos, no numbers --ar 16:9
 1. まず**第1回のヘッダー画像**を生成し、気に入った1枚を決めます
 2. 2回目以降は「**この絵と同じタッチで**」と伝えて、その画像を添付すると絵柄がそろいます
 3. できあがった画像に文字が入ってしまったら、「文字を消して」と追加で指示してください
-4. noteでは、ヘッダー画像1枚＋本文中に1〜2枚あれば十分読みやすくなります
+4. noteでは、ヘッダー画像1枚＋本文中に1〜2枚あれば十分読みやすくなります（全4回で計10点前後）
