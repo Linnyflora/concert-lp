@@ -28,7 +28,10 @@ BADGE_FILL = (49, 12, 20)
 BADGE_TEXT = (240, 234, 228)
 VALUE_TEXT = (26, 15, 9)
 
-ROW_H, ROW_GAP, ROW_TOP = 38, 7, 1136
+ROW_H, ROW_GAP, ROW_TOP = 34, 5, 1136
+NOTE = "※お申込み後にZoom URLをお送りします"
+NOTE_H, NOTE_CY = 17, 1259          # 3行の下に入れる小さめの案内
+NOTE_COLOR = (58, 34, 24)
 VAL_SPAN = 292                 # 値テキスト1行の目安幅（字間で調整する）
 MAX_TRACK = 8
 
@@ -132,6 +135,12 @@ def main():
         x = VAL_L
         for (s, _, _), f in zip(parts, fonts):
             x = draw_tracked(d, x, baseline, s, f, VALUE_TEXT, track) + 16
+
+    # 3行の下に、申し込み後の案内を小さく添える
+    nf = font(fit_height("送", NOTE_H))
+    nb = ink(NOTE, nf)
+    d.text(((BADGE_L + VAL_R) / 2 - (nb[2] - nb[0]) / 2 - nb[0],
+            NOTE_CY - (nb[3] + nb[1]) / 2), NOTE, font=nf, fill=NOTE_COLOR)
 
     im.save(DST, quality=95, subsampling=0)
     print("saved", DST, im.size)
