@@ -6,13 +6,15 @@
 「時間」「参加費」の2行は、3行が収まるよう少しだけ詰めて描き直している。
 
     必要なもの: Pillow, numpy, Noto Serif CJK (fonts-noto-cjk)
-    使い方: リポジトリ直下で python3 tools/remake_flyer_zoom.py
+    使い方: リポジトリ直下で
+            python3 tools/enhance_background.py   # 背景を仕上げる
+            python3 tools/remake_flyer_zoom.py    # 会場行を入れる
 """
 import os
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-SRC = os.environ.get("SRC", "iyashi-bar-original.jpg")
+SRC = os.environ.get("SRC", "iyashi-bar-bg.jpg")
 DST = os.environ.get("DST", "iyashi-bar-zoom.jpg")
 SERIF = "/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc"
 
