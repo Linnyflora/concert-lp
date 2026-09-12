@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ご案内チラシ｜1曲ひいてみよう やってみようコンサート</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  /* ===== A4 印刷設定 ===== */
+  @page { size: A4 portrait; margin: 0; }
+
+  :root {
+    --ink: #262e40;
+    --ink-soft: #4b5468;
+    --paper: #faf3ec;
+    --paper-soft: #f2e6da;
+    --paper-line: #e2d2c1;
+    --rose: #b97b74;
+    --brass: #93702f;
+    --mincho: "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", "Noto Serif JP", serif;
+    --gothic: "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", "Noto Sans JP", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #4a4744;
+    font-family: var(--gothic);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== 画面プレビュー用ツールバー（印刷されません） ===== */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.85rem 1rem;
+    background: #35322f;
+    color: #e8e0d6;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+  }
+  .toolbar button {
+    font: inherit;
+    font-size: 0.82rem;
+    padding: 0.45rem 1.4rem;
+    border: 1px solid #6d675f;
+    border-radius: 999px;
+    background: #4a4744;
+    color: #f3ece2;
+    cursor: pointer;
+  }
+  .toolbar button:hover { background: #5b5651; }
+
+  /* ===== A4用紙 ===== */
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    margin: 8mm auto;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* ===== 上部：写真エリア ===== */
+  .hero {
+    position: relative;
+    height: 92mm;
+    flex: none;
+    display: flex;
+    align-items: flex-end;
+    background-image:
+      linear-gradient(to bottom, rgba(23, 27, 40, 0.04) 0%, rgba(23, 27, 40, 0.24) 30%, rgba(23, 27, 40, 0.62) 60%, rgba(23, 27, 40, 0.91) 100%),
+      url('piano.jpg');
+    background-size: cover;
+    background-position: center 84%;
+    color: #f7efe6;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .hero-inner {
+    width: 100%;
+    padding: 0 16mm 9mm;
+  }
+
+  .seal {
+    position: absolute;
+    top: 9mm;
+    right: 16mm;
+    width: 26mm;
+    height: 26mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.4mm solid rgba(247, 239, 230, 0.9);
+    box-shadow: inset 0 0 0 1.1mm rgba(247, 239, 230, 0.28);
+    background: rgba(23, 27, 40, 0.34);
+    border-radius: 50%;
+    text-align: center;
+    font-family: var(--mincho);
+    font-size: 9pt;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    transform: rotate(-4deg);
+  }
+
+  .eyebrow {
+    margin: 0 0 3mm;
+    font-size: 8.5pt;
+    letter-spacing: 0.3em;
+    color: #e9cec8;
+  }
+
+  .flyer-title {
+    font-family: var(--mincho);
+    font-weight: 600;
+    font-size: 31pt;
+    line-height: 1.3;
+    margin: 0 0 5mm;
+    text-shadow: 0 1px 8px rgba(20, 22, 32, 0.35);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1mm 7mm;
+    padding-top: 3.5mm;
+    border-top: 0.3mm solid rgba(247, 239, 230, 0.4);
+    font-size: 10.5pt;
+    color: #f4e9de;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ===== 中面 ===== */
+  .body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 8mm 16mm 4mm;
+    min-height: 0;
+  }
+
+  .lead {
+    font-size: 9.8pt;
+    line-height: 1.95;
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .flourish {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4mm;
+    color: var(--rose);
+    margin: 5mm 0;
+    font-size: 11pt;
+  }
+  .flourish::before, .flourish::after {
+    content: "";
+    height: 0.3mm;
+    width: 16mm;
+    background: var(--paper-line);
+  }
+
+  .concepts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    padding: 0;
+    border-top: 0.3mm solid var(--paper-line);
+    border-bottom: 0.3mm solid var(--paper-line);
+  }
+  .concepts li {
+    list-style: none;
+    padding: 4.4mm 3mm;
+    text-align: center;
+    border-left: 0.3mm solid var(--paper-line);
+  }
+  .concepts li:first-child { border-left: none; }
+  .concepts .icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2mm;
+    color: var(--rose);
+  }
+  .concepts .icon svg { display: block; }
+  .concepts .t {
+    display: block;
+    font-weight: 600;
+    font-size: 9.5pt;
+    margin-bottom: 1.2mm;
+  }
+  .concepts .d {
+    display: block;
+    font-size: 8pt;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  .section-title {
+    font-family: var(--mincho);
+    font-size: 13pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin: 6mm 0 3mm;
+  }
+
+  .program {
+    margin: 0;
+    border-top: 0.3mm solid var(--paper-line);
+    font-variant-numeric: tabular-nums;
+  }
+  .program-row {
+    display: grid;
+    grid-template-columns: 22mm 1fr;
+    gap: 0 5mm;
+    padding: 2.5mm 0;
+    border-bottom: 0.3mm solid var(--paper-line);
+  }
+  .program-row dt {
+    font-size: 8.5pt;
+    letter-spacing: 0.14em;
+    color: var(--rose);
+    padding-top: 0.8mm;
+  }
+  .program-row dd {
+    margin: 0;
+    font-size: 10.5pt;
+    line-height: 1.6;
+  }
+  .program-row .sub {
+    display: block;
+    font-size: 8.5pt;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-top: 0.6mm;
+    font-style: normal;
+  }
+  .program-row .big {
+    font-family: var(--mincho);
+    font-size: 13pt;
+  }
+
+  .note {
+    margin: 5mm 0 0;
+    border-left: 0.4mm solid var(--rose);
+    padding-left: 5mm;
+    font-size: 9pt;
+    line-height: 1.9;
+    color: var(--ink-soft);
+  }
+
+  /* ===== 下部：主催・お問い合わせ ===== */
+  .footer {
+    flex: none;
+    margin-top: auto;
+    background: var(--paper-soft);
+    padding: 6mm 16mm;
+    text-align: center;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .footer .org {
+    font-family: var(--mincho);
+    font-size: 12pt;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.5mm;
+  }
+  .footer .place {
+    font-size: 8.8pt;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+  .footer .contact {
+    margin-top: 3mm;
+    padding-top: 3mm;
+    border-top: 0.3mm solid var(--paper-line);
+    font-size: 9pt;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .footer .tel {
+    font-family: var(--mincho);
+    font-size: 13pt;
+    color: var(--brass);
+    letter-spacing: 0.04em;
+    margin: 0 0.5em;
+  }
+
+  /* ===== 画面が狭いときのプレビュー縮小（印刷には影響しません） ===== */
+  @media screen and (max-width: 830px) { .sheet { zoom: 0.82; } }
+  @media screen and (max-width: 680px) { .sheet { zoom: 0.66; } }
+  @media screen and (max-width: 540px) { .sheet { zoom: 0.5; } }
+  @media screen and (max-width: 420px) { .sheet { zoom: 0.4; } }
+
+  /* ===== 印刷時 ===== */
+  @media print {
+    html, body { background: #fff; }
+    .toolbar { display: none; }
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      margin: 0;
+      box-shadow: none;
+      zoom: 1;
+      page-break-after: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span>A4タテ／ご案内チラシ　プレビュー</span>
+  <button type="button" onclick="window.print()">印刷・PDFで保存</button>
+  <span>※「背景のグラフィック」をオンにして印刷してください</span>
+</div>
+
+<div class="sheet">
+
+  <div class="hero">
+    <div class="seal">どなた様も<br>出入り自由</div>
+    <div class="hero-inner">
+      <p class="eyebrow">CHALLENGE CONCERT</p>
+      <h1 class="flyer-title">1曲ひいてみよう<br>やってみようコンサート</h1>
+      <div class="hero-meta">
+        <span>2026年11月15日(日) 10:00〜11:00</span>
+        <span>名古屋音楽プラザ 1階 音楽サロン</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <p class="lead">
+      ふだんのレッスン室を飛び出して、憧れのグランドピアノで、たった1曲。アイズミュージックアカデミーの生徒のみなさんが、練習を重ねてきた5分間の演奏をお届けします。ご家族やお友だち、地域のみなさまも、どうぞお気軽にお立ち寄りください。あたたかい拍手で見守っていただけますと嬉しいです。
+    </p>
+
+    <div class="flourish" aria-hidden="true"><span>♪</span></div>
+
+    <ul class="concepts">
+      <li>
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 28" width="30" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="30" height="26" rx="2" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="7" y1="1" x2="7" y2="27" stroke="currentColor" stroke-width="1"/>
+          <line x1="13" y1="1" x2="13" y2="27" stroke="currentColor" stroke-width="1"/>
+          <line x1="19" y1="1" x2="19" y2="27" stroke="currentColor" stroke-width="1"/>
+          <line x1="25" y1="1" x2="25" y2="27" stroke="currentColor" stroke-width="1"/>
+          <rect x="5" y="1" width="4" height="15" fill="currentColor"/>
+          <rect x="11" y="1" width="4" height="15" fill="currentColor"/>
+          <rect x="23" y="1" width="4" height="15" fill="currentColor"/>
+        </svg></span>
+        <span class="t">本物のグランドピアノ</span>
+        <span class="d">憧れの一台で奏でる、練習の成果を。</span>
+      </li>
+      <li>
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="14" r="11" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M14 7v7l5 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg></span>
+        <span class="t">ひとり5分の物語</span>
+        <span class="d">短いけれど、心のこもった一曲を。</span>
+      </li>
+      <li>
+        <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28" width="26" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 3h12v22H6z" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M18 3l6 3v19l-6-2V3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <circle cx="15.5" cy="14" r="1" fill="currentColor"/>
+        </svg></span>
+        <span class="t">出入り自由な空間</span>
+        <span class="d">お好きな時間にお越しいただけます。</span>
+      </li>
+    </ul>
+
+    <h2 class="section-title">開催概要</h2>
+    <dl class="program">
+      <div class="program-row">
+        <dt>日時</dt>
+        <dd>2026年11月15日(日)<span class="sub">10:00〜11:00</span></dd>
+      </div>
+      <div class="program-row">
+        <dt>会場</dt>
+        <dd>名古屋音楽プラザ 1階 音楽サロン<address class="sub">名古屋市中区金山一丁目9番18号</address></dd>
+      </div>
+      <div class="program-row">
+        <dt>ご入場</dt>
+        <dd><span class="big">入場無料</span><span class="sub">ご予約不要・出入り自由</span></dd>
+      </div>
+      <div class="program-row">
+        <dt>出演</dt>
+        <dd>アイズミュージックアカデミーの生徒のみなさん</dd>
+      </div>
+    </dl>
+
+    <p class="note">
+      演奏中もご自由にご入退場いただけます。小さなお子さま連れの方も、どうぞ気兼ねなくお越しください。
+    </p>
+
+  </div>
+
+  <div class="footer">
+    <div class="org">アイズミュージックアカデミー　ピアノ講師　増見麻美</div>
+    <div class="place">会場：名古屋音楽プラザ 1階 音楽サロン（名古屋市中区金山一丁目9番18号）</div>
+    <div class="contact">
+      お問い合わせ：アイズミュージックアカデミー受付<span class="tel">052-265-8655</span>（受付時間 12:00〜21:00）
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
