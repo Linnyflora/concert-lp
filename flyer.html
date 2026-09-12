@@ -13,7 +13,7 @@
     --ink: #262e40;
     --ink-soft: #4b5468;
     --paper: #faf3ec;
-    --paper-soft: #f4e8dc;
+    --paper-soft: #f2e6da;
     --paper-line: #e2d2c1;
     --rose: #b97b74;
     --brass: #93702f;
@@ -74,10 +74,10 @@
     -webkit-print-color-adjust: exact;
   }
 
-  /* ===== 上部：写真 ===== */
+  /* ===== 上部：写真エリア ===== */
   .hero {
     position: relative;
-    height: 76mm;
+    height: 80mm;
     flex: none;
     display: flex;
     align-items: flex-end;
@@ -93,7 +93,7 @@
 
   .hero-inner {
     width: 100%;
-    padding: 0 14mm 7mm;
+    padding: 0 14mm 8mm;
   }
 
   .seal {
@@ -119,7 +119,7 @@
   }
 
   .eyebrow {
-    margin: 0 0 2.5mm;
+    margin: 0 0 3mm;
     font-size: 9.5pt;
     letter-spacing: 0.3em;
     color: #e9cec8;
@@ -128,73 +128,21 @@
   .flyer-title {
     font-family: var(--mincho);
     font-weight: 600;
-    font-size: 29pt;
-    line-height: 1.32;
-    margin: 0;
+    font-size: 34pt;
+    line-height: 1.3;
+    margin: 0 0 5mm;
     text-shadow: 0 1px 8px rgba(20, 22, 32, 0.35);
   }
 
-  /* ===== 開催日時・会場（このチラシの主役） ===== */
-  .keyinfo {
-    flex: none;
-    text-align: center;
-    background: var(--paper-soft);
-    border-top: 0.9mm solid var(--rose);
-    border-bottom: 0.9mm solid var(--rose);
-    padding: 7mm 12mm 6.5mm;
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
-
-  .ki-label {
-    margin: 0 0 2mm;
-    font-size: 10pt;
-    letter-spacing: 0.42em;
-    text-indent: 0.42em;
-    color: var(--rose);
-  }
-
-  .ki-date {
-    margin: 0;
-    font-family: var(--mincho);
-    font-weight: 600;
-    font-size: 40pt;
-    line-height: 1.18;
-    letter-spacing: 0.01em;
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1mm 7mm;
+    padding-top: 3.5mm;
+    border-top: 0.3mm solid rgba(247, 239, 230, 0.4);
+    font-size: 12.5pt;
+    color: #f4e9de;
     font-variant-numeric: tabular-nums;
-  }
-  .ki-date .ki-dow { font-size: 0.62em; margin-left: 0.1em; }
-
-  .ki-time {
-    margin: 1.5mm 0 0;
-    font-family: var(--mincho);
-    font-size: 19pt;
-    letter-spacing: 0.06em;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .ki-rule {
-    width: 34mm;
-    height: 0;
-    border: 0;
-    border-top: 0.3mm solid var(--paper-line);
-    margin: 5mm auto;
-  }
-
-  .ki-venue {
-    margin: 0;
-    font-family: var(--mincho);
-    font-weight: 600;
-    font-size: 21pt;
-    line-height: 1.35;
-    letter-spacing: 0.02em;
-  }
-
-  .ki-addr {
-    margin: 1.8mm 0 0;
-    font-size: 11pt;
-    color: var(--ink-soft);
-    font-style: normal;
   }
 
   /* ===== 中面 ===== */
@@ -202,7 +150,7 @@
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    padding: 7mm 14mm 4mm;
+    padding: 6mm 14mm 4mm;
     min-height: 0;
   }
 
@@ -219,7 +167,7 @@
     justify-content: center;
     gap: 4mm;
     color: var(--rose);
-    margin: 4mm 0;
+    margin: 3mm 0;
     font-size: 11pt;
   }
   .flourish::before, .flourish::after {
@@ -239,7 +187,7 @@
   }
   .concepts li {
     list-style: none;
-    padding: 4mm 2.5mm;
+    padding: 3.5mm 2.5mm;
     text-align: center;
     border-left: 0.3mm solid var(--paper-line);
   }
@@ -261,38 +209,62 @@
     display: block;
     font-size: 9.3pt;
     line-height: 1.6;
+    text-wrap: balance;
     color: var(--ink-soft);
   }
 
-  /* ===== 入場・出演 ===== */
-  .extras {
-    text-align: center;
-    margin: 6mm 0 0;
+  .section-title {
+    font-family: var(--mincho);
+    font-size: 15.5pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin: 5mm 0 2.5mm;
   }
-  .extras .ex-main {
+
+  .program {
     margin: 0;
+    border-top: 0.3mm solid var(--paper-line);
+    font-variant-numeric: tabular-nums;
+  }
+  .program-row {
+    display: grid;
+    grid-template-columns: 25mm 1fr;
+    gap: 0 5mm;
+    padding: 2.2mm 0;
+    border-bottom: 0.3mm solid var(--paper-line);
+  }
+  .program-row dt {
+    font-size: 10pt;
+    letter-spacing: 0.14em;
+    color: var(--rose);
+    padding-top: 0.8mm;
+  }
+  .program-row dd {
+    margin: 0;
+    font-size: 12.5pt;
+    line-height: 1.55;
+  }
+  .program-row .sub {
+    display: block;
+    font-size: 10pt;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-top: 0.6mm;
+    font-style: normal;
+  }
+  .program-row .big {
     font-family: var(--mincho);
     font-size: 17pt;
-    letter-spacing: 0.04em;
-  }
-  .extras .ex-main strong {
-    font-weight: 600;
-    color: var(--brass);
-  }
-  .extras .ex-sub {
-    margin: 2mm 0 0;
-    font-size: 11pt;
-    color: var(--ink-soft);
   }
 
   .note {
-    margin: 5mm 0 0;
+    margin: 4mm 0 0;
     border-left: 0.4mm solid var(--rose);
     padding-left: 5mm;
     font-size: 10.5pt;
     line-height: 1.75;
-    color: var(--ink-soft);
     text-wrap: pretty;
+    color: var(--ink-soft);
   }
 
   /* ===== 下部：主催・お問い合わせ ===== */
@@ -311,7 +283,15 @@
     letter-spacing: 0.06em;
     margin-bottom: 1.5mm;
   }
+  .footer .place {
+    font-size: 10.2pt;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
   .footer .contact {
+    margin-top: 3mm;
+    padding-top: 3mm;
+    border-top: 0.3mm solid var(--paper-line);
     font-size: 10.5pt;
     color: var(--ink-soft);
     font-variant-numeric: tabular-nums;
@@ -321,7 +301,7 @@
     font-size: 16pt;
     color: var(--brass);
     letter-spacing: 0.04em;
-    margin: 0 0.4em;
+    margin: 0 0.5em;
   }
 
   /* ===== 画面が狭いときのプレビュー縮小（印刷には影響しません） ===== */
@@ -360,17 +340,11 @@
     <div class="hero-inner">
       <p class="eyebrow">CHALLENGE CONCERT</p>
       <h1 class="flyer-title">1曲ひいてみよう<br>やってみようコンサート</h1>
+      <div class="hero-meta">
+        <span>2026年11月15日(日) 10:00〜11:00</span>
+        <span>名古屋音楽プラザ 1階 音楽サロン</span>
+      </div>
     </div>
-  </div>
-
-  <div class="keyinfo">
-    <p class="ki-label">日時</p>
-    <p class="ki-date">2026年11月15日<span class="ki-dow">（日）</span></p>
-    <p class="ki-time">10:00 〜 11:00</p>
-    <hr class="ki-rule">
-    <p class="ki-label">会場</p>
-    <p class="ki-venue">名古屋音楽プラザ 1階 音楽サロン</p>
-    <address class="ki-addr">名古屋市中区金山一丁目9番18号</address>
   </div>
 
   <div class="body">
@@ -415,10 +389,25 @@
       </li>
     </ul>
 
-    <div class="extras">
-      <p class="ex-main"><strong>入場無料</strong>・ご予約不要</p>
-      <p class="ex-sub">出演：アイズミュージックアカデミーの生徒のみなさん</p>
-    </div>
+    <h2 class="section-title">開催概要</h2>
+    <dl class="program">
+      <div class="program-row">
+        <dt>日時</dt>
+        <dd>2026年11月15日(日)<span class="sub">10:00〜11:00</span></dd>
+      </div>
+      <div class="program-row">
+        <dt>会場</dt>
+        <dd>名古屋音楽プラザ 1階 音楽サロン<address class="sub">名古屋市中区金山一丁目9番18号</address></dd>
+      </div>
+      <div class="program-row">
+        <dt>ご入場</dt>
+        <dd><span class="big">入場無料</span><span class="sub">ご予約不要・出入り自由</span></dd>
+      </div>
+      <div class="program-row">
+        <dt>出演</dt>
+        <dd>アイズミュージックアカデミーの生徒のみなさん</dd>
+      </div>
+    </dl>
 
     <p class="note">
       演奏中もご自由にご入退場いただけます。小さなお子さま連れの方も、気兼ねなくお越しください。
@@ -428,6 +417,7 @@
 
   <div class="footer">
     <div class="org">アイズミュージックアカデミー　ピアノ講師　増見麻美</div>
+    <div class="place">会場：名古屋音楽プラザ 1階 音楽サロン（名古屋市中区金山一丁目9番18号）</div>
     <div class="contact">
       お問い合わせ：アイズミュージックアカデミー受付<span class="tel">052-265-8655</span>（受付時間 12:00〜21:00）
     </div>
