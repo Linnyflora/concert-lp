@@ -77,7 +77,7 @@
   /* ===== 上部：写真エリア ===== */
   .hero {
     position: relative;
-    height: 92mm;
+    height: 80mm;
     flex: none;
     display: flex;
     align-items: flex-end;
@@ -85,7 +85,7 @@
       linear-gradient(to bottom, rgba(23, 27, 40, 0.04) 0%, rgba(23, 27, 40, 0.24) 30%, rgba(23, 27, 40, 0.62) 60%, rgba(23, 27, 40, 0.91) 100%),
       url('piano.jpg');
     background-size: cover;
-    background-position: center 84%;
+    background-position: center 74%;
     color: #f7efe6;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
@@ -93,13 +93,13 @@
 
   .hero-inner {
     width: 100%;
-    padding: 0 16mm 9mm;
+    padding: 0 14mm 8mm;
   }
 
   .seal {
     position: absolute;
-    top: 9mm;
-    right: 16mm;
+    top: 7mm;
+    right: 14mm;
     width: 26mm;
     height: 26mm;
     display: flex;
@@ -112,7 +112,7 @@
     border-radius: 50%;
     text-align: center;
     font-family: var(--mincho);
-    font-size: 9pt;
+    font-size: 10.5pt;
     line-height: 1.5;
     letter-spacing: 0.08em;
     transform: rotate(-4deg);
@@ -120,7 +120,7 @@
 
   .eyebrow {
     margin: 0 0 3mm;
-    font-size: 8.5pt;
+    font-size: 9.5pt;
     letter-spacing: 0.3em;
     color: #e9cec8;
   }
@@ -128,7 +128,7 @@
   .flyer-title {
     font-family: var(--mincho);
     font-weight: 600;
-    font-size: 31pt;
+    font-size: 34pt;
     line-height: 1.3;
     margin: 0 0 5mm;
     text-shadow: 0 1px 8px rgba(20, 22, 32, 0.35);
@@ -140,7 +140,7 @@
     gap: 1mm 7mm;
     padding-top: 3.5mm;
     border-top: 0.3mm solid rgba(247, 239, 230, 0.4);
-    font-size: 10.5pt;
+    font-size: 12.5pt;
     color: #f4e9de;
     font-variant-numeric: tabular-nums;
   }
@@ -150,13 +150,13 @@
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    padding: 8mm 16mm 4mm;
+    padding: 6mm 14mm 4mm;
     min-height: 0;
   }
 
   .lead {
-    font-size: 9.8pt;
-    line-height: 1.95;
+    font-size: 11.5pt;
+    line-height: 1.9;
     margin: 0;
     letter-spacing: 0.01em;
   }
@@ -167,7 +167,7 @@
     justify-content: center;
     gap: 4mm;
     color: var(--rose);
-    margin: 5mm 0;
+    margin: 3mm 0;
     font-size: 11pt;
   }
   .flourish::before, .flourish::after {
@@ -187,7 +187,7 @@
   }
   .concepts li {
     list-style: none;
-    padding: 4.4mm 3mm;
+    padding: 3.5mm 2.5mm;
     text-align: center;
     border-left: 0.3mm solid var(--paper-line);
   }
@@ -202,22 +202,23 @@
   .concepts .t {
     display: block;
     font-weight: 600;
-    font-size: 9.5pt;
+    font-size: 11pt;
     margin-bottom: 1.2mm;
   }
   .concepts .d {
     display: block;
-    font-size: 8pt;
-    line-height: 1.65;
+    font-size: 9.3pt;
+    line-height: 1.6;
+    text-wrap: balance;
     color: var(--ink-soft);
   }
 
   .section-title {
     font-family: var(--mincho);
-    font-size: 13pt;
+    font-size: 15.5pt;
     font-weight: 600;
     letter-spacing: 0.08em;
-    margin: 6mm 0 3mm;
+    margin: 5mm 0 2.5mm;
   }
 
   .program {
@@ -227,41 +228,42 @@
   }
   .program-row {
     display: grid;
-    grid-template-columns: 22mm 1fr;
+    grid-template-columns: 25mm 1fr;
     gap: 0 5mm;
-    padding: 2.5mm 0;
+    padding: 2.2mm 0;
     border-bottom: 0.3mm solid var(--paper-line);
   }
   .program-row dt {
-    font-size: 8.5pt;
+    font-size: 10pt;
     letter-spacing: 0.14em;
     color: var(--rose);
     padding-top: 0.8mm;
   }
   .program-row dd {
     margin: 0;
-    font-size: 10.5pt;
-    line-height: 1.6;
+    font-size: 12.5pt;
+    line-height: 1.55;
   }
   .program-row .sub {
     display: block;
-    font-size: 8.5pt;
-    line-height: 1.7;
+    font-size: 10pt;
+    line-height: 1.6;
     color: var(--ink-soft);
     margin-top: 0.6mm;
     font-style: normal;
   }
   .program-row .big {
     font-family: var(--mincho);
-    font-size: 13pt;
+    font-size: 17pt;
   }
 
   .note {
-    margin: 5mm 0 0;
+    margin: 4mm 0 0;
     border-left: 0.4mm solid var(--rose);
     padding-left: 5mm;
-    font-size: 9pt;
-    line-height: 1.9;
+    font-size: 10.5pt;
+    line-height: 1.75;
+    text-wrap: pretty;
     color: var(--ink-soft);
   }
 
@@ -270,33 +272,33 @@
     flex: none;
     margin-top: auto;
     background: var(--paper-soft);
-    padding: 6mm 16mm;
+    padding: 5.5mm 14mm;
     text-align: center;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
   .footer .org {
     font-family: var(--mincho);
-    font-size: 12pt;
+    font-size: 14pt;
     letter-spacing: 0.06em;
     margin-bottom: 1.5mm;
   }
   .footer .place {
-    font-size: 8.8pt;
+    font-size: 10.2pt;
     color: var(--ink-soft);
-    line-height: 1.8;
+    line-height: 1.7;
   }
   .footer .contact {
     margin-top: 3mm;
     padding-top: 3mm;
     border-top: 0.3mm solid var(--paper-line);
-    font-size: 9pt;
+    font-size: 10.5pt;
     color: var(--ink-soft);
     font-variant-numeric: tabular-nums;
   }
   .footer .tel {
     font-family: var(--mincho);
-    font-size: 13pt;
+    font-size: 16pt;
     color: var(--brass);
     letter-spacing: 0.04em;
     margin: 0 0.5em;
@@ -348,7 +350,7 @@
   <div class="body">
 
     <p class="lead">
-      ふだんのレッスン室を飛び出して、憧れのグランドピアノで、たった1曲。アイズミュージックアカデミーの生徒のみなさんが、練習を重ねてきた5分間の演奏をお届けします。ご家族やお友だち、地域のみなさまも、どうぞお気軽にお立ち寄りください。あたたかい拍手で見守っていただけますと嬉しいです。
+      憧れのグランドピアノで、たった1曲。アイズミュージックアカデミーの生徒のみなさんが、練習を重ねてきた5分間の演奏をお届けします。ご家族やお友だち、地域のみなさまも、どうぞお気軽にお立ち寄りください。
     </p>
 
     <div class="flourish" aria-hidden="true"><span>♪</span></div>
@@ -366,7 +368,7 @@
           <rect x="23" y="1" width="4" height="15" fill="currentColor"/>
         </svg></span>
         <span class="t">本物のグランドピアノ</span>
-        <span class="d">憧れの一台で奏でる、練習の成果を。</span>
+        <span class="d">憧れの一台で、練習の成果を。</span>
       </li>
       <li>
         <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -383,7 +385,7 @@
           <circle cx="15.5" cy="14" r="1" fill="currentColor"/>
         </svg></span>
         <span class="t">出入り自由な空間</span>
-        <span class="d">お好きな時間にお越しいただけます。</span>
+        <span class="d">お好きな時間にどうぞ。</span>
       </li>
     </ul>
 
@@ -408,7 +410,7 @@
     </dl>
 
     <p class="note">
-      演奏中もご自由にご入退場いただけます。小さなお子さま連れの方も、どうぞ気兼ねなくお越しください。
+      演奏中もご自由にご入退場いただけます。小さなお子さま連れの方も、気兼ねなくお越しください。
     </p>
 
   </div>
