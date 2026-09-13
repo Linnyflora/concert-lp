@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>領収書プレビュー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  body { margin: 0; background: #e9e5e0; font-family: "Noto Sans JP", sans-serif; color: #202124; }
+  .page {
+    width: 595pt; height: 842pt; box-sizing: border-box;
+    padding: 20pt 50pt; margin: 0 auto; background: #fff;
+  }
+  .art { display: block; margin: 0 auto; }
+  .art.header { width: 180pt; }
+  .art.footer { width: 300pt; margin-top: 6pt; }
+  h1 { font-size: 18pt; font-weight: 500; text-align: center; margin: 4pt 0 2pt; color: #3b3f5c; }
+  hr { border: none; border-top: 0.75pt solid #c9c6c1; margin: 6pt 0 14pt; }
+  .issued { text-align: right; font-size: 10pt; color: #5f6368; margin: 0 0 18pt; }
+  .to { font-size: 16pt; font-weight: 700; margin: 0; }
+  .rule { color: #999; margin: 2pt 0 16pt; letter-spacing: -1px; }
+  .subject { font-size: 10.5pt; margin: 0 0 14pt; }
+  .total { font-size: 17pt; font-weight: 700; margin: 0 0 4pt; }
+  .note { font-size: 10pt; margin: 0 0 18pt; }
+  table { border-collapse: collapse; font-size: 10pt; }
+  table.items { width: 100%; margin-bottom: 14pt; }
+  table.items th, table.items td { border: 0.75pt solid #d4d1cc; padding: 5pt 7pt; }
+  table.items th { background: #eeedfc; font-weight: 700; text-align: center; }
+  table.items td.n { text-align: center; }
+  table.items td.r { text-align: right; }
+  table.sum { width: 46%; margin-left: auto; margin-bottom: 20pt; }
+  table.sum td { border: 0.75pt solid #d4d1cc; padding: 4pt 7pt; }
+  table.sum td.r { text-align: right; }
+  .issuer { font-size: 10pt; line-height: 1.7; }
+  .issuer .label { font-weight: 700; margin-bottom: 2pt; }
+  .thanks { text-align: center; font-size: 9.5pt; color: #5f6368; margin: 18pt 0 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <img class="art header" src="../assets/receipt-header.png" alt="">
+  <h1>♪　領　収　書　♪</h1>
+  <hr>
+  <p class="issued">発行日：2026年11月15日</p>
+  <p class="to">住田　様</p>
+  <div class="rule">────────────────────</div>
+  <p class="subject">件名：1曲ひいてみよう やってみようコンサート　参加費として</p>
+  <p class="total">合計金額　　¥8,800-（税込）</p>
+  <p class="note">上記の金額を正に領収いたしました。</p>
+  <table class="items">
+    <tr><th>品目</th><th style="width:14%">数量</th><th style="width:18%">単価</th><th style="width:18%">金額</th></tr>
+    <tr><td>参加費（1曲ひいてみよう やってみようコンサート）</td><td class="n">1</td><td class="r">¥8,000</td><td class="r">¥8,000</td></tr>
+  </table>
+  <table class="sum">
+    <tr><td>小計</td><td class="r">¥8,000</td></tr>
+    <tr><td>消費税（10%）</td><td class="r">¥800</td></tr>
+    <tr><td>合計</td><td class="r">¥8,800</td></tr>
+  </table>
+  <div class="issuer">
+    <div class="label">発行者</div>
+    <div>増見麻美</div>
+    <div>〒456-0062　愛知県名古屋市熱田区大宝４−１５−２１</div>
+    <div>登録番号：T2810958830122</div>
+  </div>
+  <p class="thanks">ご参加いただき、ありがとうございます。</p>
+  <img class="art footer" src="../assets/receipt-footer.png" alt="">
+</div>
+</body>
+</html>

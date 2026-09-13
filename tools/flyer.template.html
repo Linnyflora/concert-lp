@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ご案内チラシ｜1曲ひいてみよう やってみようコンサート</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* A4 一枚もの。印刷は「余白なし」「背景のグラフィック」を有効にしてください。 */
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --paper: #faf8f6;
+    --ink: #2f2b28;
+    --text: #37322e;
+    --muted: #6f6862;
+    --hair: #ddd5cb;
+    --tint: #f3efe9;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; background: #e8e4df; }
+
+  body {
+    font-family: "Noto Sans JP", sans-serif;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background: var(--paper);
+    overflow: hidden;
+  }
+
+  .maru { font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; }
+
+  svg { display: block; }
+  .art { width: 100%; height: auto; color: var(--ink); }
+
+  /* ---------- ヘッダー（チラシ上部の線画＋タイトル） ---------- */
+  .band { position: relative; height: 93mm; overflow: hidden; }
+  .band > .art { margin-top: -6mm; }
+
+  .title-block {
+    position: absolute;
+    top: 17.5mm;
+    left: 12mm;
+  }
+
+  .eyebrow {
+    margin: 0 0 4.5mm;
+    font-size: 2.9mm;
+    font-weight: 400;
+    letter-spacing: 0.30em;
+    color: #5d5751;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 9.2mm;
+    font-weight: 400;
+    line-height: 1.72;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+
+  /* ---------- 日時・会場 ---------- */
+  .facts {
+    position: relative;
+    margin: 1mm 0 0;
+    text-align: center;
+  }
+
+  .facts .label {
+    font-size: 2.8mm;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+    color: var(--muted);
+    margin-bottom: 1mm;
+  }
+
+  .facts .date {
+    font-size: 9.2mm;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+
+  .facts .time {
+    font-size: 5.6mm;
+    line-height: 1.5;
+    color: #4a443f;
+  }
+
+  .facts .venue {
+    font-size: 5.6mm;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  .facts .addr {
+    font-size: 3.3mm;
+    color: #524c47;
+    margin-top: 1mm;
+  }
+
+  .facts .gap { height: 2.5mm; }
+
+  .note-l, .note-r { position: absolute; width: 14mm; color: var(--ink); }
+  .note-l { left: 5mm; top: 4mm; }
+  .note-r { right: 6mm; top: 6mm; }
+
+  /* ---------- 区切り ---------- */
+  .divider { width: 20mm; margin: 3mm auto 2.5mm; color: var(--ink); }
+
+  .lead {
+    margin: 0 14mm;
+    font-size: 3.4mm;
+    line-height: 1.8;
+    text-align: center;
+    color: var(--text);
+  }
+
+  /* ---------- アクセス ---------- */
+  .access {
+    margin: 3mm 12mm 0;
+    padding-top: 3mm;
+    border-top: 0.3mm solid var(--hair);
+  }
+
+  .access-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5mm;
+    font-size: 3.6mm;
+    letter-spacing: 0.22em;
+    color: var(--ink);
+    margin-bottom: 2.5mm;
+  }
+  .access-head::before, .access-head::after {
+    content: "";
+    width: 12mm;
+    height: 0.25mm;
+    background: var(--hair);
+  }
+
+  .access-body { display: flex; gap: 5mm; align-items: stretch; }
+
+  .map { width: 74mm; flex: none; color: var(--ink); }
+  .map svg { width: 100%; height: auto; }
+
+  .routes { flex: 1; display: flex; flex-direction: column; gap: 2mm; }
+
+  .route {
+    display: flex;
+    gap: 2mm;
+    font-size: 2.95mm;
+    line-height: 1.6;
+  }
+  .route .mode {
+    flex: none;
+    width: 13mm;
+    padding-top: 0.2mm;
+    font-size: 2.6mm;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .route strong { font-weight: 500; color: var(--ink); }
+
+  .access-foot {
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    margin-top: auto;
+    padding-top: 2mm;
+  }
+  .qr { width: 15mm; flex: none; color: var(--ink); }
+  .qr svg { width: 100%; height: auto; }
+  .qr-note { font-size: 2.5mm; line-height: 1.5; color: var(--muted); }
+
+  /* ---------- 3つの特徴 ---------- */
+  .features {
+    display: flex;
+    margin: 2.5mm 14mm 0;
+    padding-top: 2.5mm;
+    border-top: 0.3mm solid var(--hair);
+    text-align: center;
+  }
+  .feature { flex: 1; padding: 0 2mm; }
+  .feature + .feature { border-left: 0.3mm solid var(--hair); }
+  .feature .icon { width: 8mm; height: 6mm; margin: 0 auto 1.5mm; color: var(--ink); }
+  .feature .icon svg { width: 100%; height: 100%; }
+  .feature .name { font-size: 3.5mm; color: var(--ink); line-height: 1.4; }
+  .feature .desc { font-size: 2.8mm; color: var(--muted); margin-top: 0.8mm; }
+
+  /* ---------- 入場無料 ---------- */
+  .free {
+    margin: 2.5mm 14mm 0;
+    padding-top: 2.5mm;
+    border-top: 0.3mm solid var(--hair);
+    text-align: center;
+  }
+  .free .headline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3mm;
+    font-size: 5.4mm;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+  }
+  .free .headline .leaf { width: 6mm; color: var(--ink); }
+  .free .cast { font-size: 3.2mm; margin-top: 1.5mm; color: var(--text); }
+  .free .caveat { font-size: 3mm; margin-top: 1.2mm; color: var(--muted); }
+
+  /* ---------- フッター ---------- */
+  .foot { position: absolute; left: 0; right: 0; bottom: 0; height: 40mm; }
+  .foot-art { position: absolute; left: 0; right: 0; bottom: 6.5mm; color: var(--ink); }
+  .foot-text { position: absolute; left: 0; right: 0; bottom: 3mm; text-align: center; }
+  .foot .host { font-size: 3.5mm; letter-spacing: 0.04em; color: var(--ink); }
+  .foot .contact { font-size: 3.2mm; margin-top: 1.5mm; color: var(--text); }
+  .foot .contact .tel { font-size: 4.4mm; letter-spacing: 0.02em; }
+  .foot .contact .hours { font-size: 2.7mm; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="band">
+    {{header}}
+    <div class="title-block">
+      <p class="eyebrow">CHALLENGE CONCERT</p>
+      <h1 class="maru">1曲ひいてみよう<br>やってみようコンサート</h1>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="note-l">{{note_l}}</div>
+    <div class="note-r">{{note_r}}</div>
+    <div class="label">日 時</div>
+    <div class="date maru">2026年11月15日（日）</div>
+    <div class="time maru">10:00〜11:00</div>
+    <div class="gap"></div>
+    <div class="label">会 場</div>
+    <div class="venue maru">名古屋市音楽プラザ 1階 音楽サロン</div>
+    <div class="addr">名古屋市中区金山一丁目4番10号</div>
+  </div>
+
+  <div class="divider">{{divider}}</div>
+
+  <p class="lead">憧れのグランドピアノで、たった1曲。ピアノを習う生徒のみなさんが、練習を重ねてきた5分間の<br>
+  演奏をお届けします。ご家族やお友だち、地域のみなさまも、どうぞお気軽にお越しください。</p>
+
+  <div class="access">
+    <div class="access-head maru">会場へのアクセス</div>
+    <div class="access-body">
+      <div class="map">{{map}}</div>
+      <div class="routes">
+        <div class="route">
+          <div class="mode">地下鉄</div>
+          <div>名城線・名港線「金山」駅 <strong>⑥出口から北へ徒歩約3分</strong><br>市民会館へつながる地下連絡通路があります。</div>
+        </div>
+        <div class="route">
+          <div class="mode">JR・名鉄</div>
+          <div>「金山」駅から <strong>徒歩約5分</strong></div>
+        </div>
+        <div class="route">
+          <div class="mode">お車</div>
+          <div>市民会館・音楽プラザの有料駐車場をご利用ください。</div>
+        </div>
+        <div class="access-foot">
+          <div class="qr">{{qr}}</div>
+          <div class="qr-note">地図アプリで開く<br>（名古屋市音楽プラザ）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="icon">{{icon_keys}}</div>
+      <div class="name maru">本物のグランドピアノ</div>
+      <div class="desc">憧れの一台で、練習の成果を。</div>
+    </div>
+    <div class="feature">
+      <div class="icon">{{icon_clock}}</div>
+      <div class="name maru">ひとり5分の物語</div>
+      <div class="desc">短いけれど、心のこもった一曲を。</div>
+    </div>
+    <div class="feature">
+      <div class="icon">{{icon_door}}</div>
+      <div class="name maru">出入り自由な空間</div>
+      <div class="desc">お好きな時間にどうぞ。</div>
+    </div>
+  </div>
+
+  <div class="free">
+    <div class="headline maru">
+      <span class="leaf">{{leaf_l}}</span>
+      入場無料・ご予約不要
+      <span class="leaf">{{leaf_r}}</span>
+    </div>
+    <div class="cast">出演：アイズミュージックアカデミーの生徒のみなさん</div>
+    <div class="caveat">演奏中のご入退場もご自由です。小さなお子さま連れの方も、どうぞ気兼ねなくお越しください。</div>
+  </div>
+
+  <div class="foot">
+    <div class="foot-art">{{bottom}}</div>
+    <div class="foot-text">
+      <div class="host maru">主 催　アイズミュージックアカデミー　ピアノ講師　増見麻美</div>
+      <div class="contact">お問い合わせ：受付　<span class="tel maru">052-265-8655</span>　<span class="hours">（受付時間 12:00〜21:00）</span></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

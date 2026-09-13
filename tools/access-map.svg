@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 96" role="img"
+     aria-label="金山駅から名古屋市音楽プラザまでの案内図">
+  <style>
+    .frame { fill: #fffdfb; stroke: #e3dbd1; stroke-width: 0.6; }
+    .road  { fill: #f1ece5; }
+    .blk   { fill: #f7f4ef; stroke: currentColor; stroke-width: 0.5; }
+    .blk-v { fill: #fdf6ea; stroke: currentColor; stroke-width: 1.1; }
+    .stn   { fill: #efeae3; stroke: currentColor; stroke-width: 0.5; }
+    .rail  { stroke: currentColor; stroke-width: 0.5; }
+    .walk  { fill: none; stroke: currentColor; stroke-width: 0.9;
+             stroke-dasharray: 2.6 2.2; stroke-linecap: round; }
+    .thin  { fill: none; stroke: currentColor; stroke-width: 0.6; }
+    text   { font-family: "Noto Sans JP", sans-serif; fill: currentColor; }
+    .nm    { font-size: 6.2px; }
+    .nm-v  { font-size: 6.8px; font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; }
+    .sm    { font-size: 5.2px; fill: #6f6862; }
+    .tag   { font-size: 5px; }
+  </style>
+
+  <rect class="frame" x="0.3" y="0.3" width="199.4" height="95.4" rx="3.5"/>
+
+  <!-- 南北の通りと駅前の通り -->
+  <rect class="road" x="106" y="3" width="15" height="73"/>
+  <rect class="road" x="3" y="70" width="194" height="7"/>
+
+  <!-- 会場：名古屋市音楽プラザ -->
+  <rect class="blk-v" x="22" y="9" width="78" height="27" rx="1.5"/>
+  <text class="nm-v" x="29" y="21">名古屋市音楽プラザ</text>
+  <text class="nm" x="29" y="29.5">1階 音楽サロン</text>
+  <g transform="translate(91 6)">
+    <path class="thin" d="M0,8.6 C-3.9,4 -5.7,1.9 -5.7,-0.9 A5.7,5.7 0 0,1 5.7,-0.9 C5.7,1.9 3.9,4 0,8.6Z"
+          fill="#fdf6ea"/>
+    <text class="tag" x="0" y="1.2" text-anchor="middle">♪</text>
+  </g>
+
+  <!-- Niterra日本特殊陶業市民会館 -->
+  <rect class="blk" x="22" y="41" width="78" height="24" rx="1.5"/>
+  <text class="nm" x="29" y="51">Niterra日本特殊陶業</text>
+  <text class="nm" x="29" y="59">市民会館</text>
+
+  <!-- 金山駅 -->
+  <rect class="stn" x="12" y="79" width="148" height="13" rx="2"/>
+  <line class="rail" x1="12" y1="82.5" x2="160" y2="82.5"/>
+  <text class="nm-v" x="21" y="90">金山駅</text>
+  <text class="sm" x="56" y="90">JR・名鉄・地下鉄</text>
+
+  <!-- ⑥出口 -->
+  <circle class="thin" cx="113.5" cy="74" r="4.4" fill="#fffdfb"/>
+  <text class="tag" x="113.5" y="75.6" text-anchor="middle">6</text>
+  <text class="sm" x="121" y="76">出口</text>
+
+  <!-- 徒歩ルート -->
+  <path class="walk" d="M113.5,69.6 L113.5,22 L101,22"/>
+  <path class="thin" d="M105,18.6 L100.3,22 L105,25.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <text class="sm" x="126" y="44">徒歩</text>
+  <text class="sm" x="126" y="51">約3分</text>
+
+  <!-- 地下連絡通路 -->
+  <path class="walk" d="M58,78 L58,66" stroke-dasharray="1.5 1.7"/>
+  <text class="sm" x="61" y="75">地下連絡通路</text>
+
+  <!-- 方位 -->
+  <g transform="translate(180 14)">
+    <path class="thin" d="M0,7 L0,-7 M-3.2,-3.4 L0,-7.4 L3.2,-3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="sm" x="0" y="13.5" text-anchor="middle">N</text>
+  </g>
+</svg>
