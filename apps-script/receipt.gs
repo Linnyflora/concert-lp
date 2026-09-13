@@ -140,6 +140,42 @@ DriveApp.getRootFolder().removeFile(file);
 return file;
 }
 
+// 宛名はフルネームで出します。
+// フォームの「領収書の宛名」に姓だけ（例：住田）と書かれていても、
+// 保護者様・生徒様のお名前と姓が一致すれば、そのフルネーム（例：住田未来）にします。
+// 会社名など、どちらにも当てはまらない場合は書かれたとおりに出します。
+function resolveReceiptName(receiptNameRaw, studentName, guardianName) {
+// 「住田様」のように敬称つきで書かれていても二重にならないようにします。
+var raw = trimName(trimName(receiptNameRaw).replace(/(様|さま|サマ)$/, ''));
+if (!raw) {
+return '上様';
+}
+var fullNames = [trimName(guardianName), trimName(studentName)];
+for (var i = 0; i < fullNames.length; i++) {
+var full = fullNames[i];
+if (!full) {
+continue;
+}
+if (compactName(full).length > compactName(raw).length &&
+compactName(full).indexOf(compactName(raw)) === 0) {
+raw = full;
+break;
+}
+}
+return raw + '　様';
+}
+
+function trimName(value) {
+if (value === null || value === undefined) {
+return '';
+}
+return String(value).replace(/^[\s　]+/, '').replace(/[\s　]+$/, '');
+}
+
+function compactName(value) {
+return value.replace(/[\s　]/g, '');
+}
+
 function onFormSubmit(e) {
 var itemResponses = e.response.getItemResponses();
 var answers = {};
@@ -149,13 +185,17 @@ answers[title] = itemResponses[i].getResponse();
 }
 
 var studentName = answers['お名前（生徒様）'] || '';
+var guardianName = '';
 var receiptNameRaw = '';
 for (var key in answers) {
 if (key.indexOf('領収書の宛名') === 0) {
 receiptNameRaw = answers[key];
 }
+if (key.indexOf('保護者') === 0) {
+guardianName = answers[key];
 }
-var receiptName = (receiptNameRaw && receiptNameRaw.length > 0) ? (receiptNameRaw + '　様') : '上様';
+}
+var receiptName = resolveReceiptName(receiptNameRaw, studentName, guardianName);
 
 var folder = getOrCreateFolder();
 var file = buildReceiptDoc(studentName, receiptName, folder, EVENT_DATE);
@@ -202,9 +242,13 @@ var headers = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
 
 var nameColIdx = headers.indexOf('お名前（生徒様）');
 var receiptColIdx = -1;
+var guardianColIdx = -1;
 for (var i = 0; i < headers.length; i++) {
 if (headers[i].indexOf('領収書の宛名') === 0) {
 receiptColIdx = i;
+}
+if (headers[i].indexOf('保護者') === 0) {
+guardianColIdx = i;
 }
 }
 
@@ -230,7 +274,8 @@ if (!studentName) {
 continue;
 }
 var receiptNameRaw = receiptColIdx >= 0 ? data[r][receiptColIdx] : '';
-var receiptName = (receiptNameRaw && receiptNameRaw.length > 0) ? (receiptNameRaw + '　様') : '上様';
+var guardianName = guardianColIdx >= 0 ? data[r][guardianColIdx] : '';
+var receiptName = resolveReceiptName(receiptNameRaw, studentName, guardianName);
 
 var file = buildReceiptDoc(studentName, receiptName, folder, today);
 
@@ -259,9 +304,13 @@ var headers = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
 
 var nameColIdx = headers.indexOf('お名前（生徒様）');
 var receiptColIdx = -1;
+var guardianColIdx = -1;
 for (var i = 0; i < headers.length; i++) {
 if (headers[i].indexOf('領収書の宛名') === 0) {
 receiptColIdx = i;
+}
+if (headers[i].indexOf('保護者') === 0) {
+guardianColIdx = i;
 }
 }
 
@@ -282,7 +331,8 @@ if (!studentName) {
 continue;
 }
 var receiptNameRaw = receiptColIdx >= 0 ? data[r][receiptColIdx] : '';
-var receiptName = (receiptNameRaw && receiptNameRaw.length > 0) ? (receiptNameRaw + '　様') : '上様';
+var guardianName = guardianColIdx >= 0 ? data[r][guardianColIdx] : '';
+var receiptName = resolveReceiptName(receiptNameRaw, studentName, guardianName);
 
 var oldTodayUrl = sheet.getRange(rowNum, todayUrlCol).getValue();
 if (oldTodayUrl) {
