@@ -7,6 +7,7 @@
 Everything is inlined so the flyer is a single file that prints straight from the
 browser (A4, no margins, "background graphics" on).
 """
+import base64
 import json
 import pathlib
 
@@ -14,12 +15,22 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 ART = json.loads((ROOT / 'assets' / 'flyer-art.json').read_text())
 
 
+def color_layer(name):
+    """クレヨンで塗った色の層（線画の下に敷く）。tools/crayon で作成。"""
+    p = ROOT / 'assets' / 'color' / f'{name}.png'
+    if not p.exists():
+        return ''
+    b64 = base64.b64encode(p.read_bytes()).decode()
+    return f'<img class="art-color" alt="" src="data:image/png;base64,{b64}">'
+
+
 def art(name, extra=''):
-    """One traced piece of the original artwork as an inline <svg>."""
+    """One traced piece of the original artwork: crayon colour + inline <svg> lines."""
     a = ART[name]
-    return (f'<svg class="art" viewBox="0 0 {a["w"]} {a["h"]}"{extra} '
-            f'preserveAspectRatio="xMidYMid meet">'
-            f'<path fill="currentColor" fill-rule="evenodd" d="{a["d"]}"/></svg>')
+    svg = (f'<svg class="art" viewBox="0 0 {a["w"]} {a["h"]}"{extra} '
+           f'preserveAspectRatio="xMidYMid meet">'
+           f'<path fill="currentColor" fill-rule="evenodd" d="{a["d"]}"/></svg>')
+    return f'<span class="art-stack">{color_layer(name)}{svg}</span>' 
 
 
 def svg_file(name):
