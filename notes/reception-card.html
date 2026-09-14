@@ -1,0 +1,204 @@
+<title>12年前のチラシ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap">
+<style>
+  :root {
+    --ink: #262e40;
+    --ink-soft: #4b5468;
+    --paper: #faf3ec;
+    --paper-soft: #f2e6da;
+    --paper-line: #e2d2c1;
+    --rose: #b97b74;
+    --brass: #93702f;
+    --desk: #e7ddd2;
+    --desk-ink: #5b5148;
+    --serif: "Noto Serif JP", "Hiragino Mincho ProN", "YuMincho", "Yu Mincho", serif;
+    --sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --desk: #24211f;
+      --desk-ink: #b7ab9e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --desk: #24211f;
+    --desk-ink: #b7ab9e;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--desk);
+    color: var(--desk-ink);
+    font-family: var(--sans);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 2.5rem 1rem;
+  }
+
+  /* ---------- カード本体（A6 / 105×148mm） ---------- */
+  .card {
+    container-type: inline-size;
+    width: 105mm;
+    max-width: 100%;
+    aspect-ratio: 105 / 148;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5.5cqi;
+    padding: 11cqi 10cqi;
+    box-shadow: 0 1px 2px rgba(38, 46, 64, 0.10), 0 14px 34px rgba(38, 46, 64, 0.16);
+    border: 1px solid var(--paper-line);
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 3.1cqi;
+    letter-spacing: 0.24em;
+    color: var(--brass);
+    text-indent: 0.24em;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 7.4cqi;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.04em;
+    text-wrap: balance;
+  }
+
+  .lede {
+    margin: 0;
+    font-size: 4.15cqi;
+    line-height: 2.05;
+    letter-spacing: 0.02em;
+  }
+
+  .alone {
+    margin: 0;
+    font-size: 4.6cqi;
+    line-height: 1.95;
+    letter-spacing: 0.03em;
+    color: var(--rose);
+    font-weight: 500;
+  }
+
+  .rule {
+    width: 100%;
+    height: 1px;
+    background: var(--paper-line);
+    border: 0;
+    margin: 0;
+  }
+
+  .sign {
+    font-family: var(--sans);
+    font-size: 3.05cqi;
+    line-height: 1.95;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+
+  .sign .name { color: var(--ink); }
+
+  .mark {
+    font-size: 4.4cqi;
+    color: var(--rose);
+    line-height: 1;
+  }
+
+  /* ---------- 画面だけの案内 ---------- */
+  .howto {
+    max-width: 30rem;
+    font-size: 0.82rem;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+  }
+
+  .howto h2 {
+    margin: 0 0 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--brass);
+  }
+
+  .howto ol {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .howto li + li { margin-top: 0.3rem; }
+
+  /* ---------- 印刷 ---------- */
+  @page { size: A6 portrait; margin: 0; }
+
+  @media print {
+    body {
+      background: #fff;
+      display: block;
+      padding: 0;
+      gap: 0;
+    }
+    .card {
+      width: 105mm;
+      height: 148mm;
+      max-width: none;
+      aspect-ratio: auto;
+      box-shadow: none;
+      border: 0;
+      break-inside: avoid;
+    }
+    .no-print { display: none !important; }
+  }
+</style>
+
+<div class="card">
+  <p class="eyebrow">ご案内</p>
+
+  <h1>12年前のチラシです</h1>
+
+  <p class="lede">
+    わたしがこの教室で教えはじめたばかりのころ、<br>
+    オーナーが作ってくださった、<br>
+    新聞折込のチラシです。
+  </p>
+
+  <p class="alone">
+    そのときの生徒さんは、<br>
+    たったひとりでした。
+  </p>
+
+  <p class="lede">
+    今日ここで演奏してくださる皆さんも、<br>
+    どうかそれぞれのペースで、<br>
+    好きなことを続けていってください。
+  </p>
+
+  <hr class="rule">
+
+  <p class="mark">♪</p>
+
+  <p class="sign">
+    2026年11月15日　1曲ひいてみよう やってみようコンサート<br>
+    アイズミュージックアカデミー　ピアノ講師　<span class="name">増見麻美</span>
+  </p>
+</div>
+
+<div class="howto no-print">
+  <h2>印刷のしかた</h2>
+  <ol>
+    <li>このページで印刷（Windows は Ctrl+P、Mac は ⌘+P）を選びます。</li>
+    <li>用紙サイズを <strong>A6</strong>、余白を「なし」にすると、この見た目のまま1枚で刷れます。</li>
+    <li>A6 が選べないときは A4 で刷り、まわりの余白を切り落としてください。厚手のマット紙だと、立てかけたときに自立します。</li>
+  </ol>
+</div>
