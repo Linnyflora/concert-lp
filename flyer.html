@@ -19,7 +19,7 @@
     --paper: #faf8f6;
     --ink: #2f2b28;
     --text: #37322e;
-    --muted: #6f6862;
+    --muted: #5b544e;
     --hair: #ddd5cb;
     --tint: #f3efe9;
   }
@@ -194,7 +194,7 @@
 
   .access-body { display: flex; gap: 5mm; align-items: stretch; }
 
-  .map { width: 74mm; flex: none; color: var(--ink); }
+  .map { width: 84mm; flex: none; color: var(--ink); }
   .map svg { width: 100%; height: auto; }
 
   .routes { flex: 1; display: flex; flex-direction: column; gap: 2mm; }
@@ -211,7 +211,7 @@
     padding-top: 0.2mm;
     font-size: 2.6mm;
     letter-spacing: 0.08em;
-    color: var(--muted);
+    color: #4a443f;
   }
   .route strong { font-weight: 700; color: var(--ink); }
 
@@ -233,7 +233,7 @@
     border-radius: 0.8mm;
   }
   .qr svg { width: 100%; height: auto; stroke: none; }
-  .qr-note { font-size: 2.5mm; line-height: 1.5; color: var(--muted); }
+  .qr-note { font-size: 2.7mm; line-height: 1.5; color: #3c3733; }
 
   /* ---------- 3つの特徴 ---------- */
   .features {
@@ -316,20 +316,20 @@
       <div class="map"><svg xmlns="http://www.w3.org/2000/svg" id="accessmap" viewBox="0 0 200 96" role="img"
      aria-label="金山駅から名古屋市音楽プラザまでの案内図">
   <style>
-    #accessmap .frame { fill: #fffdfb; stroke: #e3dbd1; stroke-width: 0.6; }
+    #accessmap .frame { fill: #fffdfb; stroke: #cdc2b4; stroke-width: 0.7; }
     #accessmap .road { fill: #f1ece5; }
-    #accessmap .blk { fill: #f7f4ef; stroke: currentColor; stroke-width: 0.5; }
+    #accessmap .blk { fill: #f7f4ef; stroke: currentColor; stroke-width: 0.6; }
     #accessmap .blk-v { fill: #fdf6ea; stroke: currentColor; stroke-width: 1.1; }
-    #accessmap .stn { fill: #efeae3; stroke: currentColor; stroke-width: 0.5; }
-    #accessmap .rail { stroke: currentColor; stroke-width: 0.5; }
+    #accessmap .stn { fill: #efeae3; stroke: currentColor; stroke-width: 0.6; }
+    #accessmap .rail { stroke: currentColor; stroke-width: 0.6; }
     #accessmap .walk { fill: none; stroke: currentColor; stroke-width: 0.9;
                        stroke-dasharray: 2.6 2.2; stroke-linecap: round; }
     #accessmap .thin { fill: none; stroke: currentColor; stroke-width: 0.6; }
     #accessmap text { font-family: "Zen Maru Gothic", sans-serif; fill: currentColor; }
     #accessmap .nm { font-size: 6.2px; font-weight: 500; }
     #accessmap .nm-v { font-size: 6.8px; font-weight: 500; }
-    #accessmap .sm { font-size: 5.2px; font-weight: 400; fill: #6f6862; }
-    #accessmap .tag { font-size: 5px; }
+    #accessmap .sm { font-size: 5.6px; font-weight: 500; fill: #3c3733; }
+    #accessmap .tag { font-size: 5.4px; font-weight: 500; }
   </style>
 
   <rect class="frame" x="0.3" y="0.3" width="199.4" height="95.4" rx="3.5"/>
