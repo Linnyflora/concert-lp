@@ -14,6 +14,10 @@ import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ART = json.loads((ROOT / 'assets' / 'flyer-art.json').read_text())
 
+# クレヨン塗りを使うかどうか。False なら元の線画だけのチラシになる。
+# 色の層は assets/color に残してあるので、True にすればいつでも戻せる。
+CRAYON = False
+
 
 def font_faces():
     """丸ゴシック（必要な字だけに絞ったもの）をHTMLに埋め込む。
@@ -32,7 +36,7 @@ def font_faces():
 def color_layer(name):
     """クレヨンで塗った色の層（線画の下に敷く）。tools/crayon で作成。"""
     p = ROOT / 'assets' / 'color' / f'{name}.png'
-    if not p.exists():
+    if not CRAYON or not p.exists():
         return ''
     b64 = base64.b64encode(p.read_bytes()).decode()
     return f'<img class="art-color" alt="" src="data:image/png;base64,{b64}">'
