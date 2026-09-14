@@ -8,6 +8,8 @@ var HEADER_IMAGE_WIDTH = 180;
 var HEADER_IMAGE_HEIGHT = 121;
 var FOOTER_IMAGE_WIDTH = 300;
 var FOOTER_IMAGE_HEIGHT = 89;
+// 発行者名のとなりに押す印鑑の大きさ（pt）。46pt ≒ 16mm
+var SEAL_IMAGE_SIZE = 46;
 
 function setupTrigger() {
 var triggers = ScriptApp.getProjectTriggers();
@@ -109,7 +111,13 @@ body.appendParagraph('');
 
 var issuerLabel = body.appendParagraph('発行者');
 issuerLabel.editAsText().setBold(true);
-body.appendParagraph('増見麻美');
+
+// 発行者名のとなりに印鑑
+var namePara = body.appendParagraph('増見麻美　　');
+var sealBlob = Utilities.newBlob(Utilities.base64Decode(RECEIPT_SEAL_IMAGE), 'image/png', 'seal.png');
+var seal = namePara.appendInlineImage(sealBlob);
+seal.setWidth(SEAL_IMAGE_SIZE);
+seal.setHeight(SEAL_IMAGE_SIZE);
 body.appendParagraph('〒456-0062　愛知県名古屋市熱田区大宝４−１５−２１');
 body.appendParagraph('登録番号：T2810958830122');
 
