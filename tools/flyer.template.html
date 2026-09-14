@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <title>ご案内チラシ｜1曲ひいてみよう やってみようコンサート</title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+{{fonts}}
 <style>
-  /* A4 一枚もの。印刷は「余白なし」「背景のグラフィック」を有効にしてください。 */
+  /* A4 一枚もの。家庭用プリンタでも端が切れないよう、デザインは
+     ひとまわり小さくして、まわりに余白と細い囲みを入れてある。
+     印刷は「等倍（100%）」「背景のグラフィックあり」で。 */
   @page { size: A4; margin: 0; }
 
   :root {
@@ -25,23 +25,48 @@
   html, body { margin: 0; padding: 0; background: #e8e4df; }
 
   body {
-    font-family: "Noto Sans JP", sans-serif;
+    font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+    font-weight: 300;
     color: var(--text);
     -webkit-font-smoothing: antialiased;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  .sheet {
+  /* 用紙そのもの */
+  .page {
     position: relative;
     width: 210mm;
     height: 297mm;
     margin: 0 auto;
-    background: var(--paper);
+    background: #ffffff;
     overflow: hidden;
   }
 
-  .maru { font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; }
+  /* 余白の内側の囲み。ここから内がデザイン */
+  .frame {
+    position: absolute;
+    left: 10mm;
+    top: 14.1mm;
+    width: 190mm;
+    height: 268.7mm;
+    border: 0.35mm solid #d8cec2;
+    overflow: hidden;
+  }
+
+  /* 中身は 210×297 のまま作って、囲みに収まるよう縮めている */
+  .sheet {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    background: var(--paper);
+    overflow: hidden;
+    transform: scale(0.904762);
+    transform-origin: top left;
+  }
+
+  /* 見出しまわりは同じ丸ゴシックの一段太いウエイト */
+  .maru { font-weight: 400; }
 
   svg { display: block; }
   .art { width: 100%; height: auto; color: var(--ink); }
@@ -243,6 +268,8 @@
 </style>
 </head>
 <body>
+<div class="page">
+<div class="frame">
 <div class="sheet">
 
   <div class="band">
@@ -331,6 +358,8 @@
     </div>
   </div>
 
+</div>
+</div>
 </div>
 </body>
 </html>

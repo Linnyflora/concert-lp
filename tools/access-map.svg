@@ -10,9 +10,9 @@
     .walk  { fill: none; stroke: currentColor; stroke-width: 0.9;
              stroke-dasharray: 2.6 2.2; stroke-linecap: round; }
     .thin  { fill: none; stroke: currentColor; stroke-width: 0.6; }
-    text   { font-family: "Noto Sans JP", sans-serif; fill: currentColor; }
+    text   { font-family: "Zen Maru Gothic", sans-serif; fill: currentColor; }
     .nm    { font-size: 6.2px; }
-    .nm-v  { font-size: 6.8px; font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif; }
+    .nm-v  { font-size: 6.8px; font-weight: 500; }
     .sm    { font-size: 5.2px; fill: #6f6862; }
     .tag   { font-size: 5px; }
   </style>

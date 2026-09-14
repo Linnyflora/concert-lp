@@ -15,6 +15,20 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 ART = json.loads((ROOT / 'assets' / 'flyer-art.json').read_text())
 
 
+def font_faces():
+    """丸ゴシック（必要な字だけに絞ったもの）をHTMLに埋め込む。
+    ネット接続に頼らないので、どの環境で開いても中国語フォントに化けない。"""
+    css = []
+    for name, weight in (('Light', 300), ('Regular', 400), ('Medium', 500)):
+        p = ROOT / 'assets' / 'fonts' / 'subset' / f'ZenMaruGothic-{name}.woff2'
+        b64 = base64.b64encode(p.read_bytes()).decode()
+        css.append(
+            '@font-face{font-family:"Zen Maru Gothic";font-style:normal;'
+            f'font-weight:{weight};font-display:block;'
+            f'src:url(data:font/woff2;base64,{b64}) format("woff2");}}')
+    return '<style>\n' + '\n'.join(css) + '\n</style>'
+
+
 def color_layer(name):
     """クレヨンで塗った色の層（線画の下に敷く）。tools/crayon で作成。"""
     p = ROOT / 'assets' / 'color' / f'{name}.png'
@@ -38,6 +52,7 @@ def svg_file(name):
 
 
 html = (ROOT / 'tools' / 'flyer.template.html').read_text()
+html = html.replace('{{fonts}}', font_faces())
 for key in ('header', 'bottom', 'note_l', 'note_r', 'divider',
             'leaf_l', 'leaf_r', 'icon_keys', 'icon_clock', 'icon_door'):
     html = html.replace('{{%s}}' % key, art(key))
