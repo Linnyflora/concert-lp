@@ -218,8 +218,17 @@
     margin-top: auto;
     padding-top: 2mm;
   }
-  .qr { width: 15mm; flex: none; color: var(--ink); }
-  .qr svg { width: 100%; height: auto; }
+  /* QRは印刷して読めるよう気持ち大きめに。まわりの白い余白（クワイエット
+     ゾーン）はここで確保する。線を継ぐとマスが痩せて読めなくなるので
+     stroke は必ず none。 */
+  .qr {
+    width: 20mm;
+    flex: none;
+    padding: 1.3mm;
+    background: #ffffff;
+    border-radius: 0.8mm;
+  }
+  .qr svg { width: 100%; height: auto; stroke: none; }
   .qr-note { font-size: 2.5mm; line-height: 1.5; color: var(--muted); }
 
   /* ---------- 3つの特徴 ---------- */

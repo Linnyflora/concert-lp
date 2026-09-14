@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 96" role="img"
+<svg xmlns="http://www.w3.org/2000/svg" id="accessmap" viewBox="0 0 200 96" role="img"
      aria-label="金山駅から名古屋市音楽プラザまでの案内図">
   <style>
-    .frame { fill: #fffdfb; stroke: #e3dbd1; stroke-width: 0.6; }
-    .road  { fill: #f1ece5; }
-    .blk   { fill: #f7f4ef; stroke: currentColor; stroke-width: 0.5; }
-    .blk-v { fill: #fdf6ea; stroke: currentColor; stroke-width: 1.1; }
-    .stn   { fill: #efeae3; stroke: currentColor; stroke-width: 0.5; }
-    .rail  { stroke: currentColor; stroke-width: 0.5; }
-    .walk  { fill: none; stroke: currentColor; stroke-width: 0.9;
-             stroke-dasharray: 2.6 2.2; stroke-linecap: round; }
-    .thin  { fill: none; stroke: currentColor; stroke-width: 0.6; }
-    text   { font-family: "Zen Maru Gothic", sans-serif; fill: currentColor; }
-    .nm    { font-size: 6.2px; font-weight: 500; }
-    .nm-v  { font-size: 6.8px; font-weight: 500; }
-    .sm    { font-size: 5.2px; font-weight: 400; fill: #6f6862; }
-    .tag   { font-size: 5px; }
+    #accessmap .frame { fill: #fffdfb; stroke: #e3dbd1; stroke-width: 0.6; }
+    #accessmap .road { fill: #f1ece5; }
+    #accessmap .blk { fill: #f7f4ef; stroke: currentColor; stroke-width: 0.5; }
+    #accessmap .blk-v { fill: #fdf6ea; stroke: currentColor; stroke-width: 1.1; }
+    #accessmap .stn { fill: #efeae3; stroke: currentColor; stroke-width: 0.5; }
+    #accessmap .rail { stroke: currentColor; stroke-width: 0.5; }
+    #accessmap .walk { fill: none; stroke: currentColor; stroke-width: 0.9;
+                       stroke-dasharray: 2.6 2.2; stroke-linecap: round; }
+    #accessmap .thin { fill: none; stroke: currentColor; stroke-width: 0.6; }
+    #accessmap text { font-family: "Zen Maru Gothic", sans-serif; fill: currentColor; }
+    #accessmap .nm { font-size: 6.2px; font-weight: 500; }
+    #accessmap .nm-v { font-size: 6.8px; font-weight: 500; }
+    #accessmap .sm { font-size: 5.2px; font-weight: 400; fill: #6f6862; }
+    #accessmap .tag { font-size: 5px; }
   </style>
 
   <rect class="frame" x="0.3" y="0.3" width="199.4" height="95.4" rx="3.5"/>
