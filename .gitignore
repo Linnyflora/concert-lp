@@ -1,0 +1,2 @@
+# 元フォントは tools/subset-fonts.py が取得する（配布するのは subset 側）
+assets/fonts/*.ttf
