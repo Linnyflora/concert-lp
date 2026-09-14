@@ -23,7 +23,7 @@ def font_faces():
     """丸ゴシック（必要な字だけに絞ったもの）をHTMLに埋め込む。
     ネット接続に頼らないので、どの環境で開いても中国語フォントに化けない。"""
     css = []
-    for name, weight in (('Light', 300), ('Regular', 400), ('Medium', 500)):
+    for name, weight in (('Regular', 400), ('Medium', 500), ('Bold', 700)):
         p = ROOT / 'assets' / 'fonts' / 'subset' / f'ZenMaruGothic-{name}.woff2'
         b64 = base64.b64encode(p.read_bytes()).decode()
         css.append(

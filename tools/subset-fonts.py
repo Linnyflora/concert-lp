@@ -17,7 +17,7 @@ SRC = ROOT / 'assets' / 'fonts'
 OUT = SRC / 'subset'
 OUT.mkdir(exist_ok=True)
 
-WEIGHTS = {'Light': 300, 'Regular': 400, 'Medium': 500}
+WEIGHTS = {'Light': 300, 'Regular': 400, 'Medium': 500, 'Bold': 700}
 
 # 元のフォントはリポジトリに置かず、必要なときに取ってくる（OFL）
 SOURCES = {
@@ -27,6 +27,8 @@ SOURCES = {
         'https://raw.githubusercontent.com/google/fonts/main/ofl/zenmarugothic/ZenMaruGothic-Regular.ttf',
     'ZenMaruGothic-Medium.ttf':
         'https://raw.githubusercontent.com/google/fonts/main/ofl/zenmarugothic/ZenMaruGothic-Medium.ttf',
+    'ZenMaruGothic-Bold.ttf':
+        'https://raw.githubusercontent.com/google/fonts/main/ofl/zenmarugothic/ZenMaruGothic-Bold.ttf',
     'NotoSansJP[wght].ttf':
         'https://raw.githubusercontent.com/google/fonts/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf',
 }
