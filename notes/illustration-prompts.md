@@ -105,18 +105,19 @@
 
 ```
 （共通スタイル）＋
-コンサートホールの舞台。スポットライトの下でエレクトーン（二段鍵盤の電子オルガン）を演奏する
-若い女性の後ろ姿。客席は暗く、舞台だけがあたたかい光に包まれている。
-緊張と誇らしさが同居するような、静かな高揚感。横長の構図。
-```
-
-### 挿絵A｜「合唱のオリンピック」の舞台
-
-```
-（共通スタイル）＋
 大きなコンサートホールの舞台に、たくさんの合唱団員がひな壇に並んで立っている。
 全員が正面を向いて歌っているところを、客席のうしろから遠く引きで描く。顔は描き込まない。
 舞台の上には世界各国から集まった人々の気配。あたたかい照明、誇らしくて高揚した空気。
+横断幕やロゴは描かず、画面には文字を一切入れないこと。
+```
+
+### 挿絵A｜エレクトーンフェスティバルの舞台
+
+```
+（共通スタイル）＋
+コンサートホールの舞台。スポットライトの下でエレクトーン（二段鍵盤の電子オルガン）を演奏する
+若い女性の後ろ姿。客席は暗く、舞台だけがあたたかい光に包まれている。
+緊張と誇らしさが同居するような、静かな高揚感。
 ```
 
 ### 挿絵B｜アメリカ・シンシナティの音遊び
@@ -211,8 +212,8 @@ no text, no letters, no logos, no numbers --ar 16:9
 | 2・ヘッダー | a teenage girl seen from behind, peeking from the wings of a recital hall stage, a woman piano teacher standing far away in soft stage light |
 | 2・挿絵A | a split composition: on the left a group music class with rows of small organs and children, on the right one piano with a single girl and her teacher sitting together, all figures seen from behind |
 | 2・挿絵B | an electone (two-manual electronic organ with foot pedals) glowing softly in a dim room, seen from a slight high angle, a girl's silhouette seated at it |
-| 3・ヘッダー | a young woman seen from behind performing on a two-manual electone organ on a concert hall stage, dark auditorium, warm spotlight, quiet elation |
-| 3・挿絵A | a large choir standing in tiered rows on a big concert hall stage, seen from far back in the dark auditorium, singers facing forward, faces not detailed, warm stage lighting, proud and elated atmosphere |
+| 3・ヘッダー | a large choir standing in tiered rows on a big concert hall stage, seen from far back in the dark auditorium, singers facing forward, faces not detailed, warm stage lighting, proud and elated atmosphere, no banners or logos |
+| 3・挿絵A | a young woman seen from behind performing on a two-manual electone organ on a concert hall stage, dark auditorium, warm spotlight, quiet elation |
 | 3・挿絵B | babies playing with tambourines and bells on a rug in an American living room, a young mother sitting on the floor clapping, suburban houses and a big tree outside the window, bright morning light |
 | 3・挿絵C | an open doorway of a piano studio with warm light spilling into the corridor, a woman seen from behind stepping toward it, a grand piano faintly visible inside |
 | 4・ヘッダー | a child's hand and an adult woman's hand resting side by side on the same piano keys, close but softly blurred background, quiet and warm |
