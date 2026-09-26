@@ -30,30 +30,30 @@
 
 ```
 （共通スタイル）＋
-昭和の日本の幼稚園の保育室。夕方の斜めの光が窓から差し込んでいる。
-部屋の奥で年上の男の子がオルガンに向かって座り、
-その後ろで、4歳くらいの小さな女の子が順番を待ちながら背中をじっと見ている。
-女の子は後ろ姿。床には小さな椅子が並び、空気にほこりの光の粒が舞っている。
-静かで、あこがれに満ちた雰囲気。横長の構図。
+昭和の日本の家の一室。だれもいない部屋で、5歳くらいの女の子がひとり、
+小さなオルガンの前に立っている。見えない生徒に向かって話しかけるように、片手を軽く上げている。
+女の子は後ろ姿。椅子は空っぽで、床には楽譜が一冊開いて置いてある。
+部屋にはほかに誰もいない。画面の右側に大きく余白をとる。
+午後のやわらかい光。すこしユーモラスで、あたたかい雰囲気。
 ```
 
-### 挿絵A｜まっさらなテキストの心残り
+### 挿絵A｜幼稚園のオルガン教室
+
+```
+（共通スタイル）＋
+昭和の日本の幼稚園の保育室。小さなオルガンが何台も並び、子どもたちが後ろ姿で座って弾いている。
+奥に先生が立っている。部屋の右手前には、母親と手をつないだ4歳くらいの女の子が、
+その様子をじっと見ている。ふたりとも後ろ姿。夕方の斜めの光。
+静かで、あこがれに満ちた雰囲気。
+```
+
+### 挿絵B｜まっさらなテキストの心残り
 
 ```
 （共通スタイル）＋
 古い日本の家の居間。木の机の上に、まだ一度も開かれていない新しい楽譜の本が置かれている。
 本は閉じたまま、傍らに鉛筆が一本。窓からのやわらかい光が本を照らしている。
 人物は登場しない、静物のような構図。少しさみしさのある、でもあたたかい雰囲気。
-```
-
-### 挿絵B｜ひとりの「ピアノの先生ごっこ」
-
-```
-（共通スタイル）＋
-昭和の日本の家の一室。だれもいない部屋で、小さな女の子がオルガンの前に立ち、
-見えない生徒に向かって話しかけるように、片手を軽く上げている。後ろ姿。
-椅子は空っぽ、床には楽譜が広げてある。ひとり遊びの、少しユーモラスであたたかい場面。
-午後のやわらかい光。
 ```
 
 ### 挿絵C｜小学1年生の夏、引っ越し
@@ -205,9 +205,9 @@ no text, no letters, no logos, no numbers --ar 16:9
 
 | 回 | シーン英文 |
 | --- | --- |
-| 1・ヘッダー | a little girl seen from behind, waiting and watching her older brother play a small organ in a 1970s Japanese kindergarten room, late afternoon light through the windows, dust motes in the air |
-| 1・挿絵A | a brand-new unopened music book resting on a wooden desk in an old Japanese living room, a single pencil beside it, soft window light, no people, quiet and slightly wistful |
-| 1・挿絵B | a little girl alone in an empty room, standing at a small organ and raising one hand as if speaking to invisible students, seen from behind, empty chair, sheet music on the floor, soft afternoon light, gently humorous and warm |
+| 1・ヘッダー | a little girl alone in an empty room, standing at a small organ and raising one hand as if speaking to invisible students, seen from behind, empty chair, an open music book on the floor, nobody else in the room, generous empty space on the right, soft afternoon light, gently humorous and warm |
+| 1・挿絵A | a 1970s Japanese kindergarten room with rows of small organs and children seen from behind playing them, a teacher standing at the far end, and in the near right corner a four-year-old girl holding her mother's hand and watching, both from behind, late afternoon light |
+| 1・挿絵B | a brand-new unopened music book resting on a wooden desk in an old Japanese living room, a single pencil beside it, soft window light, no people, quiet and slightly wistful |
 | 1・挿絵C | a first-grade girl seen from behind holding a lesson bag of sheet music, standing among stacked moving boxes, summer clouds outside the open window |
 | 2・ヘッダー | a teenage girl seen from behind, peeking from the wings of a recital hall stage, a woman piano teacher standing far away in soft stage light |
 | 2・挿絵A | a split composition: on the left a group music class with rows of small organs and children, on the right one piano with a single girl and her teacher sitting together, all figures seen from behind |
