@@ -90,8 +90,12 @@ body.appendParagraph('');
 
 var table = body.appendTable([
 ['品目', '数量', '単価', '金額'],
-['参加費（1曲ひいてみよう やってみようコンサート）', '1', '¥8,000', '¥8,000']
+['参加費', '1', '¥8,000', '¥8,000']
 ]);
+// 品目は「参加費」とコンサート名を2行に分けます。
+// 1行にすると列の幅に収まらず、へんなところで折り返されてしまいます。
+table.getRow(1).getCell(0)
+.appendParagraph('（1曲ひいてみよう やってみようコンサート）');
 var headerRow = table.getRow(0);
 for (var c = 0; c < headerRow.getNumCells(); c++) {
 headerRow.getCell(c).setBackgroundColor('#eeedfc');

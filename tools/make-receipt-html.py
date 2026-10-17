@@ -46,7 +46,7 @@ def build(to_name, issue_date):
 <p style="font-size:10pt;margin:0 0 10pt;">上記の金額を正に領収いたしました。</p>
 <table style="border-collapse:collapse;width:100%;font-size:10pt;margin-bottom:9pt;">
 <tr><td style="{th}">品目</td><td style="{th}width:14%">数量</td><td style="{th}width:18%">単価</td><td style="{th}width:18%">金額</td></tr>
-<tr><td style="{cell}">参加費（1曲ひいてみよう やってみようコンサート）</td>
+<tr><td style="{cell}">参加費<br>（1曲ひいてみよう&nbsp;やってみようコンサート）</td>
 <td style="{cell}text-align:center;">1</td><td style="{cell}text-align:right;">¥8,000</td>
 <td style="{cell}text-align:right;">¥8,000</td></tr>
 </table>
