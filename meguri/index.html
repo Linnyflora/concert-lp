@@ -6,37 +6,17 @@
 <title>おみかんちゃん 1分体操アプリ</title>
 <meta name="robots" content="noindex, nofollow">
 <style>
-  :root {
-    --ink: #4a2e3a;
-    --paper: #fff6f8;
-    --pink: #e0457b;
-    --pink-strong: #c7346a;
-  }
-
   * { box-sizing: border-box; }
 
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", "Noto Sans JP", sans-serif;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
+    background: #fff6f8;
   }
 
-  .wrap {
-    max-width: 560px;
-    margin: 0 auto;
-    padding: 16px 16px 40px;
-  }
-
-  /* チラシ画像。QRコード部分以外をタップするとアプリストアへ */
   .flyer {
     position: relative;
-    cursor: pointer;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 18px rgba(74, 46, 58, 0.15);
+    max-width: 560px;
+    margin: 0 auto;
   }
   .flyer img {
     display: block;
@@ -44,82 +24,34 @@
     height: auto;
   }
 
-  .hint {
-    text-align: center;
-    font-size: 0.9rem;
-    margin: 1rem 0 0.25rem;
-  }
-
-  .app-name {
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.15rem;
-    margin: 0 0 1rem;
-  }
-
-  .stores {
-    display: grid;
-    gap: 0.75rem;
-  }
-  .stores a {
+  /* QRコード以外の部分を覆うリンク。QRコードは長押しで読み取れるよう画像のまま残す */
+  .flyer a {
+    position: absolute;
     display: block;
-    text-align: center;
-    text-decoration: none;
-    background: var(--pink);
-    color: #fff;
-    padding: 0.9rem 1rem;
-    border-radius: 999px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    -webkit-tap-highlight-color: transparent;
   }
-  .stores a:hover, .stores a:focus-visible { background: var(--pink-strong); }
-  .stores a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .flyer .top    { left: 0;   top: 0;     width: 100%; height: 66%; }
+  .flyer .bottom { left: 0;   top: 87.7%; width: 100%; height: 12.3%; }
+  .flyer .left   { left: 0;   top: 66%;   width: 39%;  height: 21.7%; }
+  .flyer .right  { left: 65%; top: 66%;   width: 35%;  height: 21.7%; }
 </style>
 </head>
 <body>
-<main class="wrap">
-  <div class="flyer" id="flyer">
-    <img src="flyer.jpg" width="729" height="1101" alt="巡りの法則 チラシ（タップでおみかんちゃん1分体操アプリのダウンロードページへ）">
-  </div>
-
-  <p class="hint">▲ チラシをタップするとアプリのダウンロードページが開きます</p>
-  <p class="app-name">おみかんちゃん🍊 1分体操アプリ</p>
-
-  <div class="stores" id="stores">
-    <a href="https://apps.apple.com/jp/app/id6801839026" target="_blank" rel="noopener">iPhoneの方はこちら（App Store）</a>
-    <a href="https://play.google.com/store/apps/details?id=com.ayumiwatanabe.meguri" target="_blank" rel="noopener">Androidの方はこちら（Google Play）</a>
-  </div>
-</main>
+<div class="flyer">
+  <img src="flyer.jpg" width="729" height="1101" alt="巡りの法則 チラシ（タップでおみかんちゃん1分体操アプリのダウンロードページへ）">
+  <a class="store top" href="https://apps.apple.com/jp/app/id6801839026" target="_blank" rel="noopener" aria-label="おみかんちゃん1分体操アプリをダウンロード"></a>
+  <a class="store bottom" href="https://apps.apple.com/jp/app/id6801839026" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"></a>
+  <a class="store left" href="https://apps.apple.com/jp/app/id6801839026" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"></a>
+  <a class="store right" href="https://apps.apple.com/jp/app/id6801839026" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1"></a>
+</div>
 
 <script>
-  (function () {
-    var IOS_URL = 'https://apps.apple.com/jp/app/id6801839026';
-    var ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.ayumiwatanabe.meguri';
-
-    // チラシ内のQRコードの位置（画像に対する割合）。ここをタップしてもストアへは飛ばさず、
-    // 長押しでのQRコード読み取りをそのまま使えるようにする
-    var QR = { left: 0.39, top: 0.66, right: 0.65, bottom: 0.877 };
-
-    var ua = navigator.userAgent;
-    var isIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-    var isAndroid = /Android/.test(ua);
-
-    document.getElementById('flyer').addEventListener('click', function (e) {
-      var rect = this.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width;
-      var y = (e.clientY - rect.top) / rect.height;
-      if (x >= QR.left && x <= QR.right && y >= QR.top && y <= QR.bottom) return;
-
-      if (isIOS) {
-        location.href = IOS_URL;
-      } else if (isAndroid) {
-        location.href = ANDROID_URL;
-      } else {
-        // パソコンなど判別できない端末はボタンの場所へ
-        document.getElementById('stores').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+  // AndroidならGoogle Playへ。それ以外(iPhoneなど)はApp Storeのまま
+  if (/Android/.test(navigator.userAgent)) {
+    document.querySelectorAll('.store').forEach(function (a) {
+      a.href = 'https://play.google.com/store/apps/details?id=com.ayumiwatanabe.meguri';
     });
-  })();
+  }
 </script>
 </body>
 </html>
