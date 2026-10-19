@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>おみかんちゃん 1分体操アプリ</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root {
+    --ink: #4a2e3a;
+    --paper: #fff6f8;
+    --pink: #e0457b;
+    --pink-strong: #c7346a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Kaku Gothic ProN", "YuGothic", "Yu Gothic", "Noto Sans JP", sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 16px 16px 40px;
+  }
+
+  /* チラシ画像。QRコード部分以外をタップするとアプリストアへ */
+  .flyer {
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(74, 46, 58, 0.15);
+  }
+  .flyer img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hint {
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 1rem 0 0.25rem;
+  }
+
+  .app-name {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 0 0 1rem;
+  }
+
+  .stores {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .stores a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: var(--pink);
+    color: #fff;
+    padding: 0.9rem 1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .stores a:hover, .stores a:focus-visible { background: var(--pink-strong); }
+  .stores a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="flyer" id="flyer">
+    <img src="flyer.jpg" width="729" height="1101" alt="巡りの法則 チラシ（タップでおみかんちゃん1分体操アプリのダウンロードページへ）">
+  </div>
+
+  <p class="hint">▲ チラシをタップするとアプリのダウンロードページが開きます</p>
+  <p class="app-name">おみかんちゃん🍊 1分体操アプリ</p>
+
+  <div class="stores" id="stores">
+    <a href="https://apps.apple.com/jp/app/id6801839026" target="_blank" rel="noopener">iPhoneの方はこちら（App Store）</a>
+    <a href="https://play.google.com/store/apps/details?id=com.ayumiwatanabe.meguri" target="_blank" rel="noopener">Androidの方はこちら（Google Play）</a>
+  </div>
+</main>
+
+<script>
+  (function () {
+    var IOS_URL = 'https://apps.apple.com/jp/app/id6801839026';
+    var ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.ayumiwatanabe.meguri';
+
+    // チラシ内のQRコードの位置（画像に対する割合）。ここをタップしてもストアへは飛ばさず、
+    // 長押しでのQRコード読み取りをそのまま使えるようにする
+    var QR = { left: 0.39, top: 0.66, right: 0.65, bottom: 0.877 };
+
+    var ua = navigator.userAgent;
+    var isIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var isAndroid = /Android/.test(ua);
+
+    document.getElementById('flyer').addEventListener('click', function (e) {
+      var rect = this.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width;
+      var y = (e.clientY - rect.top) / rect.height;
+      if (x >= QR.left && x <= QR.right && y >= QR.top && y <= QR.bottom) return;
+
+      if (isIOS) {
+        location.href = IOS_URL;
+      } else if (isAndroid) {
+        location.href = ANDROID_URL;
+      } else {
+        // パソコンなど判別できない端末はボタンの場所へ
+        document.getElementById('stores').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  })();
+</script>
+</body>
+</html>
