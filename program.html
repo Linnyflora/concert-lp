@@ -58,7 +58,7 @@
   .art { display: block; width: 100%; height: auto; color: var(--ink); }
   .art-flourish { width: 58mm; margin: 0 auto 1mm; }
   .art-stage    { width: 100%; margin: 0; }
-  .art-divider  { width: 19mm; margin: 1.5mm auto 0; }
+  .art-divider  { width: 20mm; margin: 2mm auto 0; }
   .art-ribbon   { width: 100%; }
 
   /* ---- P1 表紙 ---- */
@@ -77,7 +77,7 @@
   .cover-venue { font-size: 11pt; margin: 0; line-height: 1.6; }
 
   /* ---- 見出し ---- */
-  .page-head { flex: none; padding: 7mm 14mm 0; text-align: center; }
+  .page-head { flex: none; padding: 10mm 14mm 0; text-align: center; }
   .page-head h2 { font-weight: 700; font-size: 14.5pt; letter-spacing: 0.28em; text-indent: 0.28em; margin: 0 0 2mm; }
   .page-head .en { font-size: 6.8pt; letter-spacing: 0.3em; color: var(--label); margin: 0; }
 
@@ -88,17 +88,17 @@
   .greet .sign .role { display: block; font-size: 8.5pt; color: var(--ink-soft); }
 
   /* ---- P3 プログラム ---- */
-  .program { flex: 1; padding: 3mm 14mm 0; }
+  .program { flex: 1; padding: 4mm 14mm 0; }
   .plist { margin: 0; padding: 0; list-style: none; }
   .plist li {
     display: grid; grid-template-columns: 6mm 26mm 1fr; column-gap: 2.5mm;
-    align-items: start; padding: 0.95mm 0; border-bottom: 0.25mm solid var(--line);
+    align-items: start; padding: 1.2mm 0; border-bottom: 0.25mm solid var(--line);
   }
   .plist li:first-child { border-top: 0.25mm solid var(--line); }
   .plist .n { font-size: 9.5pt; color: var(--label); line-height: 1.45; text-align: right; font-variant-numeric: tabular-nums; }
-  .plist .nm { display: block; font-size: 9.2pt; font-weight: 700; line-height: 1.2; }
-  .plist .kana { display: block; font-size: 6.3pt; color: var(--ink-soft); line-height: 1.2; letter-spacing: 0.04em; }
-  .plist .piece { display: block; font-size: 8.9pt; line-height: 1.3; text-wrap: pretty; }
+  .plist .nm { display: block; font-size: 9.4pt; font-weight: 700; line-height: 1.25; }
+  .plist .kana { display: block; font-size: 6.5pt; color: var(--ink-soft); line-height: 1.25; letter-spacing: 0.04em; }
+  .plist .piece { display: block; font-size: 9.1pt; line-height: 1.35; text-wrap: pretty; }
   .plist .by { font-size: 7.2pt; color: var(--ink-soft); margin-left: 2.2mm; }
   .plist .nb { white-space: nowrap; }
   .plist .sub { font-size: 7pt; margin-left: 2.4mm; }
@@ -109,10 +109,9 @@
   .plist li.feat { grid-template-columns: 6mm 46mm 1fr; }
   .plist li.feat .n { color: var(--ink); }
   .plist li.feat .kana { letter-spacing: 0.16em; color: var(--label); }
-  .plist li.opening { border-bottom: 0.4mm solid var(--ink); padding-bottom: 1.6mm; }
   .plist li.guest { border-top: 0.4mm solid var(--ink); padding-top: 1.6mm; }
   .program-foot {
-    margin: 2.5mm 0 0; padding-top: 2mm; border-top: 0.3mm solid var(--line);
+    margin: 3mm 0 0; padding-top: 2.2mm; border-top: 0.3mm solid var(--line);
     font-size: 7.6pt; line-height: 1.7; color: var(--ink-soft); text-align: center; text-wrap: pretty;
   }
 
@@ -254,11 +253,6 @@
     </div>
     <div class="program">
       <ol class="plist">
-        <li class="feat opening">
-          <span class="n">♪</span>
-          <span><span class="nm">モッキー（佐藤 基紀）先生</span><span class="kana">オープニング</span></span>
-          <span><span class="piece">曲目調整中</span></span>
-        </li>
         <li>
           <span class="n">1</span>
           <span><span class="nm">澤村 杏奈</span><span class="kana">さわむら あんな</span></span>
