@@ -91,7 +91,7 @@
   .program { flex: 1; padding: 3mm 14mm 0; }
   .plist { margin: 0; padding: 0; list-style: none; }
   .plist li {
-    display: grid; grid-template-columns: 6mm 30mm 1fr; column-gap: 2.5mm;
+    display: grid; grid-template-columns: 6mm 26mm 1fr; column-gap: 2.5mm;
     align-items: start; padding: 0.95mm 0; border-bottom: 0.25mm solid var(--line);
   }
   .plist li:first-child { border-top: 0.25mm solid var(--line); }
@@ -101,6 +101,9 @@
   .plist .piece { display: block; font-size: 8.9pt; line-height: 1.3; text-wrap: pretty; }
   .plist .by { font-size: 7.2pt; color: var(--ink-soft); margin-left: 2.2mm; }
   .plist .nb { white-space: nowrap; }
+  .plist .sub { font-size: 7pt; margin-left: 2.4mm; }
+  .plist .by.block { display: block; margin-left: 0; margin-top: 0.5mm; }
+  .plist .by.fit { font-size: 6.2pt; }
 
   .plist .piece + .piece { margin-top: 0.8mm; }
   .plist li.feat { grid-template-columns: 6mm 46mm 1fr; }
@@ -284,7 +287,7 @@
         <li>
           <span class="n">6</span>
           <span><span class="nm">小島 愛弥</span><span class="kana">こじま あいや</span></span>
-          <span><span class="piece">トライ・エヴリシング<span class="by"><span class="nb">シーア・ファーラー</span><wbr>／<span class="nb">ミッケル・エリクセン</span><wbr>／<span class="nb">トール・エリック・ハーマセン</span></span></span></span>
+          <span><span class="piece">トライ・エヴリシング<span class="by block fit"><span class="nb">シーア・ファーラー</span><wbr>／<span class="nb">ミッケル・エリクセン</span><wbr>／<span class="nb">トール・エリック・ハーマセン</span></span></span></span>
         </li>
         <li>
           <span class="n">7</span>
@@ -304,7 +307,7 @@
         <li>
           <span class="n">10</span>
           <span><span class="nm">後藤 優奈</span><span class="kana">ごとう ゆな</span></span>
-          <span><span class="piece">机さする<span class="by"><span class="nb">トクマルシューゴ</span></span></span><span class="piece">「映画ちいかわ人魚の島のひみつ」エンディングテーマ</span></span>
+          <span><span class="piece">机さする<span class="sub">「映画ちいかわ人魚の島のひみつ」エンディングテーマ</span><span class="by block"><span class="nb">トクマルシューゴ</span></span></span></span>
         </li>
         <li>
           <span class="n">11</span>
