@@ -58,7 +58,7 @@
   .art { display: block; width: 100%; height: auto; color: var(--ink); }
   .art-flourish { width: 58mm; margin: 0 auto 1mm; }
   .art-stage    { width: 100%; margin: 0; }
-  .art-divider  { width: 22mm; margin: 3.5mm auto 0; }
+  .art-divider  { width: 20mm; margin: 2mm auto 0; }
   .art-ribbon   { width: 100%; }
 
   /* ---- P1 表紙 ---- */
@@ -77,7 +77,7 @@
   .cover-venue { font-size: 11pt; margin: 0; line-height: 1.6; }
 
   /* ---- 見出し ---- */
-  .page-head { flex: none; padding: 17mm 14mm 0; text-align: center; }
+  .page-head { flex: none; padding: 10mm 14mm 0; text-align: center; }
   .page-head h2 { font-weight: 700; font-size: 14.5pt; letter-spacing: 0.28em; text-indent: 0.28em; margin: 0 0 2mm; }
   .page-head .en { font-size: 6.8pt; letter-spacing: 0.3em; color: var(--label); margin: 0; }
 
@@ -88,21 +88,30 @@
   .greet .sign .role { display: block; font-size: 8.5pt; color: var(--ink-soft); }
 
   /* ---- P3 プログラム ---- */
-  .program { flex: 1; padding: 6mm 14mm 0; }
+  .program { flex: 1; padding: 4mm 14mm 0; }
   .plist { margin: 0; padding: 0; list-style: none; }
   .plist li {
     display: grid; grid-template-columns: 6mm 30mm 1fr; column-gap: 2.5mm;
-    align-items: start; padding: 1.2mm 0; border-bottom: 0.25mm solid var(--line);
+    align-items: start; padding: 0.8mm 0; border-bottom: 0.25mm solid var(--line);
   }
   .plist li:first-child { border-top: 0.25mm solid var(--line); }
-  .plist .n { font-size: 10pt; color: var(--label); line-height: 1.45; text-align: right; font-variant-numeric: tabular-nums; }
-  .plist .nm { display: block; font-size: 9.5pt; font-weight: 700; line-height: 1.3; }
-  .plist .kana { display: block; font-size: 6.6pt; color: var(--ink-soft); line-height: 1.3; letter-spacing: 0.04em; }
-  .plist .piece { display: block; font-size: 9.1pt; line-height: 1.38; text-wrap: pretty; }
-  .plist .by { display: block; font-size: 7pt; color: var(--ink-soft); line-height: 1.32; margin-top: 0.2mm; text-wrap: pretty; }
+  .plist .n { font-size: 9.5pt; color: var(--label); line-height: 1.45; text-align: right; font-variant-numeric: tabular-nums; }
+  .plist .nm { display: block; font-size: 9pt; font-weight: 700; line-height: 1.22; }
+  .plist .kana { display: block; font-size: 6.2pt; color: var(--ink-soft); line-height: 1.2; letter-spacing: 0.04em; }
+  .plist .piece { display: block; font-size: 8.6pt; line-height: 1.28; text-wrap: pretty; }
+  .plist .by { display: block; font-size: 6.6pt; color: var(--ink-soft); line-height: 1.22; margin-top: 0.15mm; text-wrap: pretty; }
+
+  .plist .grade {
+    display: inline-block; margin-left: 1.4mm; font-size: 6pt;
+    color: var(--label); letter-spacing: 0.02em;
+  }
+  .plist .piece + .piece { margin-top: 0.5mm; }
+  .plist li.guest { grid-template-columns: 6mm 46mm 1fr; border-top: 0.4mm solid var(--ink); padding-top: 1.6mm; }
+  .plist li.guest .n { color: var(--ink); }
+  .plist li.guest .kana { letter-spacing: 0.16em; color: var(--label); }
   .program-foot {
-    margin: 3.5mm 0 0; padding-top: 2.5mm; border-top: 0.3mm solid var(--line);
-    font-size: 8pt; line-height: 1.75; color: var(--ink-soft); text-align: center; text-wrap: pretty;
+    margin: 3mm 0 0; padding-top: 2.2mm; border-top: 0.3mm solid var(--line);
+    font-size: 7.6pt; line-height: 1.7; color: var(--ink-soft); text-align: center; text-wrap: pretty;
   }
 
   /* ---- P4 裏表紙 ---- */
@@ -218,7 +227,7 @@
       <p>本日はお忙しいなか、「1曲ひいてみよう やってみようコンサート」にお越しくださり、ありがとうございます。</p>
       <p>このコンサートは、「人前で弾くのは緊張する」という気持ちを抱えながらも、一歩を踏み出してみたい生徒さんのための、小さな挑戦の場として始まりました。</p>
       <p>ふだんのレッスン室を飛び出して、憧れのグランドピアノで、たった1曲。上手に弾くことよりも、「人前で弾き切った」という経験そのものを大切にしたいと思っています。</p>
-      <p>本日は13名の生徒さんが、それぞれに選んだ大切な1曲を演奏します。どの曲にも、ここまで重ねてきた練習の時間が詰まっています。どうぞあたたかく見守っていただけましたら幸いです。</p>
+      <p>本日は14名の生徒さんが、それぞれに選んだ大切な1曲を演奏します。どの曲にも、ここまで重ねてきた練習の時間が詰まっています。どうぞあたたかく見守っていただけましたら幸いです。</p>
       <p class="sign">アイズミュージックアカデミー<br><span class="role">ピアノ講師</span>増見 麻美</p>
     </div>
   </div>
@@ -233,68 +242,78 @@
       <ol class="plist">
         <li>
           <span class="n">1</span>
-          <span><span class="nm">住田 未来</span><span class="kana">すみだ みく</span></span>
-          <span><span class="piece">オリジナル曲（弾き語り）</span><span class="by">住田 未来</span></span>
+          <span><span class="nm">澤村 杏奈</span><span class="kana">さわむら あんな<span class="grade">小学1年</span></span></span>
+          <span><span class="piece">ちょうちょう<span class="by">ドイツ民謡</span></span></span>
         </li>
         <li>
           <span class="n">2</span>
-          <span><span class="nm">小島 愛弥</span><span class="kana">こじま あいや</span></span>
-          <span><span class="piece">トライ・エヴリシング</span><span class="by">シーア・ファーラー／ミッケル・エリクセン／トール・エリック・ハーマセン</span></span>
+          <span><span class="nm">後藤 優衣</span><span class="kana">ごとう ゆい<span class="grade">小学2年</span></span></span>
+          <span><span class="piece">ピタゴラスイッチ<span class="by">栗原 正巳</span></span></span>
         </li>
         <li>
           <span class="n">3</span>
-          <span><span class="nm">鬼頭 享花</span><span class="kana">きとう きょうか</span></span>
-          <span><span class="piece">いつも何度でも</span><span class="by">木村 弓</span></span>
+          <span><span class="nm">髙木 響</span><span class="kana">たかぎ ひびき<span class="grade">小学2年</span></span></span>
+          <span><span class="piece">つきのひかりに<span class="by">フランス民謡</span></span><span class="piece">スペインの踊り（連弾）</span></span>
         </li>
         <li>
           <span class="n">4</span>
-          <span><span class="nm">後藤 優衣</span><span class="kana">ごとう ゆい</span></span>
-          <span><span class="piece">ピタゴラスイッチ</span><span class="by">栗原 正巳</span></span>
+          <span><span class="nm">横江 匡哉</span><span class="kana">よこえ まさや<span class="grade">小学2年</span></span></span>
+          <span><span class="piece">ゆきだるまつくろう<span class="by">Kristen Anderson-Lopez</span></span></span>
         </li>
         <li>
           <span class="n">5</span>
-          <span><span class="nm">後藤 優奈</span><span class="kana">ごとう ゆな</span></span>
-          <span><span class="piece">机さする「映画ちいかわ人魚の島のひみつ」エンディングテーマ</span><span class="by">トクマルシューゴ</span></span>
+          <span><span class="nm">田中 里歩</span><span class="kana">たなか りほ<span class="grade">小学3年</span></span></span>
+          <span><span class="piece">ちきちきばんばん<span class="by">リチャード・M・シャーマン／ロバート・B・シャーマン</span></span></span>
         </li>
         <li>
           <span class="n">6</span>
-          <span><span class="nm">髙木 響</span><span class="kana">たかぎ ひびき</span></span>
-          <span><span class="piece">つきのひかりに／スペインの踊り（先生と連弾）</span><span class="by">フランス民謡</span></span>
+          <span><span class="nm">小島 愛弥</span><span class="kana">こじま あいや<span class="grade">小学4年</span></span></span>
+          <span><span class="piece">トライ・エヴリシング<span class="by">シーア・ファーラー／ミッケル・エリクセン／トール・エリック・ハーマセン</span></span></span>
         </li>
         <li>
           <span class="n">7</span>
-          <span><span class="nm">山口 佳穂</span><span class="kana">やまぐち かほ</span></span>
-          <span><span class="piece">GET BACK</span><span class="by">北川 悠仁／Teddy Load</span></span>
+          <span><span class="nm">澤村 凜花</span><span class="kana">さわむら りんか<span class="grade">小学4年</span></span></span>
+          <span><span class="piece">お菓子の妖精<span class="by">ししくい たかえ</span></span></span>
         </li>
         <li>
           <span class="n">8</span>
-          <span><span class="nm">横江 匡哉</span><span class="kana">よこえ まさや</span></span>
-          <span><span class="piece">ゆきだるまつくろう</span><span class="by">Kristen Anderson-Lopez</span></span>
+          <span><span class="nm">村田 凪</span><span class="kana">むらた なぎ<span class="grade">小学4年</span></span></span>
+          <span><span class="piece">Brand New<span class="by">大森 元基</span></span></span>
         </li>
         <li>
           <span class="n">9</span>
-          <span><span class="nm">澤村 凜花</span><span class="kana">さわむら りんか</span></span>
-          <span><span class="piece">お菓子の妖精</span><span class="by">ししくい たかえ</span></span>
+          <span><span class="nm">後藤 優奈</span><span class="kana">ごとう ゆな<span class="grade">小学5年</span></span></span>
+          <span><span class="piece">机さする<span class="by">トクマルシューゴ</span></span><span class="piece">「映画ちいかわ人魚の島のひみつ」エンディングテーマ</span></span>
         </li>
         <li>
           <span class="n">10</span>
-          <span><span class="nm">澤村 杏奈</span><span class="kana">さわむら あんな</span></span>
-          <span><span class="piece">ちょうちょう</span><span class="by">ドイツ民謡</span></span>
+          <span><span class="nm">山口 佳穂</span><span class="kana">やまぐち かほ<span class="grade">小学5年</span></span></span>
+          <span><span class="piece">GET BACK<span class="by">北川 悠仁／Teddy Load</span></span></span>
         </li>
         <li>
           <span class="n">11</span>
-          <span><span class="nm">村田 凪</span><span class="kana">むらた なぎ</span></span>
-          <span><span class="piece">Brand New</span><span class="by">大森 元基</span></span>
+          <span><span class="nm">鬼頭 享花</span><span class="kana">きとう きょうか<span class="grade">大人</span></span></span>
+          <span><span class="piece">いつも何度でも<span class="by">木村 弓</span></span></span>
         </li>
         <li>
           <span class="n">12</span>
-          <span><span class="nm">小林 愛弓</span><span class="kana">こばやし あゆみ</span></span>
-          <span><span class="piece">インベンション 7番</span><span class="by">J.S.バッハ</span></span>
+          <span><span class="nm">小林 愛弓</span><span class="kana">こばやし あゆみ<span class="grade">大人</span></span></span>
+          <span><span class="piece">インベンション 7番<span class="by">J.S.バッハ</span></span></span>
         </li>
         <li>
           <span class="n">13</span>
-          <span><span class="nm">田中 里歩</span><span class="kana">たなか りほ</span></span>
-          <span><span class="piece">ちきちきばんばん</span><span class="by">リチャード・M・シャーマン／ロバート・B・シャーマン</span></span>
+          <span><span class="nm">長尾 麻里</span><span class="kana">ながお まり<span class="grade">大人</span></span></span>
+          <span><span class="piece">私はピアノ</span></span>
+        </li>
+        <li>
+          <span class="n">14</span>
+          <span><span class="nm">住田 未来</span><span class="kana">すみだ みく<span class="grade">大人</span></span></span>
+          <span><span class="piece">オリジナル曲（弾き語り）<span class="by">住田 未来</span></span></span>
+        </li>
+        <li class="guest">
+          <span class="n">♪</span>
+          <span><span class="nm">モッキー（佐藤 基紀）先生</span><span class="kana">スペシャルゲスト</span></span>
+          <span><span class="piece">曲目調整中</span></span>
         </li>
       </ol>
       <p class="program-foot">演奏の合間は、ご自由にご入退場いただけます。<br>曲目・演奏順は当日変更になる場合がございます。</p>
