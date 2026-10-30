@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>道案内（金山駅→名古屋市音楽プラザ）</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#2f2b28;--ink-soft:#6f6861;--label:#8e857b;--line:#ded6cc;--red:#d6453f;
+    --maru:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","YuGothic","Yu Gothic","Meiryo","Noto Sans JP","Noto Sans CJK JP",sans-serif;}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#555;font-family:var(--maru);color:var(--ink);-webkit-font-smoothing:antialiased}
+  /* Reels / ストーリーズ 9:16 */
+  .stage{width:1080px;height:1920px;position:relative;background:#fff;overflow:hidden;margin:0 auto}
+
+  .hdr{position:absolute;top:96px;left:0;right:0;text-align:center}
+  .hdr .k{margin:0;font-size:28px;letter-spacing:.34em;text-indent:.34em;color:var(--label)}
+  .hdr .v{margin:14px 0 0;font-size:52px;font-weight:700;letter-spacing:.02em}
+  .hdr .s{margin:12px 0 0;font-size:31px;color:var(--ink-soft)}
+
+  .mapwrap{position:absolute;top:400px;left:80px;width:920px;opacity:0}
+  
+  .map { display: block; width: 100%; height: auto; color: var(--ink); }
+  .map text { font-family: var(--maru); fill: var(--ink); }
+  .t-n       { font-size: 25px; font-weight: 700; }
+  .t-band    { font-size: 21px; fill: var(--ink-soft); letter-spacing: .08em; }
+  .t-box-b   { font-size: 27px; font-weight: 700; }
+  .t-box-s   { font-size: 22px; fill: var(--ink-soft); }
+  .t-stn     { font-size: 30px; font-weight: 700; }
+  .t-exit    { font-size: 20px; font-weight: 700; }
+  .t-exit-l  { font-size: 23px; font-weight: 700; fill: var(--red); }
+  .t-walk    { font-size: 23px; font-weight: 700; fill: var(--red); }
+  .map .goal rect { stroke: var(--red); }
+  .map .goal .t-box-b { fill: var(--red); }
+  .map .route, .map .arrow { stroke: var(--red); }
+
+  .map .route{stroke-linecap:round}
+  .map .arrow{opacity:0}
+  .map .exit circle{transform-box:fill-box;transform-origin:center}
+
+  .cap{position:absolute;left:80px;right:80px;top:1230px;text-align:center}
+  .cap .no{margin:0 0 18px;font-size:34px;font-weight:700;color:var(--red);letter-spacing:.2em}
+  .cap .tx{margin:0;font-size:52px;font-weight:700;line-height:1.5}
+  .cap .sub{margin:16px 0 0;font-size:31px;color:var(--ink-soft);line-height:1.5}
+
+  .foot{position:absolute;left:80px;right:80px;bottom:110px;text-align:center;opacity:0}
+  .foot .d{margin:0;font-size:60px;font-weight:700}
+  .foot .t{margin:10px 0 0;font-size:36px}
+  .foot .f{margin:22px 0 0;font-size:40px;font-weight:700;color:var(--red)}
+
+  .title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;text-align:center;padding:0 90px}
+  .title .k{margin:0 0 26px;font-size:30px;letter-spacing:.34em;text-indent:.34em;color:var(--label)}
+  .title .m{margin:0;font-size:82px;font-weight:700;line-height:1.42}
+  .title .n{margin:34px 0 0;font-size:46px;font-weight:700;color:var(--red)}
+  .title .s{margin:20px 0 0;font-size:32px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+
+  <div class="hdr" id="hdr">
+    <p class="k">ACCESS</p>
+    <p class="v">金山駅から 会場まで</p>
+    <p class="s">名古屋市音楽プラザ 1階 音楽サロン</p>
+  </div>
+
+  <div class="mapwrap" id="mapwrap"><svg class="map" viewBox="0 18 640 508" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 方位 -->
+    <g class="north">
+      <line x1="598" y1="86" x2="598" y2="38" stroke-width="2"/>
+      <path d="M591 48 L598 34 L605 48" stroke-width="2"/>
+      <text x="598" y="108" class="t-n" text-anchor="middle" stroke="none">N</text>
+    </g>
+
+    <!-- 地下連絡通路の帯 -->
+    <rect class="band" x="92" y="356" width="452" height="34" rx="4" fill="#f1ece4" stroke="none"/>
+    <text x="196" y="379" class="t-band" text-anchor="middle" stroke="none">地下連絡通路</text>
+
+    <!-- 名古屋市音楽プラザ（目的地） -->
+    <g class="goal">
+      <rect x="72" y="128" width="252" height="92" rx="6" stroke-width="3"/>
+      <text x="198" y="166" class="t-box-b" text-anchor="middle" stroke="none">名古屋市音楽プラザ</text>
+      <text x="198" y="198" class="t-box-s" text-anchor="middle" stroke="none">1階 音楽サロン</text>
+    </g>
+
+    <!-- 市民会館 -->
+    <g class="hall">
+      <rect x="72" y="262" width="252" height="76" rx="6" stroke-width="1.8"/>
+      <text x="198" y="292" class="t-box-s" text-anchor="middle" stroke="none">Niterra日本特殊陶業</text>
+      <text x="198" y="318" class="t-box-s" text-anchor="middle" stroke="none">市民会館</text>
+    </g>
+
+    <!-- 金山駅 -->
+    <g class="stn">
+      <rect x="44" y="446" width="552" height="66" rx="6" stroke-width="2.4"/>
+      <text x="86" y="488" class="t-stn" stroke="none">金山駅</text>
+      <text x="228" y="487" class="t-box-s" stroke="none">JR・名鉄・地下鉄</text>
+    </g>
+
+    <!-- ⑥出口 -->
+    <g class="exit">
+      <circle cx="516" cy="418" r="17" stroke-width="2.2"/>
+      <text x="516" y="426" class="t-exit" text-anchor="middle" stroke="none">6</text>
+      <text x="488" y="427" class="t-exit-l" text-anchor="end" stroke="none">⑥出口</text>
+    </g>
+
+    <!-- 徒歩約3分 -->
+    <text x="470" y="243" class="t-walk" text-anchor="middle" stroke="none">徒歩約3分</text>
+
+    <!-- 経路（⑥出口 → 連絡通路 → 北へ → 音楽プラザ） -->
+    <path class="route" d="M516 399 L516 373 L352 373 L352 174 L334 174"
+          stroke-width="5" stroke-dasharray="0 1"/>
+    <path class="arrow" d="M344 166 L330 174 L344 182" stroke-width="5"/>
+  </g>
+</svg></div>
+
+  <div class="cap" id="cap">
+    <p class="no" id="capno"></p>
+    <p class="tx" id="captx"></p>
+    <p class="sub" id="capsub"></p>
+  </div>
+
+  <div class="foot" id="foot">
+    <p class="d">11月15日（日）</p>
+    <p class="t">10:00〜11:00</p>
+    <p class="f">入場無料・ご予約不要</p>
+  </div>
+
+  <div class="title" id="title">
+    <p class="k">ACCESS</p>
+    <p class="m">金山駅から<br>会場まで</p>
+    <p class="n">地下鉄 ⑥出口から 徒歩約3分</p>
+    <p class="s">名古屋市音楽プラザ 1階 音楽サロン</p>
+  </div>
+
+</div>
+<script>
+(function(){
+  var route = document.querySelector('.map .route');
+  var arrow = document.querySelector('.map .arrow');
+  var L = route.getTotalLength();
+  route.style.strokeDasharray = L + ' ' + L;
+
+  var STEPS = [
+    {t0:2.6, no:'STEP 1', tx:'地下鉄「金山」駅<br>⑥出口を出ます', sub:'名城線・名港線', p0:0,     p1:0},
+    {t0:5.0, no:'STEP 2', tx:'地下連絡通路を通って<br>市民会館の方へ',   sub:'市民会館へつながる地下連絡通路があります', p0:0, p1:0.467},
+    {t0:7.6, no:'STEP 3', tx:'北へ進むと<br>名古屋市音楽プラザ',        sub:'⑥出口から徒歩約3分', p0:0.467, p1:1},
+    {t0:10.2,no:'GOAL',   tx:'1階 音楽サロン',                        sub:'どなた様も出入り自由です', p0:1, p1:1}
+  ];
+  var END = 14.0;
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+  function ease(x){return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;}
+
+  window.seek = function(t){
+    var title=document.getElementById('title');
+    // タイトル：0〜2.2 表示、2.2〜2.6 でフェードアウト
+    title.style.opacity = t<2.2 ? 1 : clamp(1-(t-2.2)/0.4,0,1);
+    title.style.display = t<2.65 ? 'flex' : 'none';
+
+    var show = clamp((t-2.4)/0.5,0,1);
+    document.getElementById('hdr').style.opacity = show;
+    document.getElementById('mapwrap').style.opacity = show;
+
+    // 現在のステップ
+    var cur=STEPS[0], idx=0;
+    for (var i=0;i<STEPS.length;i++){ if(t>=STEPS[i].t0){cur=STEPS[i]; idx=i;} }
+    var next = STEPS[idx+1];
+    var span = (next? next.t0 : END) - cur.t0;
+    var local = clamp((t-cur.t0)/Math.max(span-0.6,0.1),0,1);
+
+    var p = cur.p0 + (cur.p1-cur.p0)*ease(local);
+    route.style.strokeDashoffset = L*(1-p);
+    arrow.style.opacity = p>=0.999 ? 1 : 0;
+
+    document.getElementById('capno').innerHTML  = cur.no;
+    document.getElementById('captx').innerHTML  = cur.tx;
+    document.getElementById('capsub').innerHTML = cur.sub;
+    // キャプションの切り替えを軽くフェード
+    var fade = clamp((t-cur.t0)/0.35,0,1);
+    document.getElementById('cap').style.opacity = show*fade;
+
+    // ⑥出口を STEP1 で強調
+    var ex = document.querySelector('.map .exit circle');
+    var pulse = (t>=2.6 && t<5.0) ? 1+0.12*Math.sin((t-2.6)*6) : 1;
+    ex.style.transform = 'scale('+pulse+')';
+    ex.style.stroke = (t>=2.6 && t<5.0) ? 'var(--red)' : 'currentColor';
+
+    document.getElementById('foot').style.opacity = clamp((t-10.6)/0.6,0,1);
+  };
+  window.VIDEO_END = END;
+  window.seek(0);
+})();
+</script>
+</body>
+</html>
