@@ -32,7 +32,7 @@
     "@type": "Offer",
     "price": "8800",
     "priceCurrency": "JPY",
-    "availability": "https://schema.org/LimitedAvailability",
+    "availability": "https://schema.org/SoldOut",
     "url": "https://docs.google.com/forms/d/e/1FAIpQLSd2qwZmi6aLJR2vvkH9Ncg_iVP7yDOK7WahsETwhCLFYlxbVg/viewform"
   },
   "performer": {
@@ -69,12 +69,12 @@
     {
       "@type": "Question",
       "name": "申し込みの締め切りはいつですか？",
-      "acceptedAnswer": { "@type": "Answer", "text": "募集人数10名になり次第、締め切らせていただきます。先着順のため、お早めのお申し込みをおすすめします。" }
+      "acceptedAnswer": { "@type": "Answer", "text": "おかげさまで定員の10名に達したため、参加の受付は終了しました。見学はどなたでも大歓迎です。" }
     },
     {
       "@type": "Question",
       "name": "参加費の支払い方法を教えてください。",
-      "acceptedAnswer": { "@type": "Answer", "text": "詳しくはお申し込み後にご案内します。ご不明な点はアイズミュージックアカデミー受付(052-265-8655、12:00〜21:00)までお問い合わせください。" }
+      "acceptedAnswer": { "@type": "Answer", "text": "お申し込みいただいた方には個別にご案内しています。ご不明な点はアイズミュージックアカデミー受付(052-265-8655、12:00〜21:00)までお問い合わせください。" }
     }
   ]
 }
@@ -434,7 +434,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .seal, .hero-eyebrow, .hero-title, .hero-meta, .btn { animation: none; opacity: 1; }
+    .seal, .hero-eyebrow, .hero-title, .hero-meta, .btn, .closed-badge { animation: none; opacity: 1; }
     .petal { animation: none; }
     .reveal { opacity: 1; transform: none; transition: none; }
     .btn { transition: none; }
@@ -452,6 +452,31 @@
     font-size: 0.94rem;
     color: var(--ink-soft);
   }
+  .closed-badge {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.45rem 1.2rem;
+    border: 1px solid rgba(247, 239, 230, 0.7);
+    border-radius: 14px;
+    text-align: center;
+    line-height: 1.7;
+    background: rgba(185, 123, 116, 0.55);
+    color: #fff8ef;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    opacity: 0;
+    animation: rise 1s ease-out 0.75s forwards;
+  }
+  .closed-box {
+    display: inline-block;
+    border: 1px solid var(--brass);
+    color: var(--brass-strong);
+    padding: 1rem 2.5rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+  }
+  .closed { color: var(--rose); font-weight: 600; }
   address.sub { font-style: normal; }
   time { font-style: normal; }
 </style>
@@ -468,6 +493,7 @@
       <time datetime="2026-11-15T10:00+09:00">2026年11月15日(日) 10:00–11:00</time>
       <span>名古屋音楽プラザ 1階 音楽サロン</span>
     </div>
+    <div class="closed-badge">参加受付は終了しました<br>見学は大歓迎です</div>
   </div>
 </div>
 
@@ -537,7 +563,7 @@
       </div>
       <div class="program-row">
         <dt>募集人数</dt>
-        <dd>10名<span class="sub">先着順・定員になり次第締め切らせていただきます</span></dd>
+        <dd>10名<span class="sub closed">定員に達したため、受付を終了しました</span></dd>
       </div>
       <div class="program-row">
         <dt>主催</dt>
@@ -571,11 +597,11 @@
       </div>
       <div class="faq-row">
         <dt>申し込みの締め切りはいつですか？</dt>
-        <dd>募集人数10名になり次第、締め切らせていただきます。先着順のため、お早めのお申し込みをおすすめします。</dd>
+        <dd>おかげさまで定員の10名に達したため、参加の受付は終了しました。見学はどなたでも大歓迎です。</dd>
       </div>
       <div class="faq-row">
         <dt>参加費の支払い方法を教えてください。</dt>
-        <dd>詳しくはお申し込み後にご案内します。ご不明な点はアイズミュージックアカデミー受付(052-265-8655、12:00〜21:00)までお問い合わせください。</dd>
+        <dd>お申し込みいただいた方には個別にご案内しています。ご不明な点はアイズミュージックアカデミー受付(052-265-8655、12:00〜21:00)までお問い合わせください。</dd>
       </div>
     </dl>
   </section>
@@ -583,10 +609,10 @@
 
 <section class="cta reveal">
   <div class="wrap">
-    <h2>さあ、一歩を踏み出そう</h2>
-    <p>参加をご希望の方は、下記のフォームよりお申し込みください。定員になり次第、受付を締め切らせていただきます。</p>
-    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd2qwZmi6aLJR2vvkH9Ncg_iVP7yDOK7WahsETwhCLFYlxbVg/viewform" target="_blank" rel="noopener" id="apply-link">参加を申し込んでみる ♪</a>
-    <p class="fineprint">先着10名、定員になり次第締め切らせていただきます。</p>
+    <h2>たくさんのお申し込み、<br>ありがとうございました</h2>
+    <p>おかげさまで定員に達したため、参加の受付は終了しました。当日は見学だけでも大歓迎です。ご家族やお友だちと、あたたかい拍手で見守っていただけたら嬉しいです。</p>
+    <div class="closed-box">参加受付は終了しました</div>
+    <p class="fineprint">次回のコンサートが決まりましたら、公式LINEなどでお知らせします。</p>
   </div>
 </section>
 
