@@ -76,7 +76,10 @@ underlineP.editAsText().setForegroundColor('#999999');
 
 body.appendParagraph('');
 
-body.appendParagraph('件名：1曲ひいてみよう やってみようコンサート　参加費として');
+// 宛名は名字だけなので、ご兄弟で2枚あるときに見分けられるよう、
+// 但し書きに出演者（生徒様）のお名前を入れます。
+body.appendParagraph('件名：1曲ひいてみよう やってみようコンサート　' +
+studentName + 'さん　参加費として');
 
 body.appendParagraph('');
 

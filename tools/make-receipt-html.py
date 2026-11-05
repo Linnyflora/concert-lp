@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """領収書1枚ぶんのHTMLを作る（Googleドキュメントに変換して使う）。
 
-    python3 tools/make-receipt-html.py '住田　様' '2026年11月15日' out.html
+    python3 tools/make-receipt-html.py '住田　様' '住田未来' '2026年11月15日' out.html
 
 receipt-sample.pdf と同じ様式。既定では画像を data URI で埋めこむので
 1ファイルで完結する。
+
+宛名は名字だけなので、ご兄弟で2枚あるときの見分けがつくよう、
+件名（但し書き）に出演者のお名前を入れる。
 
 --remote をつけると画像を GitHub の raw URL で参照する。data URI だと
 HTMLが9KBほどになり、ドライブに渡すときに取りちがえが起きやすいので、
@@ -30,7 +33,7 @@ def img_src(name):
     return f'data:image/png;base64,{b64}'
 
 
-def build(to_name, issue_date):
+def build(to_name, performer, issue_date):
     cell = 'border:1px solid #d4d1cc;padding:5pt 7pt;'
     th = cell + 'background:#eeedfc;font-weight:bold;text-align:center;'
     return f'''<!doctype html><html><head><meta charset="utf-8"><title>領収書</title></head>
@@ -41,7 +44,7 @@ def build(to_name, issue_date):
 <p style="text-align:right;font-size:10pt;color:#5f6368;margin:0 0 10pt;">発行日：{issue_date}</p>
 <p style="font-size:16pt;font-weight:bold;margin:0;">{to_name}</p>
 <p style="color:#999999;margin:1pt 0 9pt;">────────────────────</p>
-<p style="font-size:10.5pt;margin:0 0 9pt;">件名：1曲ひいてみよう やってみようコンサート　参加費として</p>
+<p style="font-size:10.5pt;margin:0 0 9pt;">件名：1曲ひいてみよう やってみようコンサート　{performer}さん　参加費として</p>
 <p style="font-size:16pt;font-weight:bold;margin:0 0 2pt;">合計金額　　¥8,800-（税込）</p>
 <p style="font-size:10pt;margin:0 0 10pt;">上記の金額を正に領収いたしました。</p>
 <table style="border-collapse:collapse;width:100%;font-size:10pt;margin-bottom:9pt;">
@@ -66,6 +69,6 @@ def build(to_name, issue_date):
 
 if __name__ == '__main__':
     args = [a for a in sys.argv[1:] if a != '--remote']
-    to_name, issue_date, out = args[0], args[1], args[2]
-    pathlib.Path(out).write_text(build(to_name, issue_date))
+    to_name, performer, issue_date, out = args[0], args[1], args[2], args[3]
+    pathlib.Path(out).write_text(build(to_name, performer, issue_date))
     print(f'{out}  {pathlib.Path(out).stat().st_size/1024:.1f} KB')
