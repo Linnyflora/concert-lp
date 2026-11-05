@@ -76,10 +76,7 @@ underlineP.editAsText().setForegroundColor('#999999');
 
 body.appendParagraph('');
 
-// 宛名は名字だけなので、ご兄弟で2枚あるときに見分けられるよう、
-// 但し書きに出演者（生徒様）のお名前を入れます。
-body.appendParagraph('件名：1曲ひいてみよう やってみようコンサート　' +
-studentName + 'さん　参加費として');
+body.appendParagraph('件名：1曲ひいてみよう やってみようコンサート　参加費として');
 
 body.appendParagraph('');
 
@@ -93,9 +90,10 @@ body.appendParagraph('');
 
 var table = body.appendTable([
 ['品目', '数量', '単価', '金額'],
-['参加費', '1', '¥8,000', '¥8,000']
+[studentName + 'さん参加費', '1', '¥8,000', '¥8,000']
 ]);
-// 品目は「参加費」とコンサート名を2行に分けます。
+// 品目は「◯◯さん参加費」とコンサート名を2行に分けます。
+// 宛名は名字だけなので、ご兄弟で2枚あるときはここで見分けます。
 // 1行にすると列の幅に収まらず、へんなところで折り返されてしまいます。
 table.getRow(1).getCell(0)
 .appendParagraph('（1曲ひいてみよう やってみようコンサート）');

@@ -7,7 +7,7 @@ receipt-sample.pdf と同じ様式。既定では画像を data URI で埋めこ
 1ファイルで完結する。
 
 宛名は名字だけなので、ご兄弟で2枚あるときの見分けがつくよう、
-件名（但し書き）に出演者のお名前を入れる。
+品目を「◯◯さん参加費」にして出演者のお名前を入れる。
 
 --remote をつけると画像を GitHub の raw URL で参照する。data URI だと
 HTMLが9KBほどになり、ドライブに渡すときに取りちがえが起きやすいので、
@@ -44,12 +44,12 @@ def build(to_name, performer, issue_date):
 <p style="text-align:right;font-size:10pt;color:#5f6368;margin:0 0 10pt;">発行日：{issue_date}</p>
 <p style="font-size:16pt;font-weight:bold;margin:0;">{to_name}</p>
 <p style="color:#999999;margin:1pt 0 9pt;">────────────────────</p>
-<p style="font-size:10.5pt;margin:0 0 9pt;">件名：1曲ひいてみよう やってみようコンサート　{performer}さん　参加費として</p>
+<p style="font-size:10.5pt;margin:0 0 9pt;">件名：1曲ひいてみよう やってみようコンサート　参加費として</p>
 <p style="font-size:16pt;font-weight:bold;margin:0 0 2pt;">合計金額　　¥8,800-（税込）</p>
 <p style="font-size:10pt;margin:0 0 10pt;">上記の金額を正に領収いたしました。</p>
 <table style="border-collapse:collapse;width:100%;font-size:10pt;margin-bottom:9pt;">
 <tr><td style="{th}">品目</td><td style="{th}width:14%">数量</td><td style="{th}width:18%">単価</td><td style="{th}width:18%">金額</td></tr>
-<tr><td style="{cell}">参加費<br>（1曲ひいてみよう&nbsp;やってみようコンサート）</td>
+<tr><td style="{cell}">{performer}さん参加費<br>（1曲ひいてみよう&nbsp;やってみようコンサート）</td>
 <td style="{cell}text-align:center;">1</td><td style="{cell}text-align:right;">¥8,000</td>
 <td style="{cell}text-align:right;">¥8,000</td></tr>
 </table>

@@ -8,6 +8,9 @@
 
 宛名と出演者名は PEOPLE に並べた順に出る。住田さん・長尾さんは
 ご本人にお渡しするぶんなので、ここには入れない。
+
+宛名は名字だけなので、ご兄弟で2枚あるときに見分けられるよう、
+品目を「◯◯さん参加費」にして出演者のお名前を入れる。
 """
 import pathlib
 import sys
@@ -63,11 +66,11 @@ def one(to_name, performer, first):
 <p class="r">発行日：{ISSUE_DATE}</p>
 <p class="to">{to_name}</p>
 <p class="ln">────────────────────</p>
-<p class="sub">件名：1曲ひいてみよう やってみようコンサート　{performer}さん　参加費として</p>
+<p class="sub">件名：1曲ひいてみよう やってみようコンサート　参加費として</p>
 <p class="amt">合計金額　　¥8,800-（税込）</p>
 <p class="note">上記の金額を正に領収いたしました。</p>
 <table class="items"><tr><th>品目</th><th style="width:14%">数量</th><th style="width:18%">単価</th><th style="width:18%">金額</th></tr>
-<tr><td>参加費<br>（1曲ひいてみよう&nbsp;やってみようコンサート）</td><td style="text-align:center">1</td><td style="text-align:right">¥8,000</td><td style="text-align:right">¥8,000</td></tr></table>
+<tr><td>{performer}さん参加費<br>（1曲ひいてみよう&nbsp;やってみようコンサート）</td><td style="text-align:center">1</td><td style="text-align:right">¥8,000</td><td style="text-align:right">¥8,000</td></tr></table>
 <table class="sum"><tr><td>小計</td><td style="text-align:right">¥8,000</td></tr><tr><td>消費税（10%）</td><td style="text-align:right">¥800</td></tr><tr><td>合計</td><td style="text-align:right">¥8,800</td></tr></table>
 <p class="s" style="font-weight:bold;margin:0 0 2pt">発行者</p>
 <p class="s">増見麻美　<img src="{RAW}/seal.png" width="46"></p>
