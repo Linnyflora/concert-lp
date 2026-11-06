@@ -43,8 +43,7 @@ p{margin:0}
 .r{text-align:right;font-size:10pt;color:#5f6368;margin:0 0 10pt}
 .ttl{text-align:center;font-size:17pt;font-weight:bold;color:#3b3f5c;margin:2pt 0 0}
 .to{font-size:16pt;font-weight:bold}
-.ln{color:#999999;margin:1pt 0 9pt}
-.sub{font-size:10.5pt;margin:0 0 9pt}
+.ln{color:#999999;margin:1pt 0 13pt}
 .amt{font-size:16pt;font-weight:bold;margin:0 0 2pt}
 .s{font-size:10pt}
 .note{font-size:10pt;margin:0 0 10pt}
@@ -66,7 +65,6 @@ def one(to_name, performer, first):
 <p class="r">発行日：{ISSUE_DATE}</p>
 <p class="to">{to_name}</p>
 <p class="ln">────────────────────</p>
-<p class="sub">件名：1曲ひいてみよう やってみようコンサート　参加費として</p>
 <p class="amt">合計金額　　¥8,800-（税込）</p>
 <p class="note">上記の金額を正に領収いたしました。</p>
 <table class="items"><tr><th>品目</th><th style="width:14%">数量</th><th style="width:18%">単価</th><th style="width:18%">金額</th></tr>

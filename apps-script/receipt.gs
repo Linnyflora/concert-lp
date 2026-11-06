@@ -76,10 +76,6 @@ underlineP.editAsText().setForegroundColor('#999999');
 
 body.appendParagraph('');
 
-body.appendParagraph('件名：1曲ひいてみよう やってみようコンサート　参加費として');
-
-body.appendParagraph('');
-
 var totalP = body.appendParagraph('合計金額　　¥8,800-（税込）');
 totalP.editAsText().setFontSize(18);
 totalP.editAsText().setBold(true);

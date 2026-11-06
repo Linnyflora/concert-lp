@@ -43,8 +43,7 @@ def build(to_name, performer, issue_date):
 <hr>
 <p style="text-align:right;font-size:10pt;color:#5f6368;margin:0 0 10pt;">発行日：{issue_date}</p>
 <p style="font-size:16pt;font-weight:bold;margin:0;">{to_name}</p>
-<p style="color:#999999;margin:1pt 0 9pt;">────────────────────</p>
-<p style="font-size:10.5pt;margin:0 0 9pt;">件名：1曲ひいてみよう やってみようコンサート　参加費として</p>
+<p style="color:#999999;margin:1pt 0 13pt;">────────────────────</p>
 <p style="font-size:16pt;font-weight:bold;margin:0 0 2pt;">合計金額　　¥8,800-（税込）</p>
 <p style="font-size:10pt;margin:0 0 10pt;">上記の金額を正に領収いたしました。</p>
 <table style="border-collapse:collapse;width:100%;font-size:10pt;margin-bottom:9pt;">
