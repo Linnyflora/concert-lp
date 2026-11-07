@@ -52,7 +52,7 @@ def build(to_name, performer, issue_date):
 <td style="{cell}text-align:center;">1</td><td style="{cell}text-align:right;">¥8,000</td>
 <td style="{cell}text-align:right;">¥8,000</td></tr>
 </table>
-<table align="right" style="border-collapse:collapse;width:46%;font-size:10pt;margin-bottom:12pt;">
+<table style="border-collapse:collapse;width:215pt;margin-left:253pt;font-size:10pt;margin-bottom:12pt;">
 <tr><td style="{cell}">小計</td><td style="{cell}text-align:right;">¥8,000</td></tr>
 <tr><td style="{cell}">消費税（10%）</td><td style="{cell}text-align:right;">¥800</td></tr>
 <tr><td style="{cell}">合計</td><td style="{cell}text-align:right;">¥8,800</td></tr>
