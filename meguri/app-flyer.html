@@ -23,10 +23,12 @@ h1 small{display:block;font-size:56px;color:#f08a24;margin-top:8px}
 .book{flex:1;display:flex;gap:20px;align-items:center;background:#fff;border-radius:28px;padding:20px 22px;text-align:left;box-shadow:0 8px 26px rgba(224,69,123,.15)}
 .cover{width:150px;height:auto;flex:none;border:1px solid #eee;box-shadow:3px 5px 12px rgba(90,42,60,.25)}
 .binfo{flex:1}
-.book .title{font-size:29px;font-weight:bold;line-height:1.35}
-.book .by{font-size:22px;margin:4px 0 10px}
+.btag{display:inline-block;font-size:21px;font-weight:bold;color:#fff;background:#e0457b;border-radius:999px;padding:3px 14px;margin-bottom:6px}
+.btag.main{background:#f08a24}
+.book .title{font-size:28px;font-weight:bold;line-height:1.35}
+.book .by{font-size:22px;margin:2px 0 8px}
 .amz{display:flex;align-items:center;gap:12px}
-.amz img{width:130px;height:130px}
+.amz img{width:120px;height:120px}
 .amz span{font-size:22px;font-weight:bold;background:#232f3e;color:#fff;border-radius:14px;padding:8px 12px;line-height:1.3;text-align:center}
 .qrs{display:flex;gap:40px;justify-content:center}
 .q{background:#fff;border-radius:32px;padding:22px 26px 20px;width:520px;box-shadow:0 8px 26px rgba(224,69,123,.18)}
@@ -62,6 +64,7 @@ h1 small{display:block;font-size:56px;color:#f08a24;margin-top:8px}
     <div class="book">
       <img class="cover" src="book.jpg" alt="体も心も若返る1分体操 表紙">
       <div class="binfo">
+        <span class="btag main">アプリの元になった本</span>
         <p class="title">体も心も若返る<br>1分体操</p>
         <p class="by">秀和システム</p>
         <div class="amz"><img src="qr_amazon.png" alt="Amazon"><span>Amazonで<br>見る</span></div>
@@ -70,6 +73,7 @@ h1 small{display:block;font-size:56px;color:#f08a24;margin-top:8px}
     <div class="book">
       <img class="cover" src="book2.jpg" alt="1分で幸福に満たされる 巡りの法則 表紙">
       <div class="binfo">
+        <span class="btag">1分体操も一部収録</span>
         <p class="title">1分で幸福に満たされる<br>巡りの法則</p>
         <p class="by">徳間書店</p>
         <div class="amz"><img src="qr_amazon2.png" alt="Amazon"><span>Amazonで<br>見る</span></div>
